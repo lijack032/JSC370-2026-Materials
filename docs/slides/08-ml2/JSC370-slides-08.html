@@ -697,7 +697,7 @@
 <h2>Example data: MLB 2021 batting statistics</h2>
 <p>The MLB 2021 batting statistics leaderboard from <a href="https://www.fangraphs.com/leaders.aspx?pos=all&amp;stats=bat&amp;lg=all&amp;qual=y&amp;type=8&amp;season=2021&amp;month=0&amp;season1=2021&amp;ind=0">Fangraphs</a></p>
 <p>We aim to predict WAR (Wins Above Replacement), an advanced metric that estimates the total number of wins a player contributes to their team compared to a “replacement-level” player. A replacement-level player is a theoretical player who is readily available, typically a Triple-A call-up or a minimum-salary free agent, and represents the baseline of a “0.0 WAR” player</p>
-<div id="ab4a7d78" class="cell" data-execution_count="1">
+<div id="2d78c954" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a></a></span>
@@ -962,7 +962,7 @@
 <section id="example-random-forest" class="slide level2">
 <h2>Example Random Forest</h2>
 <p>scikit-learn’s <code>RandomForestRegressor</code> is a popular implementation</p>
-<div id="c28ad03d" class="cell" data-execution_count="2">
+<div id="4a44499c" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestRegressor</span>
 <span id="cb2-2"><a></a></span>
 <span id="cb2-3"><a></a>model_mlb_data <span class="op">=</span> model_mlb_data.dropna()</span>
@@ -1008,7 +1008,7 @@
 </section>
 <section id="oob-in-the-mlb-example" class="slide level2">
 <h2>OOB in the MLB example</h2>
-<div id="7842e926" class="cell" data-execution_count="3">
+<div id="16c05d40" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="co"># Refit with oob_score=True to get OOB R²</span></span>
 <span id="cb4-2"><a></a>oob_rf <span class="op">=</span> RandomForestRegressor(n_estimators<span class="op">=</span><span class="dv">50</span>, oob_score<span class="op">=</span><span class="va">True</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
 <span id="cb4-3"><a></a>oob_rf.fit(X, y)</span>
@@ -1115,7 +1115,7 @@ R² (OOB):       0.9144</code></pre>
 <li><strong>Important</strong>: <code>max_features</code> (equivalent to <span class="math inline">\(m_{try}\)</span>)</li>
 <li>Marginal: tree complexity, splitting rule, sampling scheme</li>
 </ul>
-<div id="3f703769" class="cell" data-execution_count="4">
+<div id="1624ddc7" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
 <span id="cb6-2"><a></a></span>
 <span id="cb6-3"><a></a>p <span class="op">=</span> X.shape[<span class="dv">1</span>]</span>
@@ -1140,7 +1140,7 @@ Best CV RMSE: 0.6467</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="4bcecb2f" class="cell" data-execution_count="5">
+<div id="acde70a9" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb8-2"><a></a><span class="co">#| fig-align: center</span></span>
 <span id="cb8-3"><a></a>results <span class="op">=</span> pd.DataFrame(cv_rf.cv_results_)</span>
@@ -1186,7 +1186,7 @@ Best CV RMSE: 0.6467</code></pre>
 </section>
 <section id="variable-importance-mlb-example" class="slide level2">
 <h2>Variable Importance: MLB Example</h2>
-<div id="4d44c187" class="cell" data-execution_count="6">
+<div id="6f99ca3e" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> permutation_importance</span>
 <span id="cb9-2"><a></a></span>
 <span id="cb9-3"><a></a><span class="co"># Impurity-based (gain)</span></span>
@@ -1379,7 +1379,7 @@ Best CV RMSE: 0.6467</code></pre>
 </section>
 <section id="xgboost-example" class="slide level2">
 <h2>XGBoost example</h2>
-<div id="2b7c3682" class="cell" data-execution_count="7">
+<div id="1f53e6af" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="im">from</span> xgboost <span class="im">import</span> XGBRegressor</span>
 <span id="cb10-2"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
 <span id="cb10-3"><a></a><span class="im">import</span> warnings</span>
@@ -1419,7 +1419,7 @@ Training R²:  0.9951</code></pre>
 </section>
 <section id="xgboost-variable-importance" class="slide level2">
 <h2>XGBoost Variable Importance</h2>
-<div id="b026a8dd" class="cell" data-execution_count="8">
+<div id="6032071e" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>xgb_fit_final <span class="op">=</span> xgb_cv.best_estimator_</span>
 <span id="cb12-2"><a></a></span>
 <span id="cb12-3"><a></a>importances_xgb <span class="op">=</span> pd.Series(xgb_fit_final.feature_importances_, index<span class="op">=</span>X.columns)</span>
@@ -1467,7 +1467,7 @@ Training R²:  0.9951</code></pre>
 <section id="partial-dependence-mlb-example" class="slide level2">
 <h2>Partial Dependence: MLB Example</h2>
 <p>This is the partial dependence parameter for the <code>off</code> variable</p>
-<div id="a9f333de" class="cell" data-execution_count="9">
+<div id="84161726" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="im">from</span> sklearn.inspection <span class="im">import</span> PartialDependenceDisplay</span>
 <span id="cb13-2"><a></a></span>
 <span id="cb13-3"><a></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
