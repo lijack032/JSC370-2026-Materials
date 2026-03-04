@@ -1,0 +1,2146 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
+
+  <title>JSC 370: Data Science II</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-0fde88a82f0356838740f155f1088782.css">
+  <link rel="stylesheet" href="styles.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">JSC 370: Data Science II</h1>
+  <p class="subtitle">Week 9: Feature Engineering, Hyperparameter Tuning, and Model Evaluation</p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="outline" class="slide level2">
+<h2>Outline</h2>
+<ul>
+<li>Part 1: Feature Engineering</li>
+<li>Part 2: Hyperparameter Tuning</li>
+<li>Part 3: Model Evaluation — Training, Validation, and Testing</li>
+<li>Part 4: Cross-Validation</li>
+</ul>
+</section>
+<section id="where-we-are" class="slide level2 scrollable">
+<h2>Where We Are</h2>
+<ul>
+<li>Last week: decision trees, random forests</li>
+<li>We saw some <strong>hyperparameter tuning</strong></li>
+<li>Showed that <strong>train/test splits</strong> let us estimate real-world performance</li>
+</ul>
+<div class="fragment">
+<p>This week we formalize:</p>
+<ol type="1">
+<li>How to <strong>engineer features</strong> to improve model inputs</li>
+<li>How to <strong>tune hyperparameters</strong> systematically</li>
+<li>How to <strong>evaluate models</strong> honestly — split strategy and metrics</li>
+</ol>
+</div>
+</section>
+<section id="setup" class="slide level2">
+<h2>Setup</h2>
+<div id="305a2e78" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a></a><span class="im">import</span> requests, zipfile, io</span>
+<span id="cb1-5"><a></a></span>
+<span id="cb1-6"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split, cross_val_score, GridSearchCV</span>
+<span id="cb1-7"><a></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeRegressor</span>
+<span id="cb1-8"><a></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> SplineTransformer</span>
+<span id="cb1-9"><a></a><span class="im">from</span> xgboost <span class="im">import</span> XGBRegressor, XGBClassifier</span>
+<span id="cb1-10"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (accuracy_score, mean_squared_error, r2_score,</span>
+<span id="cb1-11"><a></a>                              precision_score, recall_score, f1_score,</span>
+<span id="cb1-12"><a></a>                              confusion_matrix, ConfusionMatrixDisplay)</span>
+<span id="cb1-13"><a></a><span class="im">import</span> warnings</span>
+<span id="cb1-14"><a></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="data-toronto-bike-share-open-data" class="slide level2">
+<h2>Data: Toronto Bike Share (Open Data)</h2>
+<p>We use the <a href="https://open.toronto.ca/dataset/bike-share-toronto-ridership-data/">Toronto Open Data Bike Share Ridership</a> dataset — individual trip records for 2023.</p>
+<div id="b96fb340" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="co"># Discover resources via the Toronto Open Data CKAN API</span></span>
+<span id="cb2-2"><a></a>base_url <span class="op">=</span> <span class="st">"https://ckan0.cf.opendata.inter.prod-toronto.ca"</span></span>
+<span id="cb2-3"><a></a>package <span class="op">=</span> requests.get(</span>
+<span id="cb2-4"><a></a>    base_url <span class="op">+</span> <span class="st">"/api/3/action/package_show"</span>,</span>
+<span id="cb2-5"><a></a>    params<span class="op">=</span>{<span class="st">"id"</span>: <span class="st">"bike-share-toronto-ridership-data"</span>}</span>
+<span id="cb2-6"><a></a>).json()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="loading-the-2023-ridership-data" class="slide level2">
+<h2>Loading the 2023 Ridership Data</h2>
+<p>This is a very large dataset! We will look at May–July 2023 to capture the peak cycling season.</p>
+<div id="fdf5ef41" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="cf">for</span> r <span class="kw">in</span> package[<span class="st">"result"</span>][<span class="st">"resources"</span>]:</span>
+<span id="cb3-2"><a></a>    <span class="cf">if</span> <span class="st">"2023"</span> <span class="kw">in</span> r[<span class="st">"name"</span>]:</span>
+<span id="cb3-3"><a></a>        url_2023 <span class="op">=</span> r[<span class="st">"url"</span>]</span>
+<span id="cb3-4"><a></a>        <span class="cf">break</span></span>
+<span id="cb3-5"><a></a></span>
+<span id="cb3-6"><a></a><span class="co"># Download ZIP and read May–July (months 5–7)</span></span>
+<span id="cb3-7"><a></a>resp <span class="op">=</span> requests.get(url_2023)</span>
+<span id="cb3-8"><a></a>z <span class="op">=</span> zipfile.ZipFile(io.BytesIO(resp.content))</span>
+<span id="cb3-9"><a></a></span>
+<span id="cb3-10"><a></a>csv_files <span class="op">=</span> [f <span class="cf">for</span> f <span class="kw">in</span> z.namelist() <span class="cf">if</span> f.endswith(<span class="st">'.csv'</span>)][<span class="dv">4</span>:<span class="dv">6</span>]</span>
+<span id="cb3-11"><a></a>bike <span class="op">=</span> pd.concat(</span>
+<span id="cb3-12"><a></a>    [pd.read_csv(z.<span class="bu">open</span>(m), encoding<span class="op">=</span><span class="st">'latin-1'</span>) <span class="cf">for</span> m <span class="kw">in</span> csv_files],</span>
+<span id="cb3-13"><a></a>    ignore_index<span class="op">=</span><span class="va">True</span></span>
+<span id="cb3-14"><a></a>)</span>
+<span id="cb3-15"><a></a><span class="bu">print</span>(<span class="ss">f"Shape: </span><span class="sc">{</span>bike<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-16"><a></a>bike.head(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Shape: (1252908, 10)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Trip Id</th>
+<th data-quarto-table-cell-role="th">Trip Duration</th>
+<th data-quarto-table-cell-role="th">Start Station Id</th>
+<th data-quarto-table-cell-role="th">Start Time</th>
+<th data-quarto-table-cell-role="th">Start Station Name</th>
+<th data-quarto-table-cell-role="th">End Station Id</th>
+<th data-quarto-table-cell-role="th">End Time</th>
+<th data-quarto-table-cell-role="th">End Station Name</th>
+<th data-quarto-table-cell-role="th">Bike Id</th>
+<th data-quarto-table-cell-role="th">User Type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>21248733</td>
+<td>344</td>
+<td>7693</td>
+<td>05/01/2023 00:00</td>
+<td>NaN</td>
+<td>7065.0</td>
+<td>05/01/2023 00:06</td>
+<td>Dundas St E / Parliament St</td>
+<td>713</td>
+<td>Annual Member</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>21248734</td>
+<td>521</td>
+<td>7418</td>
+<td>05/01/2023 00:00</td>
+<td>College Park - Yonge St Entrance</td>
+<td>7248.0</td>
+<td>05/01/2023 00:09</td>
+<td>Baldwin Ave / Spadina Ave - SMART</td>
+<td>1120</td>
+<td>Casual Member</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>21248735</td>
+<td>1143</td>
+<td>7027</td>
+<td>05/01/2023 00:01</td>
+<td>Beverley St / Dundas St W</td>
+<td>7279.0</td>
+<td>05/01/2023 00:20</td>
+<td>Rosehill Ave / Avoca Ave - SMART</td>
+<td>2231</td>
+<td>Casual Member</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+</section>
+<section>
+<section id="part-1-feature-engineering" class="title-slide slide level1 center">
+<h1>Part 1: Feature Engineering</h1>
+
+</section>
+<section id="data-preparation" class="slide level2">
+<h2>Data preparation</h2>
+<p>We see there are several time variables and strings representing locations. Let’s start doing some data prep and cleaning for feature engineering.</p>
+<div id="7372b66f" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>bike.columns <span class="op">=</span> (bike.columns</span>
+<span id="cb5-2"><a></a>                    .<span class="bu">str</span>.strip()</span>
+<span id="cb5-3"><a></a>                    .<span class="bu">str</span>.replace(<span class="vs">r'</span><span class="dv">\s</span><span class="op">+</span><span class="vs">'</span>, <span class="st">'_'</span>, regex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-4"><a></a>                    .<span class="bu">str</span>.lower())</span>
+<span id="cb5-5"><a></a></span>
+<span id="cb5-6"><a></a><span class="co"># Parse datetime and extract temporal features</span></span>
+<span id="cb5-7"><a></a>bike[<span class="st">'start_time'</span>] <span class="op">=</span> pd.to_datetime(bike[<span class="st">'start_time'</span>])</span>
+<span id="cb5-8"><a></a>bike[<span class="st">'trip_duration_min'</span>] <span class="op">=</span> bike[<span class="st">'trip_duration'</span>] <span class="op">/</span> <span class="dv">60</span></span>
+<span id="cb5-9"><a></a>bike[<span class="st">'hour'</span>]        <span class="op">=</span> bike[<span class="st">'start_time'</span>].dt.hour</span>
+<span id="cb5-10"><a></a>bike[<span class="st">'day_of_week'</span>] <span class="op">=</span> bike[<span class="st">'start_time'</span>].dt.dayofweek   <span class="co"># 0=Mon, 6=Sun</span></span>
+<span id="cb5-11"><a></a>bike[<span class="st">'month'</span>]       <span class="op">=</span> bike[<span class="st">'start_time'</span>].dt.month</span>
+<span id="cb5-12"><a></a>bike[<span class="st">'is_weekend'</span>]  <span class="op">=</span> (bike[<span class="st">'day_of_week'</span>] <span class="op">&gt;=</span> <span class="dv">5</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb5-13"><a></a>bike[<span class="st">'is_member'</span>]   <span class="op">=</span> (bike[<span class="st">'user_type'</span>] <span class="op">==</span> <span class="st">'Annual Member'</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb5-14"><a></a></span>
+<span id="cb5-15"><a></a><span class="co"># Keep only plausible trip durations</span></span>
+<span id="cb5-16"><a></a>bike <span class="op">=</span> bike[(bike[<span class="st">'trip_duration_min'</span>] <span class="op">&gt;=</span> <span class="dv">1</span>) <span class="op">&amp;</span> (bike[<span class="st">'trip_duration_min'</span>] <span class="op">&lt;=</span> <span class="dv">120</span>)]</span>
+<span id="cb5-17"><a></a><span class="bu">print</span>(<span class="ss">f"Rows after filtering: </span><span class="sc">{</span>bike<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">:,}</span><span class="ss">"</span>)</span>
+<span id="cb5-18"><a></a><span class="bu">print</span>(<span class="ss">f"Member rate: </span><span class="sc">{</span>bike[<span class="st">'is_member'</span>]<span class="sc">.</span>mean()<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
+<span id="cb5-19"><a></a><span class="bu">print</span>(<span class="ss">f"Unique start stations: </span><span class="sc">{</span>bike[<span class="st">'start_station_id'</span>]<span class="sc">.</span>nunique()<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows after filtering: 1,241,838
+Member rate: 10.5%
+Unique start stations: 675</code></pre>
+</div>
+</div>
+</section>
+<section id="joining-station-geospatial-data" class="slide level2">
+<h2>Joining Station Geospatial Data</h2>
+<p>We also see bike station information. Station locations are published via the public <strong>GBFS</strong> feed, which is separate from the ridership data</p>
+<div id="997c15f4" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="co"># Fetch station info (lat, lon, capacity) from the GBFS station feed</span></span>
+<span id="cb7-2"><a></a>stations <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb7-3"><a></a>    requests.get(</span>
+<span id="cb7-4"><a></a>        <span class="st">'https://tor.publicbikesystem.net/ube/gbfs/v1/en/station_information'</span></span>
+<span id="cb7-5"><a></a>    ).json()[<span class="st">'data'</span>][<span class="st">'stations'</span>]</span>
+<span id="cb7-6"><a></a>)[[<span class="st">'station_id'</span>, <span class="st">'lat'</span>, <span class="st">'lon'</span>, <span class="st">'capacity'</span>]]</span>
+<span id="cb7-7"><a></a></span>
+<span id="cb7-8"><a></a>stations[<span class="st">'station_id'</span>] <span class="op">=</span> stations[<span class="st">'station_id'</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb7-9"><a></a></span>
+<span id="cb7-10"><a></a><span class="co"># Join to trip data on start_station_id</span></span>
+<span id="cb7-11"><a></a>bike <span class="op">=</span> bike.merge(stations, left_on<span class="op">=</span><span class="st">'start_station_id'</span>, right_on<span class="op">=</span><span class="st">'station_id'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
+<span id="cb7-12"><a></a><span class="bu">print</span>(<span class="ss">f"Stations matched: </span><span class="sc">{</span>bike[<span class="st">'lat'</span>]<span class="sc">.</span>notna()<span class="sc">.</span><span class="bu">sum</span>()<span class="sc">:,}</span><span class="ss"> / </span><span class="sc">{</span><span class="bu">len</span>(bike)<span class="sc">:,}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Stations matched: 1,167,565 / 1,241,838</code></pre>
+</div>
+</div>
+</section>
+<section id="distance-from-downtown-as-a-feature" class="slide level2">
+<h2>Distance from Downtown as a Feature</h2>
+<p>Raw lat/lon are correlated — <strong>distance from a reference point</strong> is often more informative</p>
+<div id="afd8ce57" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="kw">def</span> haversine_km(lat1, lon1, lat2, lon2):</span>
+<span id="cb9-2"><a></a>    <span class="co">"""Great-circle distance in km between two points."""</span></span>
+<span id="cb9-3"><a></a>    R <span class="op">=</span> <span class="dv">6371</span></span>
+<span id="cb9-4"><a></a>    dlat <span class="op">=</span> np.radians(lat2 <span class="op">-</span> lat1)</span>
+<span id="cb9-5"><a></a>    dlon <span class="op">=</span> np.radians(lon2 <span class="op">-</span> lon1)</span>
+<span id="cb9-6"><a></a>    a <span class="op">=</span> (np.sin(dlat <span class="op">/</span> <span class="dv">2</span>) <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb9-7"><a></a>         <span class="op">+</span> np.cos(np.radians(lat1)) <span class="op">*</span> np.cos(np.radians(lat2))</span>
+<span id="cb9-8"><a></a>         <span class="op">*</span> np.sin(dlon <span class="op">/</span> <span class="dv">2</span>) <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb9-9"><a></a>    <span class="cf">return</span> R <span class="op">*</span> <span class="dv">2</span> <span class="op">*</span> np.arcsin(np.sqrt(a))</span>
+<span id="cb9-10"><a></a></span>
+<span id="cb9-11"><a></a><span class="co"># King &amp; Bay intersection as downtown reference</span></span>
+<span id="cb9-12"><a></a>DOWNTOWN_LAT, DOWNTOWN_LON <span class="op">=</span> <span class="fl">43.6481</span>, <span class="op">-</span><span class="fl">79.3791</span></span>
+<span id="cb9-13"><a></a>bike[<span class="st">'dist_downtown_km'</span>] <span class="op">=</span> haversine_km(</span>
+<span id="cb9-14"><a></a>    bike[<span class="st">'lat'</span>], bike[<span class="st">'lon'</span>], DOWNTOWN_LAT, DOWNTOWN_LON)</span>
+<span id="cb9-15"><a></a></span>
+<span id="cb9-16"><a></a><span class="bu">print</span>(bike[[<span class="st">'start_station_id'</span>, <span class="st">'lat'</span>, <span class="st">'lon'</span>,</span>
+<span id="cb9-17"><a></a>            <span class="st">'capacity'</span>, <span class="st">'dist_downtown_km'</span>]].head(<span class="dv">4</span>).<span class="bu">round</span>(<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   start_station_id     lat     lon  capacity  dist_downtown_km
+0              7693  43.655 -79.375      23.0             0.828
+1              7418  43.660 -79.383      25.0             1.343
+2              7027  43.653 -79.393      31.0             1.264
+3              7027  43.653 -79.393      31.0             1.264</code></pre>
+</div>
+</div>
+</section>
+<section id="summary-of-toronto-bike-share-variables" class="slide level2 smaller">
+<h2>Summary of Toronto Bike Share Variables</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Source</th>
+<th>Type</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>hour</code></td>
+<td><code>start_time</code></td>
+<td>Cyclical (0–23)</td>
+<td>Predictor</td>
+</tr>
+<tr class="even">
+<td><code>day_of_week</code></td>
+<td><code>start_time</code></td>
+<td>Cyclical (0–6)</td>
+<td>Predictor</td>
+</tr>
+<tr class="odd">
+<td><code>month</code></td>
+<td><code>start_time</code></td>
+<td>Cyclical (1–12)</td>
+<td>Predictor</td>
+</tr>
+<tr class="even">
+<td><code>is_weekend</code></td>
+<td><code>start_time</code></td>
+<td>Binary</td>
+<td>Predictor</td>
+</tr>
+<tr class="odd">
+<td><code>is_member</code></td>
+<td><code>user_type</code></td>
+<td>Binary</td>
+<td>Predictor / <strong>Target (classification)</strong></td>
+</tr>
+<tr class="even">
+<td><code>trip_duration_min</code></td>
+<td><code>trip_duration</code></td>
+<td>Numeric (minutes)</td>
+<td><strong>Target (regression)</strong></td>
+</tr>
+<tr class="odd">
+<td><code>lat</code>, <code>lon</code></td>
+<td>GBFS station feed</td>
+<td>Numeric</td>
+<td>Predictor</td>
+</tr>
+<tr class="even">
+<td><code>capacity</code></td>
+<td>GBFS station feed</td>
+<td>Numeric</td>
+<td>Predictor</td>
+</tr>
+<tr class="odd">
+<td><code>dist_downtown_km</code></td>
+<td>Derived from lat/lon</td>
+<td>Numeric</td>
+<td>Predictor</td>
+</tr>
+<tr class="even">
+<td><code>end_time</code></td>
+<td>Raw data</td>
+<td>Datetime</td>
+<td>Beware: Leakage</td>
+</tr>
+<tr class="odd">
+<td><code>end_station_id</code></td>
+<td>Raw data</td>
+<td>ID</td>
+<td>Only known at trip end</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="station-map-duration-and-member-rate" class="slide level2">
+<h2>Station Map: Duration and Member Rate</h2>
+<div id="56b7b462" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="JSC370-slides-09_files/figure-revealjs/cell-8-output-1.png" width="1224" height="471"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Outer stations: longer trips, more casual users (recreational)</li>
+<li>Core stations: shorter trips, higher member rates (commuters)</li>
+</ul>
+</section>
+<section id="ridership-patterns" class="slide level2">
+<h2>Ridership Patterns</h2>
+<div id="21baeaef" class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="JSC370-slides-09_files/figure-revealjs/cell-9-output-1.png" width="1334" height="374"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Casual users take <strong>longer trips</strong> (recreation vs.&nbsp;commuting)</li>
+<li>Member rate spikes at <strong>commute hours</strong> (8-9am)</li>
+</ul>
+</section>
+<section id="what-is-feature-engineering" class="slide level2">
+<h2>What is Feature Engineering?</h2>
+<ul>
+<li><strong>Feature engineering</strong> transforms raw data into inputs a model can learn from effectively</li>
+<li>Models only see numbers — everything must be encoded, scaled, or constructed appropriately</li>
+</ul>
+<div class="fragment">
+<p>For the Toronto bike share data, each variable type needs different treatment:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable type</th>
+<th>Example</th>
+<th>Treatment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cyclical</td>
+<td><code>hour</code>, <code>day_of_week</code>, <code>month</code></td>
+<td>Sin/cos or Fourier encoding</td>
+</tr>
+<tr class="even">
+<td>Binary</td>
+<td><code>is_weekend</code>, <code>is_member</code></td>
+<td>No transformation needed</td>
+</tr>
+<tr class="odd">
+<td>Continuous numeric</td>
+<td><code>dist_downtown_km</code>, <code>capacity</code></td>
+<td>Use directly (or splines for non-linearity)</td>
+</tr>
+<tr class="even">
+<td>High-cardinality ID</td>
+<td><code>start_station_id</code></td>
+<td>Drop — replaced by spatial features</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="data-leakage-two-examples" class="slide level2">
+<h2>Data Leakage: Two Examples</h2>
+<p><strong>Leakage rule</strong>: a predictor is only valid if it could be known <strong>at prediction time</strong>, before observing the outcome</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Predicting trip duration</strong></p>
+<ul>
+<li><code>end_time</code> = start_time + duration → <strong>directly reveals the target</strong></li>
+<li><code>end_station_id</code> = only known after the trip ends</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Why it matters</strong></p>
+<ul>
+<li>Including <code>end_time</code> would give near-perfect R²</li>
+<li>But at prediction time (when trip starts) we don’t have it</li>
+<li>Model would fail completely in deployment</li>
+</ul>
+</div></div>
+<div id="065a1b61" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="co"># Drop leakage columns before modelling</span></span>
+<span id="cb11-2"><a></a>drop_cols <span class="op">=</span> [<span class="st">'trip_id'</span>, <span class="st">'trip_duration'</span>, <span class="st">'start_time'</span>,</span>
+<span id="cb11-3"><a></a>             <span class="st">'start_station_name'</span>, <span class="st">'end_station_id'</span>,</span>
+<span id="cb11-4"><a></a>             <span class="st">'end_time'</span>, <span class="st">'end_station_name'</span>, <span class="st">'bike_id'</span>, <span class="st">'user_type'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="the-problem-with-raw-cyclical-features" class="slide level2">
+<h2>The Problem with Raw Cyclical Features</h2>
+<ul>
+<li><code>hour</code> ranges from 0 to 23 — hour 23 and hour 0 are <strong>adjacent</strong> in time, but far apart numerically</li>
+<li>A linear model or distance-based model sees them as very different</li>
+</ul>
+<div class="fragment">
+<pre><code>Hour:  0   1   2  ...  22  23  0   1  ...
+Value: 0   1   2  ...  22  23  0   1  ...  ← model sees a big jump at midnight</code></pre>
+</div>
+<div class="fragment">
+<ul>
+<li>The same problem affects <strong>day of week</strong> (6 → 0) and <strong>month</strong> (12 → 1)</li>
+<li>One-hot encoding fixes the adjacency problem but <strong>loses the ordering</strong> information (the model no longer knows that hour 5 is between hours 4 and 6)</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Solution</strong>: encode cyclical variables using <strong>sine and cosine</strong> transforms</p>
+</div>
+</section>
+<section id="sine-cosine-encoding-for-cyclical-features" class="slide level2">
+<h2>Sine-Cosine Encoding for Cyclical Features</h2>
+<p>For a variable with period <span class="math inline">\(T\)</span> (e.g., <span class="math inline">\(T = 24\)</span> for hours, <span class="math inline">\(T = 12\)</span> for months):</p>
+<p><span class="math display">\[\sin\!\left(\frac{2\pi \cdot x}{T}\right), \quad \cos\!\left(\frac{2\pi \cdot x}{T}\right)\]</span></p>
+<ul>
+<li>This maps each value onto a <strong>circle</strong> — hour 23 and hour 0 are now close together</li>
+<li>Two columns preserve both <strong>ordering</strong> and <strong>wrap-around</strong></li>
+</ul>
+<div id="966c1ee4" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>bike[<span class="st">'hour_sin'</span>]  <span class="op">=</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> bike[<span class="st">'hour'</span>] <span class="op">/</span> <span class="dv">24</span>)</span>
+<span id="cb13-2"><a></a>bike[<span class="st">'hour_cos'</span>]  <span class="op">=</span> np.cos(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> bike[<span class="st">'hour'</span>] <span class="op">/</span> <span class="dv">24</span>)</span>
+<span id="cb13-3"><a></a>bike[<span class="st">'dow_sin'</span>]   <span class="op">=</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> bike[<span class="st">'day_of_week'</span>] <span class="op">/</span> <span class="dv">7</span>)</span>
+<span id="cb13-4"><a></a>bike[<span class="st">'dow_cos'</span>]   <span class="op">=</span> np.cos(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> bike[<span class="st">'day_of_week'</span>] <span class="op">/</span> <span class="dv">7</span>)</span>
+<span id="cb13-5"><a></a>bike[<span class="st">'month_sin'</span>] <span class="op">=</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> bike[<span class="st">'month'</span>] <span class="op">/</span> <span class="dv">12</span>)</span>
+<span id="cb13-6"><a></a>bike[<span class="st">'month_cos'</span>] <span class="op">=</span> np.cos(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> bike[<span class="st">'month'</span>] <span class="op">/</span> <span class="dv">12</span>)</span>
+<span id="cb13-7"><a></a><span class="bu">print</span>(bike[[<span class="st">'hour'</span>, <span class="st">'hour_sin'</span>, <span class="st">'hour_cos'</span>]].head(<span class="dv">6</span>).<span class="bu">round</span>(<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   hour  hour_sin  hour_cos
+0     0       0.0       1.0
+1     0       0.0       1.0
+2     0       0.0       1.0
+3     0       0.0       1.0
+4     0       0.0       1.0
+5     0       0.0       1.0</code></pre>
+</div>
+</div>
+</section>
+<section id="visualizing-cyclical-encoding-of-hour" class="slide level2">
+<h2>Visualizing Cyclical Encoding of Hour</h2>
+<div id="034d411f" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="JSC370-slides-09_files/figure-revealjs/cell-12-output-1.png" width="1033" height="374"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Hour 23 and hour 0 are now <strong>adjacent</strong> in the encoded space</p>
+</section>
+<section id="fourier-features-for-capturing-multiple-harmonics" class="slide level2">
+<h2>Fourier Features for Capturing Multiple Harmonics</h2>
+<ul>
+<li>A single sin/cos pair captures <strong>one frequency</strong> (one peak per cycle)</li>
+<li>The hourly member-rate pattern has <strong>two peaks</strong> (AM and PM commute) — one cycle per 12 hours</li>
+</ul>
+<div class="fragment">
+<p>Add <span class="math inline">\(K\)</span> harmonics for period <span class="math inline">\(T\)</span>:</p>
+<p><span class="math display">\[\sin\!\left(\frac{2\pi k \cdot x}{T}\right), \; \cos\!\left(\frac{2\pi k \cdot x}{T}\right), \quad k = 1, 2, \dots, K\]</span></p>
+<div id="a1623dcd" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="kw">def</span> fourier_features(series, period, n_harmonics, name):</span>
+<span id="cb15-2"><a></a>    cols <span class="op">=</span> {}</span>
+<span id="cb15-3"><a></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n_harmonics <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb15-4"><a></a>        cols[<span class="ss">f'</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">_sin_k</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">'</span>] <span class="op">=</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> k <span class="op">*</span> series <span class="op">/</span> period)</span>
+<span id="cb15-5"><a></a>        cols[<span class="ss">f'</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">_cos_k</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">'</span>] <span class="op">=</span> np.cos(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> k <span class="op">*</span> series <span class="op">/</span> period)</span>
+<span id="cb15-6"><a></a>    <span class="cf">return</span> pd.DataFrame(cols, index<span class="op">=</span>series.index)</span>
+<span id="cb15-7"><a></a></span>
+<span id="cb15-8"><a></a><span class="co"># 3 harmonics for hour (captures multiple peaks in the day)</span></span>
+<span id="cb15-9"><a></a>hr_fourier <span class="op">=</span> fourier_features(bike[<span class="st">'hour'</span>], period<span class="op">=</span><span class="dv">24</span>, n_harmonics<span class="op">=</span><span class="dv">3</span>, name<span class="op">=</span><span class="st">'hr'</span>)</span>
+<span id="cb15-10"><a></a><span class="bu">print</span>(hr_fourier.head(<span class="dv">3</span>).<span class="bu">round</span>(<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   hr_sin_k1  hr_cos_k1  hr_sin_k2  hr_cos_k2  hr_sin_k3  hr_cos_k3
+0        0.0        1.0        0.0        1.0        0.0        1.0
+1        0.0        1.0        0.0        1.0        0.0        1.0
+2        0.0        1.0        0.0        1.0        0.0        1.0</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="fourier-harmonics-for-the-daily-cycle" class="slide level2">
+<h2>Fourier Harmonics for the Daily Cycle</h2>
+<div id="2a30f84b" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="JSC370-slides-09_files/figure-revealjs/cell-14-output-1.png" width="950" height="374"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><span class="math inline">\(k=1\)</span>: one cycle per day — misses the two-peak commute pattern</li>
+<li><span class="math inline">\(k=2\)</span>: two cycles per day — captures AM/PM variation</li>
+<li>Higher harmonics add finer-grained structure</li>
+</ul>
+</section>
+<section id="splines-for-smooth-non-linear-effects" class="slide level2">
+<h2>Splines for Smooth Non-Linear Effects</h2>
+<ul>
+<li>Fourier features capture <strong>periodic</strong> patterns for known-period cyclical variables</li>
+<li>For general <strong>continuous predictors</strong> (e.g., temperature, humidity), use <strong>splines</strong></li>
+</ul>
+<div class="fragment">
+<p>We saw this earlier in the semester. <strong>Splines</strong> fit a piecewise polynomial, smooth at <strong>knot</strong> locations — flexible non-linear features</p>
+<div id="512a3fa9" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="co"># Example: spline basis for a continuous predictor</span></span>
+<span id="cb17-2"><a></a>x_vals <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">300</span>).reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb17-3"><a></a>spline <span class="op">=</span> SplineTransformer(n_knots<span class="op">=</span><span class="dv">5</span>, degree<span class="op">=</span><span class="dv">3</span>, include_bias<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb17-4"><a></a>basis <span class="op">=</span> spline.fit_transform(x_vals)</span>
+<span id="cb17-5"><a></a><span class="bu">print</span>(<span class="ss">f"Input shape: </span><span class="sc">{</span>x_vals<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">  →  Spline features: </span><span class="sc">{</span>basis<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Input shape: (300, 1)  →  Spline features: (300, 6)</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li><code>degree=3</code>: cubic spline — smooth first and second derivatives at each knot</li>
+<li><code>n_knots=5</code> → 7 basis columns, each active in a <strong>local region</strong></li>
+<li><strong>Practical use</strong>: <code>dist_downtown_km</code> has a non-linear relationship with trip duration — splines can capture this; weather variables (if joined from Environment Canada) are another good candidate</li>
+</ul>
+</div>
+</section>
+<section id="visualizing-spline-basis-functions" class="slide level2">
+<h2>Visualizing Spline Basis Functions</h2>
+<div id="64321178" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="JSC370-slides-09_files/figure-revealjs/cell-16-output-1.png" width="950" height="374"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Each basis function is <strong>non-zero only locally</strong> — the model can assign different coefficients to each region</p>
+</section>
+<section id="fourier-vs-splines" class="slide level2">
+<h2>Fourier vs Splines</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Fourier features</th>
+<th>Splines</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Best for</strong></td>
+<td>Known periodic patterns (<code>hour</code>, <code>month</code>, <code>day_of_week</code>)</td>
+<td>Smooth trends of any shape (<code>temp</code>, <code>humidity</code>)</td>
+</tr>
+<tr class="even">
+<td><strong>Captures</strong></td>
+<td>Multiple harmonics of a fixed period</td>
+<td>Local, flexible non-linearity</td>
+</tr>
+<tr class="odd">
+<td><strong>Key parameters</strong></td>
+<td>Period <span class="math inline">\(T\)</span>, harmonics <span class="math inline">\(K\)</span></td>
+<td>Knots, degree</td>
+</tr>
+<tr class="even">
+<td><strong>Extrapolation</strong></td>
+<td>Periodic — repeats outside training range</td>
+<td>Can diverge outside range</td>
+</tr>
+<tr class="odd">
+<td><strong>Interpretability</strong></td>
+<td>Spectral / frequency decomposition</td>
+<td>Piecewise polynomial</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><strong>In practice, combine them</strong>:</p>
+<ul>
+<li><strong>Fourier features</strong> for <code>hour</code>, <code>day_of_week</code>, <code>month</code> (known periods)</li>
+<li><strong>Splines</strong> for continuous predictors like <code>dist_downtown_km</code> (non-linear effect on duration)</li>
+<li><strong>Binary flags</strong> for <code>is_weekend</code>, <code>is_member</code></li>
+</ul>
+</div>
+</section>
+<section id="assembling-the-full-feature-set" class="slide level2">
+<h2>Assembling the Full Feature Set</h2>
+<div id="e8625c84" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="kw">def</span> build_features(df):</span>
+<span id="cb19-2"><a></a>    out <span class="op">=</span> pd.DataFrame(index<span class="op">=</span>df.index)</span>
+<span id="cb19-3"><a></a>    <span class="co"># Binary flags (no transformation needed)</span></span>
+<span id="cb19-4"><a></a>    out[<span class="st">'is_weekend'</span>] <span class="op">=</span> df[<span class="st">'is_weekend'</span>]</span>
+<span id="cb19-5"><a></a>    out[<span class="st">'is_member'</span>]  <span class="op">=</span> df[<span class="st">'is_member'</span>]</span>
+<span id="cb19-6"><a></a>    <span class="co"># Fourier features for cyclical variables</span></span>
+<span id="cb19-7"><a></a>    <span class="cf">for</span> col, period, K <span class="kw">in</span> [(<span class="st">'hour'</span>, <span class="dv">24</span>, <span class="dv">3</span>), (<span class="st">'day_of_week'</span>, <span class="dv">7</span>, <span class="dv">2</span>), (<span class="st">'month'</span>, <span class="dv">12</span>, <span class="dv">2</span>)]:</span>
+<span id="cb19-8"><a></a>        <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, K <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb19-9"><a></a>            out[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_sin_k</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">'</span>] <span class="op">=</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> k <span class="op">*</span> df[col] <span class="op">/</span> period)</span>
+<span id="cb19-10"><a></a>            out[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_cos_k</span><span class="sc">{</span>k<span class="sc">}</span><span class="ss">'</span>] <span class="op">=</span> np.cos(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> k <span class="op">*</span> df[col] <span class="op">/</span> period)</span>
+<span id="cb19-11"><a></a>    <span class="co"># Spatial features from GBFS station join</span></span>
+<span id="cb19-12"><a></a>    out[<span class="st">'dist_downtown_km'</span>] <span class="op">=</span> df[<span class="st">'dist_downtown_km'</span>]</span>
+<span id="cb19-13"><a></a>    out[<span class="st">'capacity'</span>]         <span class="op">=</span> df[<span class="st">'capacity'</span>]</span>
+<span id="cb19-14"><a></a>    <span class="cf">return</span> out</span>
+<span id="cb19-15"><a></a></span>
+<span id="cb19-16"><a></a>X     <span class="op">=</span> build_features(bike)</span>
+<span id="cb19-17"><a></a>X_cls <span class="op">=</span> X.drop(columns<span class="op">=</span>[<span class="st">'is_member'</span>])  <span class="co"># is_member is the target for classification</span></span>
+<span id="cb19-18"><a></a>y_reg <span class="op">=</span> bike[<span class="st">'trip_duration_min'</span>]      <span class="co"># regression target</span></span>
+<span id="cb19-19"><a></a>y_cls <span class="op">=</span> bike[<span class="st">'is_member'</span>]              <span class="co"># classification target</span></span>
+<span id="cb19-20"><a></a></span>
+<span id="cb19-21"><a></a><span class="bu">print</span>(<span class="ss">f"Regression features:     </span><span class="sc">{</span>X<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb19-22"><a></a><span class="bu">print</span>(<span class="ss">f"Classification features: </span><span class="sc">{</span>X_cls<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Regression features:     18
+Classification features: 17</code></pre>
+</div>
+</div>
+</section>
+<section id="feature-importance-how-its-calculated-in-xgboost" class="slide level2">
+<h2>Feature Importance: How It’s Calculated in XGBoost</h2>
+<p>Every time a tree splits on feature <span class="math inline">\(j\)</span>, the reduction in impurity is recorded:</p>
+<p><span class="math display">\[\Delta I_j = I(\text{parent}) - \frac{n_L}{n} I(\text{left}) - \frac{n_R}{n} I(\text{right})\]</span></p>
+<div class="fragment">
+<ul>
+<li>For <strong>regression</strong>: impurity = MSE → each split reduces prediction error</li>
+<li>For <strong>classification</strong>: impurity = Gini or entropy → each split improves class separation</li>
+<li>Feature importance = <strong>weighted average</strong> of <span class="math inline">\(\Delta I_j\)</span> across all splits and all trees that used feature <span class="math inline">\(j\)</span></li>
+</ul>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>xgb <span class="op">=</span> XGBRegressor(importance_type<span class="op">=</span><span class="st">'gain'</span>)   <span class="co"># 'gain', 'weight', or 'cover'</span></span>
+<span id="cb21-2"><a></a>xgb.fit(X_train, y_train)</span>
+<span id="cb21-3"><a></a>xgb.feature_importances_   <span class="co"># array of length n_features, sums to 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><code>importance_type</code></th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>'gain'</code></td>
+<td>Average reduction in loss when feature is used (closest to MDI)</td>
+</tr>
+<tr class="even">
+<td><code>'weight'</code></td>
+<td>Number of times feature appears in splits (default)</td>
+</tr>
+<tr class="odd">
+<td><code>'cover'</code></td>
+<td>Average number of samples covered by splits on this feature</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="fitting-models-for-both-tasks" class="slide level2">
+<h2>Fitting Models for Both Tasks</h2>
+<div id="2f2e3a95" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>X_train,   X_test,   y_train,   y_test   <span class="op">=</span> train_test_split(</span>
+<span id="cb22-2"><a></a>    X,     y_reg, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">65</span>)</span>
+<span id="cb22-3"><a></a>X_train_c, X_test_c, y_train_c, y_test_c <span class="op">=</span> train_test_split(</span>
+<span id="cb22-4"><a></a>    X_cls, y_cls, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">65</span>)</span>
+<span id="cb22-5"><a></a></span>
+<span id="cb22-6"><a></a><span class="co"># Regression: predict trip duration (X includes is_member as a predictor)</span></span>
+<span id="cb22-7"><a></a>xgb_reg <span class="op">=</span> XGBRegressor(n_estimators<span class="op">=</span><span class="dv">200</span>, max_depth<span class="op">=</span><span class="dv">5</span>, learning_rate<span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb22-8"><a></a>                        importance_type<span class="op">=</span><span class="st">'gain'</span>, random_state<span class="op">=</span><span class="dv">65</span>, n_jobs<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb22-9"><a></a>xgb_reg.fit(X_train, y_train)</span>
+<span id="cb22-10"><a></a></span>
+<span id="cb22-11"><a></a><span class="co"># Classification: predict annual member vs casual (X_cls excludes is_member)</span></span>
+<span id="cb22-12"><a></a>xgb_cls <span class="op">=</span> XGBClassifier(n_estimators<span class="op">=</span><span class="dv">200</span>, max_depth<span class="op">=</span><span class="dv">5</span>, learning_rate<span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb22-13"><a></a>                         importance_type<span class="op">=</span><span class="st">'gain'</span>, random_state<span class="op">=</span><span class="dv">65</span>, n_jobs<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb22-14"><a></a>xgb_cls.fit(X_train_c, y_train_c)</span>
+<span id="cb22-15"><a></a></span>
+<span id="cb22-16"><a></a>imp_reg <span class="op">=</span> pd.Series(xgb_reg.feature_importances_, index<span class="op">=</span>X.columns)</span>
+<span id="cb22-17"><a></a>imp_cls <span class="op">=</span> pd.Series(xgb_cls.feature_importances_, index<span class="op">=</span>X_cls.columns)</span>
+<span id="cb22-18"><a></a></span>
+<span id="cb22-19"><a></a><span class="co"># Test metrics — regression</span></span>
+<span id="cb22-20"><a></a>y_pred_reg <span class="op">=</span> xgb_reg.predict(X_test)</span>
+<span id="cb22-21"><a></a>rmse <span class="op">=</span> np.sqrt(mean_squared_error(y_test, y_pred_reg))</span>
+<span id="cb22-22"><a></a>r2   <span class="op">=</span> r2_score(y_test, y_pred_reg)</span>
+<span id="cb22-23"><a></a><span class="bu">print</span>(<span class="ss">f"Regression     — RMSE: </span><span class="sc">{</span>rmse<span class="sc">:.2f}</span><span class="ss"> min  | R²: </span><span class="sc">{</span>r2<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb22-24"><a></a></span>
+<span id="cb22-25"><a></a><span class="co"># Test metrics — classification</span></span>
+<span id="cb22-26"><a></a>y_pred_cls <span class="op">=</span> xgb_cls.predict(X_test_c)</span>
+<span id="cb22-27"><a></a>acc <span class="op">=</span> accuracy_score(y_test_c, y_pred_cls)</span>
+<span id="cb22-28"><a></a>f1  <span class="op">=</span> f1_score(y_test_c, y_pred_cls)</span>
+<span id="cb22-29"><a></a><span class="bu">print</span>(<span class="ss">f"Classification — Accuracy: </span><span class="sc">{</span>acc<span class="sc">:.4f}</span><span class="ss">  | F1: </span><span class="sc">{</span>f1<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb22-30"><a></a></span>
+<span id="cb22-31"><a></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Top 3 (regression):"</span>, imp_reg.nlargest(<span class="dv">3</span>).<span class="bu">round</span>(<span class="dv">3</span>).to_dict())</span>
+<span id="cb22-32"><a></a><span class="bu">print</span>(<span class="st">"Top 3 (classification):"</span>, imp_cls.nlargest(<span class="dv">3</span>).<span class="bu">round</span>(<span class="dv">3</span>).to_dict())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Regression     — RMSE: 13.50 min  | R²: 0.1348
+Classification — Accuracy: 0.8946  | F1: 0.0000
+
+Top 3 (regression): {'is_weekend': 0.3919999897480011, 'is_member': 0.18199999630451202, 'dist_downtown_km': 0.12399999797344208}
+Top 3 (classification): {'month_sin_k1': 0.7369999885559082, 'is_weekend': 0.06499999761581421, 'dist_downtown_km': 0.03200000151991844}</code></pre>
+</div>
+</div>
+</section>
+<section id="feature-importance-regression-vs-classification" class="slide level2">
+<h2>Feature Importance: Regression vs Classification</h2>
+<div id="d849db29" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="JSC370-slides-09_files/figure-revealjs/cell-19-output-1.png" width="1237" height="470"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="what-the-importances-tell-us" class="slide level2">
+<h2>What the Importances Tell Us</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Predicting trip duration</strong> (uses <code>X</code>, includes <code>is_member</code>)</p>
+<ul>
+<li><code>is_weekend</code> — longer leisure rides on weekends</li>
+<li><code>is_member</code> — casual users tend to ride longer; likely the strongest predictor</li>
+<li><code>dist_downtown_km</code> — outer stations generate longer trips</li>
+<li>Hour-of-day harmonics — commuter vs.&nbsp;leisure timing</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Predicting annual member</strong> (uses <code>X_cls</code>, <code>is_member</code> excluded)</p>
+<ul>
+<li><code>month</code> and <code>hour</code> Fourier features — commute-month patterns strongly distinguish members</li>
+<li><code>is_weekend</code> — casual users dominate weekends</li>
+<li><code>dist_downtown_km</code> — station distance from downtown</li>
+<li><code>capacity</code> — larger hubs skew toward members</li>
+</ul>
+</div></div>
+<p>However, the model performance is not great for either!</p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="part-2-hyperparameter-tuning" class="title-slide slide level1 center">
+<h1>Part 2: Hyperparameter Tuning</h1>
+
+</section>
+<section id="parameters-vs-hyperparameters" class="slide level2">
+<h2>Parameters vs Hyperparameters</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Parameters</th>
+<th>Hyperparameters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>What</strong></td>
+<td>Learned from data</td>
+<td>Set before training</td>
+</tr>
+<tr class="even">
+<td><strong>Examples (XGBoost)</strong></td>
+<td>Tree split values, leaf weights</td>
+<td><code>n_estimators</code>, <code>max_depth</code>, <code>learning_rate</code></td>
+</tr>
+<tr class="odd">
+<td><strong>How chosen</strong></td>
+<td>Optimization (minimize loss)</td>
+<td>Search + validation</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<ul>
+<li><strong>Parameters</strong> are what the model learns during <code>fit()</code></li>
+<li><strong>Hyperparameters</strong> control how the learning happens — not updated by optimization</li>
+</ul>
+</div>
+</section>
+<section id="xgboost-regularized-objective" class="slide level2">
+<h2>XGBoost Regularized Objective</h2>
+<p>At each boosting round, XGBoost minimizes a <strong>penalized loss</strong>:</p>
+<p><span class="math display">\[\mathcal{L} = \sum_i \ell(y_i, \hat{y}_i) + \sum_k \left[ \gamma T_k + \frac{1}{2}\lambda \|w_k\|^2 + \alpha \|w_k\|_1 \right]\]</span></p>
+<div class="fragment">
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Role</th>
+<th>Effect</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>reg_lambda</code> <span class="math inline">\((\lambda)\)</span></td>
+<td>L2 on leaf weights</td>
+<td>Smooth shrinkage toward zero; reduces variance</td>
+<td><code>1</code></td>
+</tr>
+<tr class="even">
+<td><code>reg_alpha</code> <span class="math inline">\((\alpha)\)</span></td>
+<td>L1 on leaf weights</td>
+<td>Drives small weights to exactly zero; sparsity</td>
+<td><code>0</code></td>
+</tr>
+<tr class="odd">
+<td><code>gamma</code> <span class="math inline">\((\gamma)\)</span></td>
+<td>Min gain to split</td>
+<td>Prunes splits that don’t reduce loss enough</td>
+<td><code>0</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<ul>
+<li>L2 (<code>reg_lambda</code>) is <strong>on by default</strong> — partly why XGBoost generalizes well out of the box</li>
+<li>L1 (<code>reg_alpha</code>) is useful when many features are present and only a few are expected to matter</li>
+<li><code>gamma</code> is a complementary handle on tree complexity alongside <code>max_depth</code></li>
+</ul>
+</div>
+</section>
+<section id="the-bias-variance-tradeoff" class="slide level2">
+<h2>The Bias-Variance Tradeoff</h2>
+<p><span class="math display">\[\text{Expected Test Error} = \text{Bias}^2 + \text{Variance} + \text{Irreducible Error}\]</span></p>
+<div class="fragment">
+<ul>
+<li><strong>Bias</strong>: error from wrong assumptions — model too simple to capture the true pattern</li>
+<li><strong>Variance</strong>: error from sensitivity to training data — model fits noise</li>
+<li><strong>Irreducible error</strong>: noise in the data — no model can eliminate this</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Hyperparameter tuning searches for the model complexity that <strong>minimizes test error</strong></p>
+</div>
+</section>
+<section id="bias-variance-boosting-rounds-vs-rmse" class="slide level2">
+<h2>Bias-Variance: Boosting Rounds vs RMSE</h2>
+<p>Unlike a single tree, XGBoost adds trees <strong>sequentially</strong> — more rounds can overfit</p>
+<div id="822750e3" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>xgb_bv <span class="op">=</span> XGBRegressor(n_estimators<span class="op">=</span><span class="dv">600</span>, max_depth<span class="op">=</span><span class="dv">5</span>, learning_rate<span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb24-2"><a></a>                       random_state<span class="op">=</span><span class="dv">65</span>, n_jobs<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb24-3"><a></a>xgb_bv.fit(X_train, y_train)</span>
+<span id="cb24-4"><a></a></span>
+<span id="cb24-5"><a></a>n_rounds <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">10</span>, <span class="dv">610</span>, <span class="dv">10</span>))</span>
+<span id="cb24-6"><a></a>train_err, test_err <span class="op">=</span> [], []</span>
+<span id="cb24-7"><a></a><span class="cf">for</span> n <span class="kw">in</span> n_rounds:</span>
+<span id="cb24-8"><a></a>    tr <span class="op">=</span> xgb_bv.predict(X_train, iteration_range<span class="op">=</span>(<span class="dv">0</span>, n))</span>
+<span id="cb24-9"><a></a>    te <span class="op">=</span> xgb_bv.predict(X_test,  iteration_range<span class="op">=</span>(<span class="dv">0</span>, n))</span>
+<span id="cb24-10"><a></a>    train_err.append(np.sqrt(mean_squared_error(y_train, tr)))</span>
+<span id="cb24-11"><a></a>    test_err.append(np.sqrt(mean_squared_error(y_test,  te)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="d5522b30" class="cell" data-execution_count="20">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="JSC370-slides-09_files/figure-revealjs/cell-21-output-1.png" width="758" height="374"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Few rounds: high bias (underfitting)</li>
+<li>Too many rounds: training error keeps falling, test error rises (overfitting)</li>
+<li><strong>Early stopping</strong> can automatically find the sweet spot</li>
+</ul>
+</section>
+<section id="hyperparameter-tuning-with-cross-validation" class="slide level2">
+<h2>Hyperparameter Tuning with Cross-Validation</h2>
+<p>XGBoost has no OOB score — use <strong>5-fold CV</strong> with <strong>random search</strong> when the grid is large</p>
+<div id="abdb5990" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> RandomizedSearchCV</span>
+<span id="cb25-2"><a></a></span>
+<span id="cb25-3"><a></a>param_dist <span class="op">=</span> {</span>
+<span id="cb25-4"><a></a>    <span class="st">'max_depth'</span>:     [<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>],</span>
+<span id="cb25-5"><a></a>    <span class="st">'learning_rate'</span>: [<span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.3</span>],</span>
+<span id="cb25-6"><a></a>    <span class="st">'reg_lambda'</span>:    [<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">10</span>],   <span class="co"># L2: smooth shrinkage</span></span>
+<span id="cb25-7"><a></a>    <span class="st">'reg_alpha'</span>:     [<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="dv">1</span>],    <span class="co"># L1: sparsity on leaf weights</span></span>
+<span id="cb25-8"><a></a>}</span>
+<span id="cb25-9"><a></a>xgb <span class="op">=</span> XGBRegressor(n_estimators<span class="op">=</span><span class="dv">250</span>, random_state<span class="op">=</span><span class="dv">65</span>, n_jobs<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb25-10"><a></a>rand_search <span class="op">=</span> RandomizedSearchCV(xgb, param_dist, n_iter<span class="op">=</span><span class="dv">20</span>, cv<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb25-11"><a></a>                                 scoring<span class="op">=</span><span class="st">'neg_root_mean_squared_error'</span>,</span>
+<span id="cb25-12"><a></a>                                 random_state<span class="op">=</span><span class="dv">65</span>, n_jobs<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb25-13"><a></a>rand_search.fit(X_train, y_train)</span>
+<span id="cb25-14"><a></a><span class="bu">print</span>(<span class="st">"Best params:"</span>, rand_search.best_params_)</span>
+<span id="cb25-15"><a></a><span class="bu">print</span>(<span class="ss">f"Best CV RMSE: </span><span class="sc">{</span><span class="op">-</span>rand_search<span class="sc">.</span>best_score_<span class="sc">:.2f}</span><span class="ss"> minutes"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li>Full grid: <span class="math inline">\(3^4 = 81\)</span> combinations × 5 folds = <strong>405 fits</strong> — slow on large datasets</li>
+<li>Random search samples <strong>20 random combinations</strong> × 5 folds = <strong>100 fits</strong> — much faster</li>
+<li>For small datasets or few hyperparameters, <code>GridSearchCV</code> is fine and exhaustive</li>
+<li>Best params: {‘reg_lambda’: 10, ‘reg_alpha’: 0.1, ‘max_depth’: 7, ‘learning_rate’: 0.3}</li>
+</ul>
+</section>
+<section id="fit-the-best-model" class="slide level2">
+<h2>Fit the Best Model</h2>
+<div id="09f1cf0c" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a><span class="co">#best_params = rand_search.best_params_</span></span>
+<span id="cb26-2"><a></a><span class="co">#print("Best params:", best_params)</span></span>
+<span id="cb26-3"><a></a></span>
+<span id="cb26-4"><a></a>xgb_best <span class="op">=</span> XGBRegressor(</span>
+<span id="cb26-5"><a></a>    n_estimators<span class="op">=</span><span class="dv">250</span>,</span>
+<span id="cb26-6"><a></a>    reg_lambda<span class="op">=</span><span class="dv">10</span>, reg_alpha<span class="op">=</span><span class="fl">0.1</span>, max_depth<span class="op">=</span><span class="dv">7</span>, learning_rate<span class="op">=</span><span class="fl">0.3</span>,</span>
+<span id="cb26-7"><a></a>    random_state<span class="op">=</span><span class="dv">65</span>, n_jobs<span class="op">=-</span><span class="dv">1</span></span>
+<span id="cb26-8"><a></a>)</span>
+<span id="cb26-9"><a></a>xgb_best.fit(X_train, y_train)</span>
+<span id="cb26-10"><a></a>y_pred <span class="op">=</span> xgb_best.predict(X_test)</span>
+<span id="cb26-11"><a></a></span>
+<span id="cb26-12"><a></a><span class="bu">print</span>(<span class="ss">f"Test RMSE: </span><span class="sc">{</span>np<span class="sc">.</span>sqrt(mean_squared_error(y_test, y_pred))<span class="sc">:.2f}</span><span class="ss"> minutes"</span>)</span>
+<span id="cb26-13"><a></a><span class="bu">print</span>(<span class="ss">f"Test R²:   </span><span class="sc">{</span>r2_score(y_test, y_pred)<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Test RMSE: 13.41 minutes
+Test R²:   0.1457</code></pre>
+</div>
+</div>
+</section>
+<section id="early-stopping-automatic-tuning-of-n_estimators" class="slide level2">
+<h2>Early Stopping: Automatic Tuning of <code>n_estimators</code></h2>
+<p>XGBoost can automatically stop adding trees when validation error stops improving</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>X_tr, X_val, y_tr, y_val <span class="op">=</span> train_test_split(</span>
+<span id="cb28-2"><a></a>    X_train, y_train, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">65</span>)</span>
+<span id="cb28-3"><a></a></span>
+<span id="cb28-4"><a></a>xgb_es <span class="op">=</span> XGBRegressor(</span>
+<span id="cb28-5"><a></a>    n_estimators<span class="op">=</span><span class="dv">2000</span>, max_depth<span class="op">=</span><span class="dv">5</span>, learning_rate<span class="op">=</span><span class="fl">0.05</span>,</span>
+<span id="cb28-6"><a></a>    early_stopping_rounds<span class="op">=</span><span class="dv">50</span>, random_state<span class="op">=</span><span class="dv">65</span>, n_jobs<span class="op">=-</span><span class="dv">1</span></span>
+<span id="cb28-7"><a></a>)</span>
+<span id="cb28-8"><a></a>xgb_es.fit(X_tr, y_tr,</span>
+<span id="cb28-9"><a></a>           eval_set<span class="op">=</span>[(X_val, y_val)],</span>
+<span id="cb28-10"><a></a>           verbose<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb28-11"><a></a><span class="bu">print</span>(<span class="ss">f"Best round: </span><span class="sc">{</span>xgb_es<span class="sc">.</span>best_iteration<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb28-12"><a></a><span class="bu">print</span>(<span class="ss">f"Val RMSE:   </span><span class="sc">{</span>xgb_es<span class="sc">.</span>best_score<span class="sc">:.2f}</span><span class="ss"> minutes"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<ul>
+<li>Set <code>n_estimators</code> very large; training stops after <strong>50 rounds</strong> with no improvement</li>
+<li>Efficient alternative to grid-searching <code>n_estimators</code> separately</li>
+</ul>
+</div>
+</section>
+<section id="tuning-strategy-summary" class="slide level2">
+<h2>Tuning Strategy Summary</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>When to use</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Grid search + CV</strong></td>
+<td>Few hyperparameters</td>
+<td>Exhaustive, unbiased</td>
+<td>Expensive for large grids</td>
+</tr>
+<tr class="even">
+<td><strong>Random search + CV</strong></td>
+<td>Many hyperparameters</td>
+<td>Efficient, scales well</td>
+<td>May miss optimal</td>
+</tr>
+<tr class="odd">
+<td><strong>Early stopping</strong></td>
+<td>XGBoost / LightGBM</td>
+<td>Automatically tunes <code>n_estimators</code></td>
+<td>Needs a validation set</td>
+</tr>
+<tr class="even">
+<td><strong>OOB score</strong></td>
+<td>Random forests only</td>
+<td>Free — no extra fitting</td>
+<td>RF-specific</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<ul>
+<li>For XGBoost: use <strong>grid/random search</strong> for <code>max_depth</code> + <code>learning_rate</code>; use <strong>early stopping</strong> for <code>n_estimators</code></li>
+<li>Always tune on training data — report final performance on the test set</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="part-3-model-evaluation" class="title-slide slide level1 center">
+<h1>Part 3: Model Evaluation</h1>
+
+</section>
+<section id="the-three-roles-of-data" class="slide level2">
+<h2>The Three Roles of Data</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Role</th>
+<th>Purpose</th>
+<th>May influence model?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Training set</strong></td>
+<td>Fit model parameters</td>
+<td>Yes — model learns from this</td>
+</tr>
+<tr class="even">
+<td><strong>Validation set</strong></td>
+<td>Tune hyperparameters, select model</td>
+<td>Yes — guides tuning decisions</td>
+</tr>
+<tr class="odd">
+<td><strong>Test set</strong></td>
+<td>Report final performance</td>
+<td><strong>No — evaluated once at the end</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<ul>
+<li>The test set is a <strong>lockbox</strong> — do not open it until the final model is chosen</li>
+<li>Using the test set to guide any decision inflates performance estimates</li>
+</ul>
+</div>
+</section>
+<section id="train-validation-test-split" class="slide level2">
+<h2>Train / Validation / Test Split</h2>
+<pre><code>All data
+├── Training set (60%)   → fit model
+├── Validation set (20%) → tune hyperparameters, select model
+└── Test set (20%)       → final evaluation (untouched until the end)</code></pre>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="co"># First split off the test set</span></span>
+<span id="cb30-2"><a></a>X_trainval, X_test, y_trainval, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb30-3"><a></a>    X, y_reg, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">65</span></span>
+<span id="cb30-4"><a></a>)</span>
+<span id="cb30-5"><a></a><span class="co"># Then split training from validation</span></span>
+<span id="cb30-6"><a></a>X_train, X_val, y_train, y_val <span class="op">=</span> train_test_split(</span>
+<span id="cb30-7"><a></a>    X_trainval, y_trainval, test_size<span class="op">=</span><span class="fl">0.25</span>, random_state<span class="op">=</span><span class="dv">65</span></span>
+<span id="cb30-8"><a></a>    <span class="co"># 0.25 × 0.8 = 0.2 of original → 60/20/20 split</span></span>
+<span id="cb30-9"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<ul>
+<li>Downside: reduces training data available</li>
+<li>Alternative: use <strong>cross-validation</strong> on training data instead of a fixed validation set</li>
+</ul>
+</div>
+</section>
+<section id="regression-metrics" class="slide level2">
+<h2>Regression Metrics</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Formula</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>RMSE</strong></td>
+<td><span class="math inline">\(\sqrt{\frac{1}{n}\sum(y_i - \hat y_i)^2}\)</span></td>
+<td>Error in same units as <span class="math inline">\(y\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>MAE</strong></td>
+<td><span class="math inline">\(\frac{1}{n}\sum\|y_i - \hat y_i\|\)</span></td>
+<td>Average absolute error (robust to outliers)</td>
+</tr>
+<tr class="odd">
+<td><strong>R²</strong></td>
+<td><span class="math inline">\(1 - \frac{\sum(y_i - \hat y_i)^2}{\sum(y_i - \bar y)^2}\)</span></td>
+<td>Proportion of variance explained</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<div id="652cbdf7" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a>rmse <span class="op">=</span> np.sqrt(mean_squared_error(y_test, y_pred))</span>
+<span id="cb31-2"><a></a>mae  <span class="op">=</span> np.mean(np.<span class="bu">abs</span>(y_test <span class="op">-</span> y_pred))</span>
+<span id="cb31-3"><a></a>r2   <span class="op">=</span> r2_score(y_test, y_pred)</span>
+<span id="cb31-4"><a></a><span class="bu">print</span>(<span class="ss">f"RMSE: </span><span class="sc">{</span>rmse<span class="sc">:.1f}</span><span class="ss"> minutes"</span>)</span>
+<span id="cb31-5"><a></a><span class="bu">print</span>(<span class="ss">f"MAE:  </span><span class="sc">{</span>mae<span class="sc">:.1f}</span><span class="ss"> minutes"</span>)</span>
+<span id="cb31-6"><a></a><span class="bu">print</span>(<span class="ss">f"R²:   </span><span class="sc">{</span>r2<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>RMSE: 13.4 minutes
+MAE:  8.8 minutes
+R²:   0.1457</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="residual-plot" class="slide level2">
+<h2>Residual Plot</h2>
+<div id="1d6118c7" class="cell" data-execution_count="24">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="JSC370-slides-09_files/figure-revealjs/cell-25-output-1.png" width="1142" height="374"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="classification-predicting-annual-member-vs-casual" class="slide level2">
+<h2>Classification: Predicting Annual Member vs Casual</h2>
+<p>We can also predict <strong>user type</strong> — whether a rider is an annual member or a casual user</p>
+<div id="a2ad4b5d" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a>X_train_c, X_test_c, y_train_c, y_test_c <span class="op">=</span> train_test_split(</span>
+<span id="cb33-2"><a></a>    X_cls, y_cls, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">65</span>)  <span class="co"># X_cls excludes is_member</span></span>
+<span id="cb33-3"><a></a></span>
+<span id="cb33-4"><a></a><span class="co"># Class imbalance: members are the majority class</span></span>
+<span id="cb33-5"><a></a>n_casual  <span class="op">=</span> (y_train_c <span class="op">==</span> <span class="dv">0</span>).<span class="bu">sum</span>()</span>
+<span id="cb33-6"><a></a>n_member  <span class="op">=</span> (y_train_c <span class="op">==</span> <span class="dv">1</span>).<span class="bu">sum</span>()</span>
+<span id="cb33-7"><a></a>spw <span class="op">=</span> n_casual <span class="op">/</span> n_member</span>
+<span id="cb33-8"><a></a><span class="bu">print</span>(<span class="ss">f"Casual: </span><span class="sc">{</span>n_casual<span class="sc">:,}</span><span class="ss">  |  Member: </span><span class="sc">{</span>n_member<span class="sc">:,}</span><span class="ss">  |  scale_pos_weight: </span><span class="sc">{</span>spw<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Casual: 777,807  |  Member: 91,479  |  scale_pos_weight: 8.50</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>If the data has ~65% members, a naive model can achieve 65% accuracy by predicting “member” every time — <strong>accuracy alone is misleading</strong>. <code>scale_pos_weight</code> re-weights the loss so each class contributes equally:</p>
+<p><span class="math display">\[\texttt{scale\_pos\_weight} = \frac{n_{\text{casual}}}{n_{\text{member}}}\]</span></p>
+<div id="e9ad6313" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a>clf <span class="op">=</span> XGBClassifier(n_estimators<span class="op">=</span><span class="dv">200</span>, max_depth<span class="op">=</span><span class="dv">5</span>, learning_rate<span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb35-2"><a></a>                    scale_pos_weight<span class="op">=</span>spw,</span>
+<span id="cb35-3"><a></a>                    random_state<span class="op">=</span><span class="dv">65</span>, n_jobs<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb35-4"><a></a>clf.fit(X_train_c, y_train_c)</span>
+<span id="cb35-5"><a></a>y_pred_cls <span class="op">=</span> clf.predict(X_test_c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="f78adc94" class="cell" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a><span class="bu">print</span>(<span class="ss">f"Accuracy:  </span><span class="sc">{</span>accuracy_score(y_test_c, y_pred_cls)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb36-2"><a></a><span class="bu">print</span>(<span class="ss">f"Precision: </span><span class="sc">{</span>precision_score(y_test_c, y_pred_cls)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb36-3"><a></a><span class="bu">print</span>(<span class="ss">f"Recall:    </span><span class="sc">{</span>recall_score(y_test_c, y_pred_cls)<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb36-4"><a></a><span class="bu">print</span>(<span class="ss">f"F1:        </span><span class="sc">{</span>f1_score(y_test_c, y_pred_cls)<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Accuracy:  0.5992
+Precision: 0.1514
+Recall:    0.6087
+F1:        0.2425</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="classification-metrics-explained" class="slide level2">
+<h2>Classification Metrics Explained</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Predicted Member</th>
+<th>Predicted Casual</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Member</strong></td>
+<td>TP (true positive)</td>
+<td>FN (false negative)</td>
+</tr>
+<tr class="even">
+<td><strong>Actual Casual</strong></td>
+<td>FP (false positive)</td>
+<td>TN (true negative)</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><span class="math display">\[\text{Precision} = \frac{TP}{TP + FP} \qquad \text{Recall} = \frac{TP}{TP + FN} \qquad F1 = \frac{2 \cdot P \cdot R}{P + R}\]</span></p>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>High precision, low recall</strong>: model is conservative — rarely predicts “Member” but usually correct when it does</li>
+<li><strong>High recall, low precision</strong>: catches most members but many false alarms</li>
+<li><strong>F1</strong>: harmonic mean — balances precision and recall</li>
+</ul>
+</div>
+</section>
+<section id="confusion-matrix" class="slide level2">
+<h2>Confusion Matrix</h2>
+<div id="c80f5508" class="cell" data-execution_count="28">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="JSC370-slides-09_files/figure-revealjs/cell-29-output-1.png" width="543" height="470"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="choosing-the-right-metric" class="slide level2">
+<h2>Choosing the Right Metric</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Scenario</th>
+<th>Recommended metric</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Balanced classification</td>
+<td>Accuracy or F1</td>
+</tr>
+<tr class="even">
+<td>Imbalanced classification (rare event)</td>
+<td>Precision, Recall, F1, AUC-ROC</td>
+</tr>
+<tr class="odd">
+<td>Regression, large errors costly</td>
+<td>RMSE</td>
+</tr>
+<tr class="even">
+<td>Regression, outliers present</td>
+<td>MAE</td>
+</tr>
+<tr class="odd">
+<td>Regression, explain variance</td>
+<td>R²</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<ul>
+<li><strong>Choose your metric before looking at results</strong> — changing metrics after seeing performance is a subtle form of overfitting</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="part-4-cross-validation" class="title-slide slide level1 center">
+<h1>Part 4: Cross-Validation</h1>
+
+</section>
+<section id="the-problem-with-a-single-validation-set" class="slide level2">
+<h2>The Problem with a Single Validation Set</h2>
+<ul>
+<li>A single train/validation split introduces <strong>high variance</strong> in the performance estimate</li>
+<li>Results depend heavily on which observations end up in each set</li>
+</ul>
+<div class="fragment">
+<pre><code>Split 1: val = [obs 1, 5, 9, ...]   → RMSE = 8.4 min
+Split 2: val = [obs 2, 6, 10, ...]  → RMSE = 7.9 min
+Split 3: val = [obs 3, 7, 11, ...]  → RMSE = 8.8 min</code></pre>
+</div>
+<div class="fragment">
+<p><strong>Cross-validation</strong> averages over many splits to reduce this variance</p>
+</div>
+</section>
+<section id="k-fold-cross-validation" class="slide level2">
+<h2><span class="math inline">\(k\)</span>-Fold Cross-Validation</h2>
+<pre><code>Data: [Fold 1] [Fold 2] [Fold 3] [Fold 4] [Fold 5]
+
+Iter 1: TRAIN   TRAIN   TRAIN   TRAIN   [VAL  ]  → score₁
+Iter 2: TRAIN   TRAIN   TRAIN   [VAL  ] TRAIN    → score₂
+Iter 3: TRAIN   TRAIN   [VAL  ] TRAIN   TRAIN    → score₃
+Iter 4: TRAIN   [VAL  ] TRAIN   TRAIN   TRAIN    → score₄
+Iter 5: [VAL  ] TRAIN   TRAIN   TRAIN   TRAIN    → score₅
+
+CV score = mean(score₁, …, score₅)</code></pre>
+<div class="fragment">
+<ul>
+<li>Every observation is used for both training and validation — just never at the same time</li>
+<li>Common choices: <span class="math inline">\(k = 5\)</span> or <span class="math inline">\(k = 10\)</span></li>
+<li>Test set remains <strong>held out</strong> throughout</li>
+</ul>
+</div>
+</section>
+<section id="cross-validation-in-python" class="slide level2">
+<h2>Cross-Validation in Python</h2>
+<div id="a0510860" class="cell" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>xgb_cv <span class="op">=</span> XGBRegressor(n_estimators<span class="op">=</span><span class="dv">250</span>, max_depth<span class="op">=</span><span class="dv">5</span>, learning_rate<span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb40-2"><a></a>                       random_state<span class="op">=</span><span class="dv">65</span>, n_jobs<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb40-3"><a></a>cv_scores <span class="op">=</span> cross_val_score(xgb_cv, X_train, y_train, cv<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb40-4"><a></a>                             scoring<span class="op">=</span><span class="st">'neg_root_mean_squared_error'</span>)</span>
+<span id="cb40-5"><a></a><span class="bu">print</span>(<span class="ss">f"5-fold CV RMSE: </span><span class="sc">{</span><span class="op">-</span>cv_scores<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss"> ± </span><span class="sc">{</span>cv_scores<span class="sc">.</span>std()<span class="sc">:.2f}</span><span class="ss"> minutes"</span>)</span>
+<span id="cb40-6"><a></a><span class="bu">print</span>(<span class="ss">f"Individual folds: </span><span class="sc">{</span>(<span class="op">-</span>cv_scores)<span class="sc">.</span><span class="bu">round</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5-fold CV RMSE: 13.50 ± 0.05 minutes
+Individual folds: [13.49 13.48 13.59 13.53 13.43]</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div id="f9673be9" class="cell" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a><span class="co"># Final test evaluation</span></span>
+<span id="cb42-2"><a></a>xgb_cv.fit(X_train, y_train)</span>
+<span id="cb42-3"><a></a>test_rmse <span class="op">=</span> np.sqrt(mean_squared_error(y_test, xgb_cv.predict(X_test)))</span>
+<span id="cb42-4"><a></a><span class="bu">print</span>(<span class="ss">f"Test RMSE: </span><span class="sc">{</span>test_rmse<span class="sc">:.2f}</span><span class="ss"> minutes"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Test RMSE: 13.49 minutes</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="leave-one-out-cross-validation-loocv" class="slide level2">
+<h2>Leave-One-Out Cross-Validation (LOOCV)</h2>
+<ul>
+<li>Extreme case of <span class="math inline">\(k\)</span>-fold with <span class="math inline">\(k = n\)</span>: each fold contains a single observation</li>
+<li>Train on <span class="math inline">\(n - 1\)</span> observations, validate on 1</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\text{LOOCV Error} = \frac{1}{n} \sum_{i=1}^n \text{Error}_i\]</span></p>
+</div>
+<div class="fragment">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>LOOCV</th>
+<th>5-fold CV</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Bias</strong></td>
+<td>Very low (model sees nearly all data)</td>
+<td>Slightly higher</td>
+</tr>
+<tr class="even">
+<td><strong>Variance</strong></td>
+<td>High (single observation in each val set)</td>
+<td>Lower</td>
+</tr>
+<tr class="odd">
+<td><strong>Computation</strong></td>
+<td><span class="math inline">\(n\)</span> model fits</td>
+<td>5 model fits</td>
+</tr>
+<tr class="even">
+<td><strong>When to use</strong></td>
+<td>Very small datasets only</td>
+<td>Standard recommendation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p>In practice, <strong>5- or 10-fold CV</strong> gives a better bias-variance tradeoff than LOOCV However, in bocked data settings, such as spatial and temporal data we sometimes do leave one site out (LOSO) or leave one time period out (LOTO) cross validation rather than LOOCV</p>
+</div>
+</section>
+<section id="data-leakage-and-the-feature-engineering-pipeline" class="slide level2">
+<h2>Data Leakage and the Feature Engineering Pipeline</h2>
+<p>A correct workflow applies all transformations <strong>inside</strong> the train/test split:</p>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a><span class="co"># Wrong: fit scaler on full data (leaks test info into training)</span></span>
+<span id="cb44-2"><a></a>scaler.fit(X)           <span class="co"># test statistics contaminate training</span></span>
+<span id="cb44-3"><a></a></span>
+<span id="cb44-4"><a></a><span class="co"># Right: fit only on training data</span></span>
+<span id="cb44-5"><a></a>scaler.fit(X_train)</span>
+<span id="cb44-6"><a></a>X_train_scaled <span class="op">=</span> scaler.transform(X_train)</span>
+<span id="cb44-7"><a></a>X_test_scaled  <span class="op">=</span> scaler.transform(X_test)  <span class="co"># ✓ apply fitted scaler to test</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p><strong>scikit-learn Pipelines</strong> bundle preprocessing + model so that CV applies them correctly:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
+<span id="cb45-2"><a></a>pipe <span class="op">=</span> Pipeline([</span>
+<span id="cb45-3"><a></a>    (<span class="st">'spline'</span>, SplineTransformer(n_knots<span class="op">=</span><span class="dv">5</span>, degree<span class="op">=</span><span class="dv">3</span>)),</span>
+<span id="cb45-4"><a></a>    (<span class="st">'model'</span>,  XGBRegressor(n_estimators<span class="op">=</span><span class="dv">200</span>, max_depth<span class="op">=</span><span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">65</span>))</span>
+<span id="cb45-5"><a></a>])</span>
+<span id="cb45-6"><a></a><span class="co"># Spline is fit only on training fold — no leakage</span></span>
+<span id="cb45-7"><a></a>cv_pipe <span class="op">=</span> cross_val_score(pipe, X_train[[<span class="st">'hour'</span>]], y_train, cv<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb45-8"><a></a>                           scoring<span class="op">=</span><span class="st">'neg_root_mean_squared_error'</span>)</span>
+<span id="cb45-9"><a></a><span class="bu">print</span>(<span class="ss">f"CV RMSE with spline: </span><span class="sc">{</span><span class="op">-</span>cv_pipe<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss"> minutes"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="the-full-ml-workflow" class="slide level2">
+<h2>The Full ML Workflow</h2>
+<pre><code>1. Understand the data — identify leakage variables (end_time, end_station_id)
+
+2. Split data → train (70%) / test (30%)
+
+3. Feature engineering (on training data only)
+   - Fourier features for hour, day_of_week, month
+   - Binary flags for is_weekend, is_member
+   - Spatial features: dist_downtown_km, capacity (from GBFS station join)
+   - (Optional: splines for dist_downtown_km; weather if joined from Environment Canada)
+
+4. Hyperparameter tuning (5-fold CV on training data only)
+   - Grid search over max_depth in [3, 5, 7] and learning_rate in [0.05, 0.1, 0.3]
+   - Early stopping to find optimal n_estimators
+
+5. Refit final model on full training set with best hyperparameters
+
+6. Evaluate on test set (once)
+   - Regression (trip duration): RMSE, MAE, R²
+   - Classification (member type): accuracy, F1, confusion matrix
+
+7. Interpret results — feature importance, residual plots</code></pre>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p><strong>Feature Engineering</strong></p>
+<ul>
+<li>Encode cyclicals with sin/cos or Fourier features (<code>hour</code>, <code>day_of_week</code>, <code>month</code>)</li>
+<li>Drop leakage variables (<code>end_time</code>, <code>end_station_id</code>) before modelling</li>
+<li>Use splines for smooth non-linear effects of continuous predictors (e.g., temperature)</li>
+<li>Always fit transformers on training data only</li>
+</ul>
+<div class="fragment">
+<p><strong>Hyperparameter Tuning</strong></p>
+<ul>
+<li>Grid or random search + 5-fold CV on training data only; use random search when the grid is large</li>
+<li>Key XGBoost parameters:</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Role</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>max_depth</code></td>
+<td>Tree complexity</td>
+<td><code>6</code></td>
+</tr>
+<tr class="even">
+<td><code>learning_rate</code></td>
+<td>Shrinkage per boosting step</td>
+<td><code>0.3</code></td>
+</tr>
+<tr class="odd">
+<td><code>n_estimators</code></td>
+<td>Number of boosting rounds</td>
+<td><code>100</code></td>
+</tr>
+<tr class="even">
+<td><code>reg_lambda</code></td>
+<td>L2 penalty on leaf weights — reduces variance</td>
+<td><code>1</code></td>
+</tr>
+<tr class="odd">
+<td><code>reg_alpha</code></td>
+<td>L1 penalty on leaf weights — encourages sparsity</td>
+<td><code>0</code></td>
+</tr>
+<tr class="even">
+<td><code>gamma</code></td>
+<td>Min loss reduction required to make a split</td>
+<td><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Use <strong>early stopping</strong> to efficiently tune <code>n_estimators</code>; use <strong>random search</strong> for the rest</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Model Evaluation</strong></p>
+<ul>
+<li>Test set reveals true generalization — use it <strong>once</strong></li>
+<li>Use CV on training data for tuning and model selection</li>
+<li>RMSE/R² for regression; F1/AUC for classification</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
