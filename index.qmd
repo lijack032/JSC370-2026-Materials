@@ -31,7 +31,7 @@ This course serves as the second in a series of courses on data science. We will
 | **Week 7** | February 16 | Reading Week |  |
 | **Week 8** | February 23 [(lecture)](slides/08-ml2/JSC370-slides-08.html) <br> February 25 [(lab)](labs/lab8/lab08-trees-boosting.html) | ML 2 (trees, random forests, boosting) | **[HW3](homework/hw3_2026.pdf)**, **Lab 8** |
 | **Week 9** | March 2 [(lecture)](slides/09-modeleval/JSC370-slides-09.html) <br> March 4 ([lab](https://github.com/JSC370/JSC370-2026/tree/main/labs/lab9)) | ML 3 (model evaluation and interpretation) | **Lab 9** |
-| **Week 10** | March 9 (lecture) <br> March 11 (lab) | SQL, High performance computing; cloud computing | **[Midterm](homework/midterm_2026.pdf)**, **Lab 10** |
+| **Week 10** | March 9 [(lecture)](slides/10-hpc/JSC370-slides-10.html) <br> March 11 ([lab](https://github.com/JSC370/JSC370-2026/tree/main/labs/lab10)) | SQL, High performance computing; cloud computing | **[Midterm](homework/midterm_2026.pdf)**, **Lab 10** |
 | **Week 11** | March 16 (lecture) <br> March 18 (lab) | Interactive visualization & effective data communication | **Lab 11** |
 | **Week 12** | March 23 (lecture) <br> March 25 (lab) | Building Website and Interactive Apps | **HW4**, **Lab 12** |
 | **Week 13** | March 30 (lecture) <br> April 1 (lab) | Wrap-Up  | **HW5** |
