@@ -5,6 +5,8 @@ format:
     embed-resources: true
 ---
 
+##### Download lab `.qmd` [here](https://github.com/JSC370/JSC370-2026/blob/main/labs/lab11/lab11-hpc.qmd)
+
 # Learning goals
 
 - Connect to the `teach.cs` computing cluster via SSH.
