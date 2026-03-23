@@ -9,7 +9,7 @@ from plotly.subplots import make_subplots
 import pandas as pd
 from nycflights13 import flights
 
-# ── Data preparation ──────────────────────────────────────────────────────────
+# Data preparation 
 weather = pd.read_csv("flights_weather.csv")
 
 flights_weather = pd.merge(
@@ -36,7 +36,7 @@ monthly_delays = (
 fwd = flights_weather_day.dropna(subset=["humid", "dep_delay"])
 origins = sorted(flights_weather_day["origin"].unique())
 
-# ── App layout ────────────────────────────────────────────────────────────────
+# App layout
 app = Dash(__name__)
 
 app.layout = html.Div([
@@ -48,7 +48,7 @@ app.layout = html.Div([
            style={"textAlign": "center", "color": "#7f8c8d", "marginBottom": "25px",
                   "fontFamily": "Arial, sans-serif"}),
 
-    # ── Controls row ──────────────────────────────────────────────────────────
+    # Controls row
     html.Div([
 
         html.Div([
@@ -76,7 +76,7 @@ app.layout = html.Div([
 
     ], style={"padding": "0 40px 20px 40px", "fontFamily": "Arial, sans-serif"}),
 
-    # ── Plots row ─────────────────────────────────────────────────────────────
+    # Plots row 
     html.Div([
         dcc.Graph(id="line-chart", style={"width": "50%", "display": "inline-block"}),
         dcc.Graph(id="scatter-chart", style={"width": "50%", "display": "inline-block"}),
@@ -84,7 +84,7 @@ app.layout = html.Div([
 
 ], style={"maxWidth": "1200px", "margin": "auto"})
 
-# ── Callbacks ─────────────────────────────────────────────────────────────────
+# Callbacks 
 @app.callback(
     Output("line-chart", "figure"),
     Output("scatter-chart", "figure"),

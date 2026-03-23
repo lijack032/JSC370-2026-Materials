@@ -7,13 +7,13 @@ import plotly.graph_objects as go
 import pandas as pd
 from nycflights13 import flights
 
-# ── Page config ───────────────────────────────────────────────────────────────
+# Page config
 st.set_page_config(
     page_title="NYC Flight Delay Explorer",
     layout="wide",
 )
 
-# ── Data preparation (cached so it only runs once) ────────────────────────────
+# Data preparation (cached so it only runs once)
 @st.cache_data
 def load_data():
     weather = pd.read_csv("flights_weather.csv")
@@ -41,7 +41,7 @@ flights_weather_day, monthly_delays = load_data()
 fwd = flights_weather_day.dropna(subset=["humid", "dep_delay"])
 origins = sorted(flights_weather_day["origin"].unique())
 
-# ── Sidebar controls ──────────────────────────────────────────────────────────
+# Sidebar controls
 st.sidebar.title("Controls")
 
 selected_origins = st.sidebar.multiselect(
@@ -62,7 +62,7 @@ min_humid = st.sidebar.slider(
 
 show_trendline = st.sidebar.checkbox("Show trendline", value=True)
 
-# ── Main content ──────────────────────────────────────────────────────────────
+# Main content
 st.title("NYC Flight Delay Explorer")
 st.markdown(
     "Explore how weather conditions relate to departure delays at "
@@ -87,7 +87,7 @@ scatter_df = fwd[
     (fwd["humid"] >= min_humid)
 ]
 
-# ── Plots ─────────────────────────────────────────────────────────────────────
+#  Plots (use Plotly but then call it in st)
 col1, col2 = st.columns(2)
 
 with col1:
@@ -113,7 +113,7 @@ with col2:
     fig_scatter.update_layout(legend_title_text="Origin")
     st.plotly_chart(fig_scatter, use_container_width=True)
 
-# ── Summary stats ─────────────────────────────────────────────────────────────
+# Summary stats
 st.subheader("Summary statistics")
 summary = (
     scatter_df
