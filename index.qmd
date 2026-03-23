@@ -33,9 +33,9 @@ This course serves as the second in a series of courses on data science. We will
 | **Week 9** | March 2 [(lecture)](slides/09-modeleval/JSC370-slides-09.html) <br> March 4 ([lab](https://github.com/JSC370/JSC370-2026/tree/main/labs/lab9)) | ML 3 (model evaluation and interpretation) | **Lab 9** |
 | **Week 10** | March 9 [(lecture)](slides/10-hpc/JSC370-slides-10.html) <br> March 11 ([lab](https://github.com/JSC370/JSC370-2026/tree/main/labs/lab10)) | Parallel computing, high performance computing | **[Midterm](homework/midterm_2026.pdf)**, **Lab 10** |
 | **Week 11** | March 16 (lecture) <br> March 18 [(lab)](labs/lab11/lab11-hpc.html) | Parallel computing, high performance computing | **Lab 11** |
-| **Week 12** | March 23 (lecture) <br> March 25 (lab) | Interactive visualization & effective data communication | **[HW4](homework/hw4-2026.html)**, **Lab 12** |
+| **Week 12** | March 23 [(lecture)](slides/11-interactive-viz/JSC370-slides-11.html) <br> March 25 (lab) | Interactive visualization & effective data communication | **[HW4](homework/hw4-2026.html)**, **Lab 12** |
 | **Week 13** | March 30 (lecture) <br> April 1 (lab) | Building Website and Interactive Apps  | **HW5** |
-| **Week 15** | April 26 |  | **Final Project** |
+| **Week 15** | April 26 |  | **[Final Project](homework/final-2026.pdf)** |
 
 ### Grading Breakdown
 
