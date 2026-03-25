@@ -8,6 +8,10 @@ execute:
   eval: false
 ---
 
+##### Download lab `.qmd` [here](https://github.com/JSC370/JSC370-2026/blob/main/labs/lab12/lab12-interactive-viz1.qmd)
+
+##### Download data: [starbucks-locations.csv](https://github.com/JSC370/JSC370-2026/blob/main/data/starbucks-locations.csv), [starbucks-menu-nutrition.csv](https://github.com/JSC370/JSC370-2026/blob/main/data/starbucks-menu-nutrition.csv), [us_state_pop.csv](https://github.com/JSC370/JSC370-2026/blob/main/data/us_state_pop.csv), [states.csv](https://github.com/JSC370/JSC370-2026/blob/main/data/states.csv)
+
 ```{python}
 #| label: setup
 #| echo: false

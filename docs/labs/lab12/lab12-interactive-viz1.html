@@ -4076,6 +4076,12 @@ vertical-align: -.125em;
 </header>
 
 
+<section id="download-lab-.qmd-here" class="level5">
+<h5 class="anchored" data-anchor-id="download-lab-.qmd-here">Download lab <code>.qmd</code> <a href="https://github.com/JSC370/JSC370-2026/blob/main/labs/lab12/lab12-interactive-viz1.qmd">here</a></h5>
+</section>
+<section id="download-data-starbucks-locations.csv-starbucks-menu-nutrition.csv-us_state_pop.csv-states.csv" class="level5">
+<h5 class="anchored" data-anchor-id="download-data-starbucks-locations.csv-starbucks-menu-nutrition.csv-us_state_pop.csv-states.csv">Download data: <a href="https://github.com/JSC370/JSC370-2026/blob/main/data/starbucks-locations.csv">starbucks-locations.csv</a>, <a href="https://github.com/JSC370/JSC370-2026/blob/main/data/starbucks-menu-nutrition.csv">starbucks-menu-nutrition.csv</a>, <a href="https://github.com/JSC370/JSC370-2026/blob/main/data/us_state_pop.csv">us_state_pop.csv</a>, <a href="https://github.com/JSC370/JSC370-2026/blob/main/data/states.csv">states.csv</a></h5>
+</section>
 <section id="learning-goals" class="level1">
 <h1>Learning Goals</h1>
 <ul>
@@ -4098,7 +4104,7 @@ vertical-align: -.125em;
 <h1>Steps</h1>
 <section id="install-and-load-libraries" class="level3">
 <h3 class="anchored" data-anchor-id="install-and-load-libraries">0. Install and load libraries</h3>
-<div id="2a9e9c7b" class="cell" data-execution_count="2">
+<div id="d8e8464a" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
@@ -4112,7 +4118,7 @@ vertical-align: -.125em;
 <ul>
 <li>There are 4 datasets to read in: Starbucks locations, Starbucks nutrition, US population by state, and US state abbreviations. All of them are available in the lab folder.</li>
 </ul>
-<div id="921e0a38" class="cell" data-execution_count="3">
+<div id="4baa7098" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sb_locs <span class="op">=</span> pd.read_csv(<span class="st">&quot;starbucks-locations.csv&quot;</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>sb_nutr <span class="op">=</span> pd.read_csv(<span class="st">&quot;starbucks-menu-nutrition.csv&quot;</span>)</span>
@@ -4128,7 +4134,7 @@ vertical-align: -.125em;
 <ul>
 <li>Inspect each dataset to look at variable names and ensure it was imported correctly.</li>
 </ul>
-<div id="9f45ab55" class="cell" data-execution_count="4">
+<div id="03dfd112" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -4140,7 +4146,7 @@ vertical-align: -.125em;
 <li>Merge population and state abbreviations with the store count by state.</li>
 <li>Inspect the range of values for each variable.</li>
 </ul>
-<div id="36591958" class="cell" data-execution_count="5">
+<div id="4df7dc69" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset to US</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sb_usa <span class="op">=</span> sb_locs[sb_locs[<span class="st">&quot;Country&quot;</span>] <span class="op">==</span> ___]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -4165,21 +4171,21 @@ vertical-align: -.125em;
 <ul>
 <li><strong>4a)</strong> Are the number of Starbucks proportional to the population of a state? (scatterplot) Add hover data for state, population, number of stores, and annotate with State/Province.</li>
 </ul>
-<div id="3d1a181c" class="cell" data-execution_count="6">
+<div id="6ee12989" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><p>4a) Answer:</p></li>
 <li><p><strong>4b)</strong> Is the caloric distribution of Starbucks menu items different for drinks and food? (histogram) Make sure to add <code>barmode=&quot;overlay&quot;</code> and choose a representative number of bins with <code>nbins</code>.</p></li>
 </ul>
-<div id="47195923" class="cell" data-execution_count="7">
+<div id="e53bdba4" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><p>4b) Answer:</p></li>
 <li><p><strong>4c)</strong> What are the top 20 words in Food Starbucks menu items? Make a horizontal barplot sorted by count using <code>orientation=&quot;h&quot;</code>.</p></li>
 </ul>
-<div id="4f393a46" class="cell" data-execution_count="8">
+<div id="2220f971" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>stop_words <span class="op">=</span> {<span class="st">&quot;the&quot;</span>, <span class="st">&quot;and&quot;</span>, <span class="st">&quot;with&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;an&quot;</span>, <span class="st">&quot;of&quot;</span>, <span class="st">&quot;in&quot;</span>, <span class="st">&quot;or&quot;</span>, <span class="st">&quot;no&quot;</span>, <span class="st">&quot;on&quot;</span>}</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>word_counts <span class="op">=</span> Counter(</span>
@@ -4204,7 +4210,7 @@ vertical-align: -.125em;
 <li><p>4c) Answer:</p></li>
 <li><p><strong>4d)</strong> Create a scatterplot representing the relationship between calories and carbs. Color the points by category (Food or Beverage) and add <code>trendline=&quot;ols&quot;</code> for each category. Is there a relationship, and do food or beverages tend to have more calories?</p></li>
 </ul>
-<div id="94b2ca62" class="cell" data-execution_count="9">
+<div id="a24d0421" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
@@ -4217,7 +4223,7 @@ vertical-align: -.125em;
 <li>Create a boxplot of calorie content grouped by the top 10 item words.</li>
 <li>Which top word is associated with the most calories?</li>
 </ul>
-<div id="9d73d094" class="cell" data-execution_count="10">
+<div id="3a08c4e8" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
@@ -4232,7 +4238,7 @@ vertical-align: -.125em;
 <li>Create a 3D scatterplot of Calories, Carbs, and Protein for items containing the top 10 words.</li>
 <li>Do you see any patterns (clusters or trends)?</li>
 </ul>
-<div id="3dac8dc4" class="cell" data-execution_count="11">
+<div id="a13df1bc" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.scatter_3d(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    sb_top,</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">&quot;Calories&quot;</span>,</span>
@@ -4265,7 +4271,7 @@ vertical-align: -.125em;
 <li>Create a choropleth map to visualize the number of stores per state, and another for population by state. Add custom hover text. Use <code>make_subplots</code> to place the maps side by side.</li>
 <li>Describe any differences.</li>
 </ul>
-<div id="1e3fd4ab" class="cell" data-execution_count="12">
+<div id="cad22ba5" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create hover text</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sb_locs_state[<span class="st">&quot;hover&quot;</span>] <span class="op">=</span> (</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;State: &quot;</span> <span class="op">+</span> sb_locs_state[<span class="st">&quot;State&quot;</span>].astype(<span class="bu">str</span>) <span class="op">+</span> <span class="st">&quot;&lt;br&gt;&quot;</span> <span class="op">+</span></span>
@@ -4318,7 +4324,7 @@ vertical-align: -.125em;
 <h3 class="anchored" data-anchor-id="dash-dashboard">8. Dash Dashboard</h3>
 <p>Build a simple interactive Dash dashboard for the Starbucks data. The app below provides a starting structure — save it as a <code>.py</code> file and run it with <code>python app.py</code>.</p>
 <p>The dashboard should include: - A dropdown to select a nutritional variable (Calories, Fat, Carbs, Protein, etc.) - A bar chart showing the mean value of that variable for the top 10 menu item words - A scatter plot of Calories vs. the selected variable, colored by Food/Beverage category - Fill in the <code>...</code> components</p>
-<div id="e95941b0" class="cell" data-execution_count="13">
+<div id="28693b2c" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save this as starbucks_dash.py and run with: python3 starbucks_dash.py</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dash <span class="im">import</span> Dash, dcc, html, Input, Output</span>
