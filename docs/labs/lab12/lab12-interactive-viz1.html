@@ -4104,7 +4104,7 @@ vertical-align: -.125em;
 <h1>Steps</h1>
 <section id="install-and-load-libraries" class="level3">
 <h3 class="anchored" data-anchor-id="install-and-load-libraries">0. Install and load libraries</h3>
-<div id="154e543d" class="cell" data-execution_count="2">
+<div id="de0945bc" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
@@ -4118,7 +4118,7 @@ vertical-align: -.125em;
 <ul>
 <li>There are 4 datasets to read in: Starbucks locations, Starbucks nutrition, US population by state, and US state abbreviations. All of them are available in the lab folder.</li>
 </ul>
-<div id="93ef6bb4" class="cell" data-execution_count="3">
+<div id="29be708d" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sb_locs <span class="op">=</span> pd.read_csv(<span class="st">&quot;starbucks-locations.csv&quot;</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>sb_nutr <span class="op">=</span> pd.read_csv(<span class="st">&quot;starbucks-menu-nutrition.csv&quot;</span>)</span>
@@ -4134,7 +4134,7 @@ vertical-align: -.125em;
 <ul>
 <li>Inspect each dataset to look at variable names and ensure it was imported correctly.</li>
 </ul>
-<div id="8124dcfb" class="cell" data-execution_count="4">
+<div id="ca231eae" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -4146,7 +4146,7 @@ vertical-align: -.125em;
 <li>Merge population and state abbreviations with the store count by state.</li>
 <li>Inspect the range of values for each variable.</li>
 </ul>
-<div id="d25e5588" class="cell" data-execution_count="5">
+<div id="8e70d140" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset to US</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sb_usa <span class="op">=</span> sb_locs[sb_locs[<span class="st">&quot;Country&quot;</span>] <span class="op">==</span> ___]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -4171,21 +4171,21 @@ vertical-align: -.125em;
 <ul>
 <li><strong>4a)</strong> Are the number of Starbucks proportional to the population of a state? (scatterplot) Add hover data for state, population, number of stores, and annotate with State/Province.</li>
 </ul>
-<div id="53b72373" class="cell" data-execution_count="6">
+<div id="596c93ff" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><p>4a) Answer:</p></li>
 <li><p><strong>4b)</strong> Is the caloric distribution of Starbucks menu items different for drinks and food? (histogram) Make sure to add <code>barmode=&quot;overlay&quot;</code> and choose a representative number of bins with <code>nbins</code>.</p></li>
 </ul>
-<div id="caf72171" class="cell" data-execution_count="7">
+<div id="8ad5c73d" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><p>4b) Answer:</p></li>
 <li><p><strong>4c)</strong> What are the top 20 words in Food Starbucks menu items? Make a horizontal barplot sorted by count using <code>orientation=&quot;h&quot;</code>.</p></li>
 </ul>
-<div id="ef43f8b1" class="cell" data-execution_count="8">
+<div id="7d5f2ecb" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>stop_words <span class="op">=</span> {<span class="st">&quot;the&quot;</span>, <span class="st">&quot;and&quot;</span>, <span class="st">&quot;with&quot;</span>, <span class="st">&quot;a&quot;</span>, <span class="st">&quot;an&quot;</span>, <span class="st">&quot;of&quot;</span>, <span class="st">&quot;in&quot;</span>, <span class="st">&quot;or&quot;</span>, <span class="st">&quot;no&quot;</span>, <span class="st">&quot;on&quot;</span>}</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>word_counts <span class="op">=</span> Counter(</span>
@@ -4210,7 +4210,7 @@ vertical-align: -.125em;
 <li><p>4c) Answer:</p></li>
 <li><p><strong>4d)</strong> Create a scatterplot representing the relationship between calories and carbs. Color the points by category (Food or Beverage) and add <code>trendline=&quot;ols&quot;</code> for each category. Is there a relationship, and do food or beverages tend to have more calories?</p></li>
 </ul>
-<div id="f35ff9a0" class="cell" data-execution_count="9">
+<div id="3b48c3ee" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
@@ -4223,7 +4223,7 @@ vertical-align: -.125em;
 <li>Create a boxplot of calorie content grouped by the top 10 item words.</li>
 <li>Which top word is associated with the most calories?</li>
 </ul>
-<div id="a663f344" class="cell" data-execution_count="10">
+<div id="3141f472" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find top 10 words and tag each item</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>top10_words <span class="op">=</span> [w <span class="cf">for</span> w, _ <span class="kw">in</span> word_counts.most_common(<span class="dv">10</span>)]</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -4250,7 +4250,7 @@ vertical-align: -.125em;
 <li>Create a 3D scatterplot of Calories, Carbs, and Protein for items containing the top 10 words.</li>
 <li>Do you see any patterns (clusters or trends)?</li>
 </ul>
-<div id="38129a6c" class="cell" data-execution_count="11">
+<div id="35f39d68" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.scatter_3d(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    sb_top,</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">&quot;Calories&quot;</span>,</span>
@@ -4280,10 +4280,10 @@ vertical-align: -.125em;
 <section id="choropleth-map" class="level3">
 <h3 class="anchored" data-anchor-id="choropleth-map">7. Choropleth Map</h3>
 <ul>
-<li>Create a choropleth map to visualize the number of stores per state, and another for population by state. Add custom hover text. Use <code>make_subplots</code> to place the maps side by side.</li>
+<li>Create two choropleth maps: one for the number of stores per state, one for population by state. Add custom hover text. Display them separately.</li>
 <li>Describe any differences.</li>
 </ul>
-<div id="7e34f086" class="cell" data-execution_count="12">
+<div id="afabe9a6" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create hover text</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sb_locs_state[<span class="st">&quot;hover&quot;</span>] <span class="op">=</span> (</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;State: &quot;</span> <span class="op">+</span> sb_locs_state[<span class="st">&quot;State&quot;</span>].astype(<span class="bu">str</span>) <span class="op">+</span> <span class="st">&quot;&lt;br&gt;&quot;</span> <span class="op">+</span></span>
@@ -4292,7 +4292,7 @@ vertical-align: -.125em;
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Map 1: Stores per state</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>map1 <span class="op">=</span> go.Choropleth(</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>fig1 <span class="op">=</span> go.Figure(go.Choropleth(</span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    locations<span class="op">=</span>___,</span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    z<span class="op">=</span>___,</span>
 <span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    locationmode<span class="op">=</span>___,</span>
@@ -4300,31 +4300,31 @@ vertical-align: -.125em;
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    hoverinfo<span class="op">=</span>___,</span>
 <span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    colorscale<span class="op">=</span>___,</span>
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    colorbar_title<span class="op">=</span>___,</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Map 2: Population per state</span></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>map2 <span class="op">=</span> go.Choropleth(</span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    locations<span class="op">=</span>___,</span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    z<span class="op">=</span>___,</span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    locationmode<span class="op">=</span>___,</span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    text<span class="op">=</span>___,</span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    hoverinfo<span class="op">=</span>___,</span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    colorscale<span class="op">=</span>___,</span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    colorbar_title<span class="op">=</span>___,</span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> make_subplots(</span>
-<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>    rows<span class="op">=</span><span class="dv">1</span>, cols<span class="op">=</span><span class="dv">2</span>,</span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>    specs<span class="op">=</span>[[{<span class="st">&quot;type&quot;</span>: <span class="st">&quot;choropleth&quot;</span>}, {<span class="st">&quot;type&quot;</span>: <span class="st">&quot;choropleth&quot;</span>}]],</span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>    subplot_titles<span class="op">=</span>[<span class="st">&quot;Starbucks Stores per State&quot;</span>, <span class="st">&quot;Population per State&quot;</span>]</span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>fig.add_trace(map1, row<span class="op">=</span><span class="dv">1</span>, col<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>fig.add_trace(map2, row<span class="op">=</span><span class="dv">1</span>, col<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>fig.update_geos(scope<span class="op">=</span><span class="st">&quot;usa&quot;</span>, projection_type<span class="op">=</span><span class="st">&quot;albers usa&quot;</span>, showlakes<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>fig.update_layout(height<span class="op">=</span><span class="dv">400</span>)</span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>fig1.update_layout(</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span>___,</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    geo<span class="op">=</span><span class="bu">dict</span>(scope<span class="op">=</span><span class="st">&quot;usa&quot;</span>, projection_type<span class="op">=</span><span class="st">&quot;albers usa&quot;</span>, showlakes<span class="op">=</span><span class="va">True</span>),</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">450</span>,</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>fig1.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="5bec7fbb" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Map 2: Population per state</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fig2 <span class="op">=</span> go.Figure(go.Choropleth(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    locations<span class="op">=</span>___,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    z<span class="op">=</span>___,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    locationmode<span class="op">=</span>___,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    text<span class="op">=</span>___,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    hoverinfo<span class="op">=</span>___,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    colorscale<span class="op">=</span>___,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    colorbar_title<span class="op">=</span>___,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>fig2.update_layout(</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span>___,</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    geo<span class="op">=</span><span class="bu">dict</span>(scope<span class="op">=</span><span class="st">&quot;usa&quot;</span>, projection_type<span class="op">=</span><span class="st">&quot;albers usa&quot;</span>, showlakes<span class="op">=</span><span class="va">True</span>),</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    height<span class="op">=</span><span class="dv">450</span>,</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>fig2.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><ol start="7" type="1">
@@ -4336,100 +4336,100 @@ vertical-align: -.125em;
 <h3 class="anchored" data-anchor-id="dash-dashboard">8. Dash Dashboard</h3>
 <p>Build a simple interactive Dash dashboard for the Starbucks data. The app below provides a starting structure — save it as a <code>.py</code> file and run it with <code>python app.py</code>.</p>
 <p>The dashboard should include: - A dropdown to select a nutritional variable (Calories, Fat, Carbs, Protein, etc.) - A bar chart showing the mean value of that variable for the top 10 menu item words - A scatter plot of Calories vs. the selected variable, colored by Food/Beverage category - Fill in the <code>...</code> components</p>
-<div id="7bcb5578" class="cell" data-execution_count="13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save this as starbucks_dash.py and run with: python3 starbucks_dash.py</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dash <span class="im">import</span> Dash, dcc, html, Input, Output</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Data preparation</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>sb_nutr <span class="op">=</span> pd.read_csv(<span class="st">&quot;starbucks-menu-nutrition.csv&quot;</span>)</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>sb_nutr.columns <span class="op">=</span> sb_nutr.columns.<span class="bu">str</span>.strip()</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize item names and find top 10 words</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> Counter(</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    w <span class="cf">for</span> name <span class="kw">in</span> sb_nutr[<span class="st">&quot;Item&quot;</span>].dropna()</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> w <span class="kw">in</span> re.findall(<span class="vs">r&quot;</span><span class="pp">[a-zA-Z]</span><span class="op">+</span><span class="vs">&quot;</span>, name.lower())</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(w) <span class="op">&gt;</span> <span class="dv">2</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>top10 <span class="op">=</span> [w <span class="cf">for</span> w, _ <span class="kw">in</span> words.most_common(<span class="dv">10</span>)]</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_word(item_name):</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> w <span class="kw">in</span> top10:</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> w <span class="kw">in</span> item_name.lower():</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> w</span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>sb_nutr[<span class="st">&quot;top_word&quot;</span>] <span class="op">=</span> sb_nutr[<span class="st">&quot;Item&quot;</span>].<span class="bu">apply</span>(find_word)</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>sb_top <span class="op">=</span> sb_nutr.dropna(subset<span class="op">=</span>[<span class="st">&quot;top_word&quot;</span>]).copy()</span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>nutr_vars <span class="op">=</span> [<span class="st">&quot;Calories&quot;</span>, <span class="st">&quot;Fat (g)&quot;</span>, <span class="st">&quot;Carb. (g)&quot;</span>, <span class="st">&quot;Fiber (g)&quot;</span>, <span class="st">&quot;Protein (g)&quot;</span>]</span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="co"># App layout</span></span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Dash(<span class="va">__name__</span>)</span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>app.layout <span class="op">=</span> html.Div([</span>
-<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>    html.H1(<span class="st">&quot;Starbucks Menu Nutrition Explorer&quot;</span>,</span>
-<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>            style<span class="op">=</span>{<span class="st">&quot;textAlign&quot;</span>: <span class="st">&quot;center&quot;</span>, <span class="st">&quot;fontFamily&quot;</span>: <span class="st">&quot;Arial&quot;</span>}),</span>
-<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    html.Div([</span>
-<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>        html.Label(<span class="st">&quot;Select nutritional variable:&quot;</span>, style<span class="op">=</span>{<span class="st">&quot;fontWeight&quot;</span>: <span class="st">&quot;bold&quot;</span>}),</span>
-<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>        dcc.Dropdown(</span>
-<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>            <span class="bu">id</span><span class="op">=</span><span class="st">&quot;nutr-dd&quot;</span>,</span>
-<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>            options<span class="op">=</span>[{<span class="st">&quot;label&quot;</span>: v, <span class="st">&quot;value&quot;</span>: v} <span class="cf">for</span> v <span class="kw">in</span> nutr_vars],</span>
-<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>            value<span class="op">=</span><span class="st">&quot;Calories&quot;</span>,</span>
-<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>            clearable<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>            style<span class="op">=</span>{<span class="st">&quot;width&quot;</span>: <span class="st">&quot;300px&quot;</span>}</span>
-<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>        ),</span>
-<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>    ], style<span class="op">=</span>{<span class="st">&quot;padding&quot;</span>: <span class="st">&quot;20px 40px&quot;</span>, <span class="st">&quot;fontFamily&quot;</span>: <span class="st">&quot;Arial&quot;</span>}),</span>
-<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>    html.Div([</span>
-<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>        dcc.Graph(<span class="bu">id</span><span class="op">=</span><span class="st">&quot;bar-chart&quot;</span>, style<span class="op">=</span>{<span class="st">&quot;width&quot;</span>: <span class="st">&quot;50%&quot;</span>, <span class="st">&quot;display&quot;</span>: <span class="st">&quot;inline-block&quot;</span>}),</span>
-<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>        dcc.Graph(<span class="bu">id</span><span class="op">=</span><span class="st">&quot;scatter-chart&quot;</span>, style<span class="op">=</span>{<span class="st">&quot;width&quot;</span>: <span class="st">&quot;50%&quot;</span>, <span class="st">&quot;display&quot;</span>: <span class="st">&quot;inline-block&quot;</span>}),</span>
-<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>    ]),</span>
-<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>], style<span class="op">=</span>{<span class="st">&quot;maxWidth&quot;</span>: <span class="st">&quot;1200px&quot;</span>, <span class="st">&quot;margin&quot;</span>: <span class="st">&quot;auto&quot;</span>})</span>
-<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a><span class="co"># Callbacks</span></span>
-<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a><span class="at">@app.callback</span>(</span>
-<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>    Output(<span class="st">&quot;bar-chart&quot;</span>, <span class="st">&quot;figure&quot;</span>),</span>
-<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>    Output(<span class="st">&quot;scatter-chart&quot;</span>, <span class="st">&quot;figure&quot;</span>),</span>
-<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>    Input(<span class="st">&quot;nutr-dd&quot;</span>, <span class="st">&quot;value&quot;</span>),</span>
-<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update(selected_var):</span>
-<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a>    bar_df <span class="op">=</span> (</span>
-<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a>        sb_top.groupby(<span class="st">&quot;top_word&quot;</span>)[selected_var]</span>
-<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a>        .mean()</span>
-<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a>        .reset_index()</span>
-<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a>        .sort_values(..., ascending<span class="op">=</span><span class="va">False</span>)  <span class="co"># YOUR CODE HERE</span></span>
-<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a>    bar_fig <span class="op">=</span> px.bar(</span>
-<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a>        bar_df, x<span class="op">=</span>..., y<span class="op">=</span>...,  <span class="co"># YOUR CODE HERE</span></span>
-<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="ss">f&quot;Mean </span><span class="sc">{</span>selected_var<span class="sc">}</span><span class="ss"> by Top Menu Word&quot;</span>,</span>
-<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>{<span class="st">&quot;top_word&quot;</span>: <span class="st">&quot;Menu Word&quot;</span>},</span>
-<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a>        template<span class="op">=</span><span class="st">&quot;plotly_white&quot;</span>,</span>
-<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">&quot;top_word&quot;</span>,</span>
-<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a>        color_discrete_sequence<span class="op">=</span>px.colors.qualitative.Set2,</span>
-<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a>    bar_fig.update_layout(height<span class="op">=</span><span class="dv">420</span>, showlegend<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a>    scatter_fig <span class="op">=</span> px.scatter(</span>
-<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a>        sb_top, x<span class="op">=</span>..., y<span class="op">=</span>...,  <span class="co"># YOUR CODE HERE</span></span>
-<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">&quot;Category&quot;</span>,</span>
-<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a>        hover_data<span class="op">=</span>[<span class="st">&quot;Item&quot;</span>, <span class="st">&quot;top_word&quot;</span>],</span>
-<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="ss">f&quot;Calories vs. </span><span class="sc">{</span>selected_var<span class="sc">}</span><span class="ss">&quot;</span>,</span>
-<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a>        template<span class="op">=</span><span class="st">&quot;plotly_white&quot;</span>,</span>
-<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>        opacity<span class="op">=</span><span class="fl">0.7</span>,</span>
-<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a>    scatter_fig.update_layout(height<span class="op">=</span><span class="dv">420</span>, hovermode<span class="op">=</span><span class="st">&quot;closest&quot;</span>)</span>
-<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ..., ...  <span class="co"># YOUR CODE HERE</span></span>
-<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
-<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a>    app.run(debug<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="d8f4b7eb" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save this as starbucks_dash.py and run with: python3 starbucks_dash.py</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dash <span class="im">import</span> Dash, dcc, html, Input, Output</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Data preparation</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>sb_nutr <span class="op">=</span> pd.read_csv(<span class="st">&quot;starbucks-menu-nutrition.csv&quot;</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>sb_nutr.columns <span class="op">=</span> sb_nutr.columns.<span class="bu">str</span>.strip()</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize item names and find top 10 words</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>words <span class="op">=</span> Counter(</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    w <span class="cf">for</span> name <span class="kw">in</span> sb_nutr[<span class="st">&quot;Item&quot;</span>].dropna()</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> w <span class="kw">in</span> re.findall(<span class="vs">r&quot;</span><span class="pp">[a-zA-Z]</span><span class="op">+</span><span class="vs">&quot;</span>, name.lower())</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(w) <span class="op">&gt;</span> <span class="dv">2</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>top10 <span class="op">=</span> [w <span class="cf">for</span> w, _ <span class="kw">in</span> words.most_common(<span class="dv">10</span>)]</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_word(item_name):</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> w <span class="kw">in</span> top10:</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> w <span class="kw">in</span> item_name.lower():</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> w</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>sb_nutr[<span class="st">&quot;top_word&quot;</span>] <span class="op">=</span> sb_nutr[<span class="st">&quot;Item&quot;</span>].<span class="bu">apply</span>(find_word)</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>sb_top <span class="op">=</span> sb_nutr.dropna(subset<span class="op">=</span>[<span class="st">&quot;top_word&quot;</span>]).copy()</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>nutr_vars <span class="op">=</span> [<span class="st">&quot;Calories&quot;</span>, <span class="st">&quot;Fat (g)&quot;</span>, <span class="st">&quot;Carb. (g)&quot;</span>, <span class="st">&quot;Fiber (g)&quot;</span>, <span class="st">&quot;Protein (g)&quot;</span>]</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a><span class="co"># App layout</span></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Dash(<span class="va">__name__</span>)</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>app.layout <span class="op">=</span> html.Div([</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>    html.H1(<span class="st">&quot;Starbucks Menu Nutrition Explorer&quot;</span>,</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>            style<span class="op">=</span>{<span class="st">&quot;textAlign&quot;</span>: <span class="st">&quot;center&quot;</span>, <span class="st">&quot;fontFamily&quot;</span>: <span class="st">&quot;Arial&quot;</span>}),</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>    html.Div([</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>        html.Label(<span class="st">&quot;Select nutritional variable:&quot;</span>, style<span class="op">=</span>{<span class="st">&quot;fontWeight&quot;</span>: <span class="st">&quot;bold&quot;</span>}),</span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>        dcc.Dropdown(</span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>            <span class="bu">id</span><span class="op">=</span><span class="st">&quot;nutr-dd&quot;</span>,</span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>            options<span class="op">=</span>[{<span class="st">&quot;label&quot;</span>: v, <span class="st">&quot;value&quot;</span>: v} <span class="cf">for</span> v <span class="kw">in</span> nutr_vars],</span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>            value<span class="op">=</span><span class="st">&quot;Calories&quot;</span>,</span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>            clearable<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>            style<span class="op">=</span>{<span class="st">&quot;width&quot;</span>: <span class="st">&quot;300px&quot;</span>}</span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a>    ], style<span class="op">=</span>{<span class="st">&quot;padding&quot;</span>: <span class="st">&quot;20px 40px&quot;</span>, <span class="st">&quot;fontFamily&quot;</span>: <span class="st">&quot;Arial&quot;</span>}),</span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>    html.Div([</span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a>        dcc.Graph(<span class="bu">id</span><span class="op">=</span><span class="st">&quot;bar-chart&quot;</span>, style<span class="op">=</span>{<span class="st">&quot;width&quot;</span>: <span class="st">&quot;50%&quot;</span>, <span class="st">&quot;display&quot;</span>: <span class="st">&quot;inline-block&quot;</span>}),</span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>        dcc.Graph(<span class="bu">id</span><span class="op">=</span><span class="st">&quot;scatter-chart&quot;</span>, style<span class="op">=</span>{<span class="st">&quot;width&quot;</span>: <span class="st">&quot;50%&quot;</span>, <span class="st">&quot;display&quot;</span>: <span class="st">&quot;inline-block&quot;</span>}),</span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>    ]),</span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>], style<span class="op">=</span>{<span class="st">&quot;maxWidth&quot;</span>: <span class="st">&quot;1200px&quot;</span>, <span class="st">&quot;margin&quot;</span>: <span class="st">&quot;auto&quot;</span>})</span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a><span class="co"># Callbacks</span></span>
+<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a><span class="at">@app.callback</span>(</span>
+<span id="cb13-58"><a href="#cb13-58" aria-hidden="true" tabindex="-1"></a>    Output(<span class="st">&quot;bar-chart&quot;</span>, <span class="st">&quot;figure&quot;</span>),</span>
+<span id="cb13-59"><a href="#cb13-59" aria-hidden="true" tabindex="-1"></a>    Output(<span class="st">&quot;scatter-chart&quot;</span>, <span class="st">&quot;figure&quot;</span>),</span>
+<span id="cb13-60"><a href="#cb13-60" aria-hidden="true" tabindex="-1"></a>    Input(<span class="st">&quot;nutr-dd&quot;</span>, <span class="st">&quot;value&quot;</span>),</span>
+<span id="cb13-61"><a href="#cb13-61" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-62"><a href="#cb13-62" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update(selected_var):</span>
+<span id="cb13-63"><a href="#cb13-63" aria-hidden="true" tabindex="-1"></a>    bar_df <span class="op">=</span> (</span>
+<span id="cb13-64"><a href="#cb13-64" aria-hidden="true" tabindex="-1"></a>        sb_top.groupby(<span class="st">&quot;top_word&quot;</span>)[selected_var]</span>
+<span id="cb13-65"><a href="#cb13-65" aria-hidden="true" tabindex="-1"></a>        .mean()</span>
+<span id="cb13-66"><a href="#cb13-66" aria-hidden="true" tabindex="-1"></a>        .reset_index()</span>
+<span id="cb13-67"><a href="#cb13-67" aria-hidden="true" tabindex="-1"></a>        .sort_values(..., ascending<span class="op">=</span><span class="va">False</span>)  <span class="co"># YOUR CODE HERE</span></span>
+<span id="cb13-68"><a href="#cb13-68" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-69"><a href="#cb13-69" aria-hidden="true" tabindex="-1"></a>    bar_fig <span class="op">=</span> px.bar(</span>
+<span id="cb13-70"><a href="#cb13-70" aria-hidden="true" tabindex="-1"></a>        bar_df, x<span class="op">=</span>..., y<span class="op">=</span>...,  <span class="co"># YOUR CODE HERE</span></span>
+<span id="cb13-71"><a href="#cb13-71" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="ss">f&quot;Mean </span><span class="sc">{</span>selected_var<span class="sc">}</span><span class="ss"> by Top Menu Word&quot;</span>,</span>
+<span id="cb13-72"><a href="#cb13-72" aria-hidden="true" tabindex="-1"></a>        labels<span class="op">=</span>{<span class="st">&quot;top_word&quot;</span>: <span class="st">&quot;Menu Word&quot;</span>},</span>
+<span id="cb13-73"><a href="#cb13-73" aria-hidden="true" tabindex="-1"></a>        template<span class="op">=</span><span class="st">&quot;plotly_white&quot;</span>,</span>
+<span id="cb13-74"><a href="#cb13-74" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">&quot;top_word&quot;</span>,</span>
+<span id="cb13-75"><a href="#cb13-75" aria-hidden="true" tabindex="-1"></a>        color_discrete_sequence<span class="op">=</span>px.colors.qualitative.Set2,</span>
+<span id="cb13-76"><a href="#cb13-76" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-77"><a href="#cb13-77" aria-hidden="true" tabindex="-1"></a>    bar_fig.update_layout(height<span class="op">=</span><span class="dv">420</span>, showlegend<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb13-78"><a href="#cb13-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-79"><a href="#cb13-79" aria-hidden="true" tabindex="-1"></a>    scatter_fig <span class="op">=</span> px.scatter(</span>
+<span id="cb13-80"><a href="#cb13-80" aria-hidden="true" tabindex="-1"></a>        sb_top, x<span class="op">=</span>..., y<span class="op">=</span>...,  <span class="co"># YOUR CODE HERE</span></span>
+<span id="cb13-81"><a href="#cb13-81" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">&quot;Category&quot;</span>,</span>
+<span id="cb13-82"><a href="#cb13-82" aria-hidden="true" tabindex="-1"></a>        hover_data<span class="op">=</span>[<span class="st">&quot;Item&quot;</span>, <span class="st">&quot;top_word&quot;</span>],</span>
+<span id="cb13-83"><a href="#cb13-83" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="ss">f&quot;Calories vs. </span><span class="sc">{</span>selected_var<span class="sc">}</span><span class="ss">&quot;</span>,</span>
+<span id="cb13-84"><a href="#cb13-84" aria-hidden="true" tabindex="-1"></a>        template<span class="op">=</span><span class="st">&quot;plotly_white&quot;</span>,</span>
+<span id="cb13-85"><a href="#cb13-85" aria-hidden="true" tabindex="-1"></a>        opacity<span class="op">=</span><span class="fl">0.7</span>,</span>
+<span id="cb13-86"><a href="#cb13-86" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-87"><a href="#cb13-87" aria-hidden="true" tabindex="-1"></a>    scatter_fig.update_layout(height<span class="op">=</span><span class="dv">420</span>, hovermode<span class="op">=</span><span class="st">&quot;closest&quot;</span>)</span>
+<span id="cb13-88"><a href="#cb13-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-89"><a href="#cb13-89" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ..., ...  <span class="co"># YOUR CODE HERE</span></span>
+<span id="cb13-90"><a href="#cb13-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-91"><a href="#cb13-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-92"><a href="#cb13-92" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&quot;__main__&quot;</span>:</span>
+<span id="cb13-93"><a href="#cb13-93" aria-hidden="true" tabindex="-1"></a>    app.run(debug<span class="op">=</span><span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <blockquote class="blockquote">
 <p><strong>To run:</strong> Copy the code above into a file called <code>starbucks_dash.py</code> in the same folder as your data, then run <code>python3 starbucks_dash.py</code> in your terminal. Open <a href="http://127.0.0.1:8050">http://127.0.0.1:8050</a> in your browser.</p>

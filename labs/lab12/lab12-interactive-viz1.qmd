@@ -213,7 +213,7 @@ fig.show()
 
 ### 7. Choropleth Map
 
-- Create a choropleth map to visualize the number of stores per state, and another for population by state. Add custom hover text. Use `make_subplots` to place the maps side by side.
+- Create two choropleth maps: one for the number of stores per state, one for population by state. Add custom hover text. Display them separately.
 - Describe any differences.
 
 ```{python}
@@ -225,7 +225,7 @@ sb_locs_state["hover"] = (
 )
 
 # Map 1: Stores per state
-map1 = go.Choropleth(
+fig1 = go.Figure(go.Choropleth(
     locations=___,
     z=___,
     locationmode=___,
@@ -233,10 +233,18 @@ map1 = go.Choropleth(
     hoverinfo=___,
     colorscale=___,
     colorbar_title=___,
+))
+fig1.update_layout(
+    title=___,
+    geo=dict(scope="usa", projection_type="albers usa", showlakes=True),
+    height=450,
 )
+fig1.show()
+```
 
+```{python}
 # Map 2: Population per state
-map2 = go.Choropleth(
+fig2 = go.Figure(go.Choropleth(
     locations=___,
     z=___,
     locationmode=___,
@@ -244,20 +252,13 @@ map2 = go.Choropleth(
     hoverinfo=___,
     colorscale=___,
     colorbar_title=___,
+))
+fig2.update_layout(
+    title=___,
+    geo=dict(scope="usa", projection_type="albers usa", showlakes=True),
+    height=450,
 )
-
-fig = make_subplots(
-    rows=1, cols=2,
-    specs=[[{"type": "choropleth"}, {"type": "choropleth"}]],
-    subplot_titles=["Starbucks Stores per State", "Population per State"]
-)
-
-fig.add_trace(map1, row=1, col=1)
-fig.add_trace(map2, row=1, col=2)
-
-fig.update_geos(scope="usa", projection_type="albers usa", showlakes=True)
-fig.update_layout(height=400)
-fig.show()
+fig2.show()
 ```
 
 - 7) Answer:
