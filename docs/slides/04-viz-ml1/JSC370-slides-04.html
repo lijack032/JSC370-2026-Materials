@@ -244,7 +244,7 @@ g(\mathbb{E}[Y \mid X])=\beta_0 + s_1(x_1) + s_2(x_2) + \cdots + s_p(x_p)
 <section id="flights-data" class="slide level2">
 <h2>Flights data</h2>
 <p>To illustrate many of today’s visualization examples we will look at the <code>flights</code> data from the <code>nycflights13</code> package. They are all flights that departed from NYC airports (JFK, LGA, EWR) in 2013.</p>
-<div id="48271fb1" class="cell" data-execution_count="2">
+<div id="28508474" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">from</span> nycflights13 <span class="im">import</span> flights</span>
 <span id="cb1-2"><a></a><span class="bu">print</span>(<span class="st">"Columns:"</span>, flights.columns.tolist())</span>
 <span id="cb1-3"><a></a><span class="bu">print</span>(<span class="st">"Shape:"</span>, flights.shape)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -260,7 +260,7 @@ Shape: (336776, 19)</code></pre>
 <li class="fragment"><p>An example using method chaining: subset the flights data to LAX, and take the mean arrival delay times by year, month, day.</p></li>
 <li class="fragment"><p>We need to start with the data, <code>query</code> or boolean indexing to filter to the desired destination (LAX), <code>groupby</code> to prepare the groups that we want to aggregate over, then <code>agg</code> to take the mean.</p></li>
 </ul>
-<div id="19675992" class="cell" data-execution_count="3">
+<div id="81bdd20a" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>(flights</span>
 <span id="cb3-2"><a></a> .query(<span class="st">'dest == "LAX"'</span>)</span>
 <span id="cb3-3"><a></a> .groupby([<span class="st">'year'</span>, <span class="st">'month'</span>, <span class="st">'day'</span>])</span>
@@ -381,7 +381,7 @@ Shape: (336776, 19)</code></pre>
 <section id="alternative-syntax-with-pipe" class="slide level2">
 <h2>Alternative syntax with pipe()</h2>
 <p>Let’s do the same thing using pandas’ <code>pipe()</code> method for a more functional style:</p>
-<div id="a58c2356" class="cell" data-execution_count="4">
+<div id="d82a7f01" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>(flights</span>
 <span id="cb4-2"><a></a> .pipe(<span class="kw">lambda</span> df: df[df[<span class="st">'dest'</span>] <span class="op">==</span> <span class="st">'LAX'</span>])</span>
 <span id="cb4-3"><a></a> .groupby([<span class="st">'year'</span>, <span class="st">'month'</span>, <span class="st">'day'</span>])</span>
@@ -509,7 +509,7 @@ Shape: (336776, 19)</code></pre>
 <li class="fragment">Each chained method should be indented for readability</li>
 </ul>
 <p>Example:</p>
-<div id="2ee12dbb" class="cell" data-execution_count="5">
+<div id="8aa703af" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>short_flights <span class="op">=</span> (flights</span>
 <span id="cb5-2"><a></a>    .query(<span class="st">'air_time &lt; 60'</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -517,7 +517,7 @@ Shape: (336776, 19)</code></pre>
 <section id="flights-data-in-more-detail" class="slide level2">
 <h2>Flights data in more detail</h2>
 <p>The <code>nycflights13</code> package also provides hourly airport weather data for the three NYC airports (the origin). Let’s join the flights data with the <code>weather</code> data so we can look at more interesting relationships in our visualizations.</p>
-<div id="79320cd4" class="cell" data-execution_count="6">
+<div id="0d37df73" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>weather <span class="op">=</span> pd.read_csv(<span class="st">'flights_weather.csv'</span>)</span>
 <span id="cb6-2"><a></a><span class="bu">print</span>(<span class="st">"Columns:"</span>, weather.columns.tolist())</span>
 <span id="cb6-3"><a></a><span class="bu">print</span>(<span class="st">"Shape:"</span>, weather.shape)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -531,7 +531,7 @@ Shape: (26115, 15)</code></pre>
 <h2>Flights data in more detail</h2>
 <p>Looks like we can join these datasets on year, month, day, hour and origin (which is the origin airport). We can examine the relationship between flight delays and weather at the origin airports (JFK, LGA, EWR).</p>
 <p>A <code>merge</code> with <code>how='left'</code> will keep all of the observations in the left DataFrame (flights) and merge with the observations in the right DataFrame (weather at origin).</p>
-<div id="dcb6f937" class="cell" data-execution_count="7">
+<div id="86fd290f" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>flights_weather <span class="op">=</span> pd.merge(</span>
 <span id="cb8-2"><a></a>    flights,</span>
 <span id="cb8-3"><a></a>    weather,</span>
@@ -549,7 +549,7 @@ Shape: (26115, 15)</code></pre>
 <section id="daily-flights-data" class="slide level2">
 <h2>Daily flights data</h2>
 <p>Let’s make a more manageable sized dataset and summarize the data by month, day, and origin airport by taking the means of the weather variables.</p>
-<div id="0e7699ce" class="cell" data-execution_count="8">
+<div id="994c4d6c" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>agg_cols <span class="op">=</span> [<span class="st">'dep_delay'</span>, <span class="st">'arr_delay'</span>, <span class="st">'temp'</span>, <span class="st">'dewp'</span>, <span class="st">'humid'</span>,</span>
 <span id="cb10-2"><a></a>            <span class="st">'wind_dir'</span>, <span class="st">'wind_speed'</span>, <span class="st">'wind_gust'</span>, <span class="st">'precip'</span>, <span class="st">'pressure'</span>, <span class="st">'visib'</span>]</span>
 <span id="cb10-3"><a></a></span>
@@ -568,7 +568,7 @@ Shape: (26115, 15)</code></pre>
 <section id="mapping-flight-routes" class="slide level2">
 <h2>Mapping Flight Routes</h2>
 <p>The <code>nycflights13</code> package also includes airport coordinates. We can merge these in with <code>flights</code> to map where are the popular NYC destinations.</p>
-<div id="68e9e927" class="cell" data-execution_count="9">
+<div id="87087b7e" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="im">from</span> nycflights13 <span class="im">import</span> airports</span>
 <span id="cb12-2"><a></a></span>
 <span id="cb12-3"><a></a><span class="co"># get routes by origin (EWR, JFK, LGA) and destination, count the number of flights per</span></span>
@@ -652,7 +652,7 @@ Shape: (26115, 15)</code></pre>
 <section id="flight-routes-data" class="slide level2">
 <h2>Flight Routes Data</h2>
 <p>Merge flight routes with geospatial information (latitude and longitude) by <code>origin</code> (it is the <code>faa</code> column in airports) and rename to have <code>dest_lat</code>, <code>dest_lon</code> along with <code>origin_lat</code> and <code>origin_lon</code></p>
-<div id="41ae1b59" class="cell" data-execution_count="10">
+<div id="537bbeef" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>flight_routes_geo <span class="op">=</span> (flight_routes</span>
 <span id="cb13-2"><a></a>    .merge(airports[[<span class="st">'faa'</span>, <span class="st">'lat'</span>, <span class="st">'lon'</span>]],</span>
 <span id="cb13-3"><a></a>           left_on<span class="op">=</span><span class="st">'dest'</span>, right_on<span class="op">=</span><span class="st">'faa'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
@@ -758,7 +758,7 @@ Shape: (26115, 15)</code></pre>
 <section id="flight-routes-map" class="slide level2">
 <h2>Flight Routes Map</h2>
 <p>Like we saw last week, we can make a basic map we can use <code>matplotlib</code> and <code>contixtily</code> (basemap).</p>
-<div id="b5bf3ac3" class="cell" data-execution_count="11">
+<div id="53693c7b" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb15-2"><a></a><span class="im">import</span> contextily <span class="im">as</span> ctx</span>
 <span id="cb15-3"><a></a></span>
@@ -808,7 +808,7 @@ Shape: (26115, 15)</code></pre>
 <section id="basemap-options" class="slide level2">
 <h2>Basemap Options</h2>
 <p>The <code>contextily</code> library provides several basemap tile providers:</p>
-<div id="667779f2" class="cell" data-execution_count="12">
+<div id="9914b263" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>ctx.providers.CartoDB.Positron      <span class="co"># light gray, minimal labels</span></span>
 <span id="cb16-2"><a></a>ctx.providers.CartoDB.PositronNoLabels</span>
 <span id="cb16-3"><a></a>ctx.providers.Stamen.TonerLite      <span class="co"># black and white</span></span>
@@ -838,7 +838,7 @@ Shape: (26115, 15)</code></pre>
 <li class="fragment">Layers are added to <code>ggplot()</code> with <code>+</code></li>
 <li class="fragment">Layers include <code>geom_</code> functions such as point, lines, etc.</li>
 </ul>
-<div id="924637e0" class="cell" data-execution_count="13">
+<div id="4ffafdfb" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>(ggplot(data, aes(x<span class="op">=</span><span class="st">'x_var'</span>, y<span class="op">=</span><span class="st">'y_var'</span>)) <span class="op">+</span></span>
 <span id="cb17-2"><a></a>  geom_point())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -846,7 +846,7 @@ Shape: (26115, 15)</code></pre>
 <section id="basic-scatterplot" class="slide level2">
 <h2>Basic scatterplot</h2>
 <p>The first argument of <code>ggplot()</code> is the dataset to use, then the aesthetics. With the <code>+</code> you add one or more layers.</p>
-<div id="e274da62" class="cell" data-execution_count="14">
+<div id="c3d0f1c4" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'arr_delay'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
 <span id="cb18-2"><a></a>  geom_point() <span class="op">+</span></span>
 <span id="cb18-3"><a></a>  theme_minimal())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -863,7 +863,7 @@ Shape: (26115, 15)</code></pre>
 <section id="another-basic-scatterplot" class="slide level2">
 <h2>Another basic scatterplot</h2>
 <p>We can see if there is a relationship between departure delays and pressure (low pressure means clouds and precipitation, high pressure means better weather).</p>
-<div id="9c7bad4a" class="cell" data-execution_count="15">
+<div id="e7dd4c0d" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'pressure'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
 <span id="cb19-2"><a></a>  geom_point() <span class="op">+</span></span>
 <span id="cb19-3"><a></a>  theme_minimal())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -879,7 +879,7 @@ Shape: (26115, 15)</code></pre>
 <section id="controlling-transparency-using-alpha" class="slide level2">
 <h2>Controlling transparency using “alpha”</h2>
 <p>The alpha control can go in the layer that you are plotting, for example in the <code>geom_point(alpha = )</code> layer we can directly control the transparency of the points (0 is fully transparent, 1 is fully opaque).</p>
-<div id="dbb86b96" class="cell" data-execution_count="16">
+<div id="436fd789" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'pressure'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
 <span id="cb20-2"><a></a>  geom_point(alpha<span class="op">=</span><span class="fl">0.4</span>) <span class="op">+</span></span>
 <span id="cb20-3"><a></a>  theme_minimal())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -896,7 +896,7 @@ Shape: (26115, 15)</code></pre>
 <h2>Adding labels and themes</h2>
 <p>You can make nicer axes and add titles with the <code>labs</code> layer</p>
 <p>Also showing a minimal theme that removes the background grey <code>theme_bw()</code> (has a plot border) or <code>theme_minimal()</code> (no plot border, lighter and sparser grid lines)</p>
-<div id="a21a2e2b" class="cell" data-execution_count="17">
+<div id="e0ac5675" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'pressure'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
 <span id="cb21-2"><a></a>  geom_point(alpha<span class="op">=</span><span class="fl">0.3</span>) <span class="op">+</span></span>
 <span id="cb21-3"><a></a>  geom_smooth() <span class="op">+</span></span>
@@ -919,7 +919,7 @@ Shape: (26115, 15)</code></pre>
 <h2>Coloring by a variable - using aesthetics</h2>
 <p>You can convey information about your data by mapping the aesthetics in your plot to the variables in your dataset. For example, you can map the colors of your points to the <code>origin</code> variable to reveal groupings.</p>
 <p><code>plotnine</code> chooses colors, and adds a legend, automatically.</p>
-<div id="94b237c9" class="cell" data-execution_count="18">
+<div id="d6889195" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'arr_delay'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>, color<span class="op">=</span><span class="st">'origin'</span>)) <span class="op">+</span></span>
 <span id="cb22-2"><a></a>  geom_point() <span class="op">+</span></span>
 <span id="cb22-3"><a></a>  theme_minimal())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -936,7 +936,7 @@ Shape: (26115, 15)</code></pre>
 <h2>Coloring by a variable - using aesthetics</h2>
 <p>Note when there are a lot of classes or groups, the coloring is not distinguished well.</p>
 <p>This is generally bad practice.</p>
-<div id="4ca6e960" class="cell" data-execution_count="19">
+<div id="8e9ba0e6" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>(ggplot(flights_weather, aes(x<span class="op">=</span><span class="st">'arr_delay'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>, color<span class="op">=</span><span class="st">'dest'</span>)) <span class="op">+</span></span>
 <span id="cb23-2"><a></a>  geom_point() <span class="op">+</span></span>
 <span id="cb23-3"><a></a>  theme_minimal())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -952,7 +952,7 @@ Shape: (26115, 15)</code></pre>
 <section id="coloring-by-a-variable---using-aesthetics-2" class="slide level2">
 <h2>Coloring by a variable - using aesthetics</h2>
 <p>Too many points? Take a random sample and plot again.</p>
-<div id="07b5ba3d" class="cell" data-execution_count="20">
+<div id="53c66b60" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>(ggplot(flights_weather.sample(<span class="dv">1000</span>), aes(x<span class="op">=</span><span class="st">'arr_delay'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>, color<span class="op">=</span><span class="st">'dest'</span>)) <span class="op">+</span></span>
 <span id="cb24-2"><a></a>  geom_point() <span class="op">+</span></span>
 <span id="cb24-3"><a></a>  theme_minimal() <span class="op">+</span></span>
@@ -969,7 +969,7 @@ Shape: (26115, 15)</code></pre>
 <section id="points-shape" class="slide level2">
 <h2>Points shape</h2>
 <p>By default <code>plotnine</code> uses up to 6 shapes with <code>shape=</code> in the <code>aes()</code> aesthetics. If there are more, some of your data is not plotted!! (At least it warns you.)</p>
-<div id="b180dbac" class="cell" data-execution_count="21">
+<div id="ed5717c7" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'arr_delay'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>, shape<span class="op">=</span><span class="st">'origin'</span>)) <span class="op">+</span></span>
 <span id="cb25-2"><a></a>  geom_point(alpha<span class="op">=</span><span class="fl">0.6</span>) <span class="op">+</span></span>
 <span id="cb25-3"><a></a>  theme_minimal())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -986,7 +986,7 @@ Shape: (26115, 15)</code></pre>
 <h2>Manual control of aesthetics</h2>
 <p>If we control aesthetics manually in the layer such as <code>geom_point()</code> (i.e.&nbsp;outside <code>aes()</code>), they become fixed constants for that geom, not variables mapped from the data.</p>
 <p>One more important detail in <code>plotnine</code>: if you write <code>aes(color='blue')</code>, that’s a mapping (to the literal string “blue”), not a fixed aesthetic, so you’ll often get an odd legend. Fixed values should be outside <code>aes()</code>, but coloring by a variable (such as a group) should be inside <code>aes()</code>.</p>
-<div id="c4abc650" class="cell" data-execution_count="22">
+<div id="2db8ddf3" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'arr_delay'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
 <span id="cb26-2"><a></a>  geom_point(color<span class="op">=</span><span class="st">'blue'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>) <span class="op">+</span></span>
 <span id="cb26-3"><a></a>  theme_minimal())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1048,7 +1048,7 @@ Shape: (26115, 15)</code></pre>
 <section id="facets-1" class="slide level2">
 <h2>Facets 1</h2>
 <p>Facets are particularly useful for categorical variables:</p>
-<div id="284aa243" class="cell" data-execution_count="23">
+<div id="006e2ae7" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'wind_speed'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
 <span id="cb27-2"><a></a>  geom_point(alpha<span class="op">=</span><span class="fl">0.5</span>) <span class="op">+</span></span>
 <span id="cb27-3"><a></a>  facet_wrap(<span class="st">'~origin'</span>, nrow<span class="op">=</span><span class="dv">1</span>) <span class="op">+</span></span>
@@ -1065,7 +1065,7 @@ Shape: (26115, 15)</code></pre>
 <section id="facets-2" class="slide level2">
 <h2>Facets 2</h2>
 <p>Or you can facet on two variables:</p>
-<div id="f6d85ae4" class="cell" data-execution_count="24">
+<div id="fdf3919e" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'arr_delay'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
 <span id="cb28-2"><a></a>  geom_point(alpha<span class="op">=</span><span class="fl">0.3</span>, size<span class="op">=</span><span class="fl">0.5</span>) <span class="op">+</span></span>
 <span id="cb28-3"><a></a>  facet_grid(<span class="st">'month~origin'</span>) <span class="op">+</span></span>
@@ -1084,7 +1084,7 @@ Shape: (26115, 15)</code></pre>
 <section id="geometric-objects-1" class="slide level2">
 <h2>Geometric Objects 1</h2>
 <p>Geometric objects are used to control the type of plot you draw. Let’s plot a smoothed line fitted to the scatterplot data between pressure and departure delay.</p>
-<div id="bcc2d98f" class="cell" data-execution_count="25">
+<div id="25eaa031" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'pressure'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
 <span id="cb29-2"><a></a>  geom_point(alpha<span class="op">=</span><span class="fl">0.3</span>) <span class="op">+</span></span>
 <span id="cb29-3"><a></a>  geom_smooth() <span class="op">+</span></span>
@@ -1102,7 +1102,7 @@ Shape: (26115, 15)</code></pre>
 <h2>Geometric Objects 2</h2>
 <p>Note that not every aesthetic works with every geom function.</p>
 <p>For example, <code>linetype</code> is an aesthetic mapping that controls the pattern used to draw lines (solid, dashed, dotted, etc.).</p>
-<div id="5d0eff9e" class="cell" data-execution_count="26">
+<div id="88c8b495" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'pressure'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>, linetype<span class="op">=</span><span class="st">'origin'</span>)) <span class="op">+</span></span>
 <span id="cb30-2"><a></a>  geom_smooth(se<span class="op">=</span><span class="va">False</span>) <span class="op">+</span></span>
 <span id="cb30-3"><a></a>  theme_minimal())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1125,7 +1125,7 @@ Shape: (26115, 15)</code></pre>
 <section id="multiple-geoms-1" class="slide level2">
 <h2>Multiple Geoms 1</h2>
 <p>To display multiple geoms in the same plot, add multiple <code>geom</code> functions to <code>ggplot()</code>, for example <code>geom_point</code> and <code>geom_smooth</code></p>
-<div id="17b235fe" class="cell" data-execution_count="27">
+<div id="19ba065d" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1138,7 +1138,7 @@ Shape: (26115, 15)</code></pre>
 <section id="multiple-geoms-2" class="slide level2">
 <h2>Multiple Geoms 2</h2>
 <p>If you place mappings in a <code>geom</code> function, <code>plotnine</code> will use these mappings to extend or overwrite the global mappings for that layer only. This makes it possible to display different aesthetics in different layers.</p>
-<div id="4a28361b" class="cell" data-execution_count="28">
+<div id="488c4b0a" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'pressure'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
 <span id="cb31-2"><a></a>  geom_point(aes(color<span class="op">=</span><span class="st">'origin'</span>), alpha<span class="op">=</span><span class="fl">0.5</span>) <span class="op">+</span></span>
 <span id="cb31-3"><a></a>  geom_smooth() <span class="op">+</span></span>
@@ -1155,7 +1155,7 @@ Shape: (26115, 15)</code></pre>
 <section id="multiple-geoms-3" class="slide level2">
 <h2>Multiple Geoms 3</h2>
 <p>You can use the same idea to specify different data for each layer. Here, our smooth line displays just a subset of the dataset, the flights departing from JFK. The local data argument in <code>geom_smooth()</code> overrides the global data argument in <code>ggplot()</code> for that layer only.</p>
-<div id="17542854" class="cell" data-execution_count="29">
+<div id="67c17002" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>jfk_data <span class="op">=</span> flights_weather_day.query(<span class="st">'origin == "JFK"'</span>)</span>
 <span id="cb32-2"><a></a></span>
 <span id="cb32-3"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'pressure'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
@@ -1175,7 +1175,7 @@ Shape: (26115, 15)</code></pre>
 <h2>Multiple Geoms 4</h2>
 <p>We can layer the points with <code>geom_point</code> and error bars on the <code>geom_smooth</code>.</p>
 <p>We can add <code>color</code> and <code>linetype</code> by origin airport.</p>
-<div id="b6e454a2" class="cell" data-execution_count="30">
+<div id="d7c3585e" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'pressure'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>, linetype<span class="op">=</span><span class="st">'origin'</span>,color<span class="op">=</span><span class="st">'origin'</span>)) <span class="op">+</span></span>
 <span id="cb33-2"><a></a>  geom_smooth(se<span class="op">=</span><span class="va">True</span>) <span class="op">+</span></span>
 <span id="cb33-3"><a></a>  geom_point(alpha<span class="op">=</span><span class="fl">0.3</span>) <span class="op">+</span></span>
@@ -1192,7 +1192,7 @@ Shape: (26115, 15)</code></pre>
 <section id="statistical-transformations---e.g.-bar-charts" class="slide level2">
 <h2>Statistical Transformations - e.g.&nbsp;Bar charts</h2>
 <p>Let’s make a bar chart of the number of flights at each origin airport in 2013. The algorithm uses a built-in statistical transformation, called a “stat”, to calculate the counts.</p>
-<div id="2d5fa392" class="cell" data-execution_count="31">
+<div id="2ccae0dc" class="cell" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>(ggplot(flights_weather, aes(x<span class="op">=</span><span class="st">'origin'</span>)) <span class="op">+</span></span>
 <span id="cb34-2"><a></a>  geom_bar() <span class="op">+</span></span>
 <span id="cb34-3"><a></a>  theme_minimal())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1208,7 +1208,7 @@ Shape: (26115, 15)</code></pre>
 <section id="bar-charts-2" class="slide level2">
 <h2>Bar charts 2</h2>
 <p>You can override the statistic a <code>geom</code> uses to construct its plot. e.g., if we want to plot proportions, rather than counts:</p>
-<div id="5ea9ddd8" class="cell" data-execution_count="32">
+<div id="28fa5007" class="cell" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a>(ggplot(flights_weather, aes(x<span class="op">=</span><span class="st">'origin'</span>, y<span class="op">=</span><span class="st">'..prop..'</span>, group<span class="op">=</span><span class="dv">1</span>)) <span class="op">+</span></span>
 <span id="cb35-2"><a></a>  geom_bar() <span class="op">+</span></span>
 <span id="cb35-3"><a></a>  theme_minimal())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1224,7 +1224,7 @@ Shape: (26115, 15)</code></pre>
 <section id="coloring-barcharts" class="slide level2">
 <h2>Coloring barcharts</h2>
 <p>You can color a bar chart using either the <code>color</code> aesthetic (only does the outline), or, more usefully, <code>fill</code>:</p>
-<div id="2ae7db04" class="cell" data-execution_count="33">
+<div id="3d34a9b5" class="cell" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>(ggplot(flights_weather, aes(x<span class="op">=</span><span class="st">'origin'</span>, fill<span class="op">=</span><span class="st">'origin'</span>)) <span class="op">+</span></span>
 <span id="cb36-2"><a></a>  geom_bar() <span class="op">+</span></span>
 <span id="cb36-3"><a></a>  theme_minimal())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1240,7 +1240,7 @@ Shape: (26115, 15)</code></pre>
 <section id="coloring-barcharts-1" class="slide level2">
 <h2>Coloring barcharts</h2>
 <p>More interestingly, you can fill by another variable. Let’s first subset our data to look at the destination airports with a lot of flights (more than 10,000 flights)</p>
-<div id="57ca6ce4" class="cell" data-execution_count="34">
+<div id="0527335e" class="cell" data-execution_count="34">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a></a>flights_weather_ss <span class="op">=</span> (flights_weather</span>
 <span id="cb37-2"><a></a>    .groupby(<span class="st">'dest'</span>)</span>
 <span id="cb37-3"><a></a>    .<span class="bu">filter</span>(<span class="kw">lambda</span> x: <span class="bu">len</span>(x) <span class="op">&gt;</span> <span class="dv">10000</span>))</span>
@@ -1260,7 +1260,7 @@ Shape: (26115, 15)</code></pre>
 <section id="coloring-barcharts-2" class="slide level2">
 <h2>Coloring barcharts</h2>
 <p>The <code>position='dodge'</code> places overlapping objects directly beside one another. This makes it easier to compare individual values.</p>
-<div id="f9967d8c" class="cell" data-execution_count="35">
+<div id="2983b1e4" class="cell" data-execution_count="35">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>(ggplot(flights_weather_ss, aes(x<span class="op">=</span><span class="st">'origin'</span>, fill<span class="op">=</span><span class="st">'dest'</span>)) <span class="op">+</span></span>
 <span id="cb38-2"><a></a>  geom_bar(position<span class="op">=</span><span class="st">'dodge'</span>) <span class="op">+</span></span>
 <span id="cb38-3"><a></a>  theme_minimal())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1277,7 +1277,7 @@ Shape: (26115, 15)</code></pre>
 <h2>Statistical transformations - another example</h2>
 <p>You might want to draw greater attention to the statistical transformation in your code. For example, you might use <code>stat_summary()</code>, which summarizes the y values for each unique x value.</p>
 <p>Here we plot the median delay with IQR (25th-75th quantiles) as bars.</p>
-<div id="045a3a1a" class="cell" data-execution_count="36">
+<div id="464c4b63" class="cell" data-execution_count="36">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a>(ggplot(flights_weather_ss, aes(x<span class="op">=</span><span class="st">'dest'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
 <span id="cb39-2"><a></a>  stat_summary(fun_y<span class="op">=</span>np.median,</span>
 <span id="cb39-3"><a></a>               fun_ymin<span class="op">=</span><span class="kw">lambda</span> x: np.percentile(x.dropna(), <span class="dv">25</span>),</span>
@@ -1295,7 +1295,7 @@ Shape: (26115, 15)</code></pre>
 <section id="coordinate-systems" class="slide level2">
 <h2>Coordinate systems</h2>
 <p>Coordinate systems are one of the more complicated corners of plotnine. To start with something simple, here’s how to flip axes:</p>
-<div id="94939ce0" class="cell" data-execution_count="37">
+<div id="e986fe41" class="cell" data-execution_count="37">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a><span class="co"># Unflipped</span></span>
 <span id="cb40-2"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'origin'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
 <span id="cb40-3"><a></a>  geom_boxplot() <span class="op">+</span></span>
@@ -1308,7 +1308,7 @@ Shape: (26115, 15)</code></pre>
 </div>
 </div>
 </div>
-<div id="6b9fe29b" class="cell" data-execution_count="38">
+<div id="b354ab77" class="cell" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a><span class="co"># Flipped</span></span>
 <span id="cb41-2"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'origin'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
 <span id="cb41-3"><a></a>  geom_boxplot() <span class="op">+</span></span>
@@ -1325,7 +1325,7 @@ Shape: (26115, 15)</code></pre>
 </section>
 <section id="coordinate-flip-the-statistical-transformation-plot" class="slide level2">
 <h2>Coordinate flip the statistical transformation plot</h2>
-<div id="8d325750" class="cell" data-execution_count="39">
+<div id="9dd2b159" class="cell" data-execution_count="39">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>(ggplot(flights_weather_ss, aes(x<span class="op">=</span><span class="st">'dest'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
 <span id="cb42-2"><a></a>  stat_summary(fun_y<span class="op">=</span>np.median,</span>
 <span id="cb42-3"><a></a>               fun_ymin<span class="op">=</span><span class="kw">lambda</span> x: np.percentile(x.dropna(), <span class="dv">25</span>),</span>
@@ -1344,7 +1344,7 @@ Shape: (26115, 15)</code></pre>
 <section id="coordinate-flip-on-barplot" class="slide level2">
 <h2>Coordinate flip on barplot</h2>
 <p>Let’s look at the top destinations from the NYC airports</p>
-<div id="a05b21f0" class="cell" data-execution_count="40">
+<div id="86474943" class="cell" data-execution_count="40">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a><span class="co"># Aggregate by destination</span></span>
 <span id="cb43-2"><a></a>top_dests <span class="op">=</span> (flight_routes</span>
 <span id="cb43-3"><a></a>    .groupby(<span class="st">'dest'</span>)[<span class="st">'n_flights'</span>]</span>
@@ -1388,7 +1388,7 @@ Shape: (26115, 15)</code></pre>
 <section id="color-ramps" class="slide level2">
 <h2>Color ramps</h2>
 <p>If you add a <strong>continuous</strong> variable in your color aesthetic, it will create a color ramp. Here we apply color with the variable <code>temp</code>.</p>
-<div id="ee955187" class="cell" data-execution_count="41">
+<div id="5f2332f1" class="cell" data-execution_count="41">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'pressure'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
 <span id="cb44-2"><a></a>  geom_point(aes(color<span class="op">=</span><span class="st">'temp'</span>), alpha<span class="op">=</span><span class="fl">0.6</span>) <span class="op">+</span></span>
 <span id="cb44-3"><a></a>  theme_minimal())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1404,7 +1404,7 @@ Shape: (26115, 15)</code></pre>
 <section id="color-palettes" class="slide level2">
 <h2>Color palettes</h2>
 <p>You can define your own color ramp or use one of the palettes. Here we manually change the color palette with <code>scale_color_gradient</code>.</p>
-<div id="e7c52bbc" class="cell" data-execution_count="42">
+<div id="6ea68550" class="cell" data-execution_count="42">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'pressure'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
 <span id="cb45-2"><a></a>  geom_point(aes(color<span class="op">=</span><span class="st">'temp'</span>), alpha<span class="op">=</span><span class="fl">0.6</span>) <span class="op">+</span></span>
 <span id="cb45-3"><a></a>  scale_color_gradient(low<span class="op">=</span><span class="st">'blue'</span>, high<span class="op">=</span><span class="st">'red'</span>) <span class="op">+</span></span>
@@ -1421,7 +1421,7 @@ Shape: (26115, 15)</code></pre>
 <section id="color-palettes-1" class="slide level2">
 <h2>Color palettes</h2>
 <p>You can get as detailed as you would like for the color ramp.</p>
-<div id="9fb6af82" class="cell" data-execution_count="43">
+<div id="15473b79" class="cell" data-execution_count="43">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a></a>(ggplot(flights_weather_day, aes(x<span class="op">=</span><span class="st">'pressure'</span>, y<span class="op">=</span><span class="st">'dep_delay'</span>)) <span class="op">+</span></span>
 <span id="cb46-2"><a></a>  geom_point(aes(color<span class="op">=</span><span class="st">'temp'</span>), alpha<span class="op">=</span><span class="fl">0.6</span>) <span class="op">+</span></span>
 <span id="cb46-3"><a></a>  scale_color_gradientn(colors<span class="op">=</span>[<span class="st">'#999999'</span>, <span class="st">'#E69F00'</span>, <span class="st">'#56B4E9'</span>, <span class="st">'#009E73'</span>, <span class="st">'#F0E442'</span>, <span class="st">'#0072B2'</span>, <span class="st">'#D55E00'</span>, <span class="st">'#CC79A7'</span>]) <span class="op">+</span></span>
@@ -1503,7 +1503,7 @@ Shape: (26115, 15)</code></pre>
 <section id="motivating-example-co₂-data" class="slide level2">
 <h2>Motivating Example: CO₂ Data</h2>
 <p>Let’s look at atmospheric CO<span class="math inline">\(_2\)</span> measurements from Mauna Loa, Hawaii (collected since 1958).</p>
-<div id="a74a0320" class="cell" data-execution_count="44">
+<div id="104ff3d7" class="cell" data-execution_count="44">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a><span class="co"># Load CO2 data</span></span>
 <span id="cb47-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb47-3"><a></a></span>
@@ -1615,7 +1615,7 @@ Shape: (26115, 15)</code></pre>
 </section>
 <section id="linear-vs-smooth-fit" class="slide level2">
 <h2>Linear vs Smooth Fit</h2>
-<div id="9131163b" class="cell" data-execution_count="45">
+<div id="b23c8b73" class="cell" data-execution_count="45">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a>(ggplot(co2, aes(x<span class="op">=</span><span class="st">'decimal date'</span>, y<span class="op">=</span><span class="st">'co2'</span>)) <span class="op">+</span></span>
 <span id="cb48-2"><a></a>  geom_point(alpha<span class="op">=</span><span class="fl">0.3</span>, size<span class="op">=</span><span class="fl">0.5</span>) <span class="op">+</span></span>
 <span id="cb48-3"><a></a>  geom_smooth(method<span class="op">=</span><span class="st">'lm'</span>, color<span class="op">=</span><span class="st">'red'</span>, se<span class="op">=</span><span class="va">False</span>) <span class="op">+</span></span>
@@ -1635,10 +1635,10 @@ Shape: (26115, 15)</code></pre>
 </section>
 <section id="zooming-in-2025-data" class="slide level2">
 <h2>Zooming in: 2025 Data</h2>
-<div id="c7a54515" class="cell" data-execution_count="46">
+<div id="92d9a975" class="cell" data-execution_count="46">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>co2_2025 <span class="op">=</span> co2[co2[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">2025</span>].copy()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="c242cae3" class="cell" data-execution_count="47">
+<div id="47b2244a" class="cell" data-execution_count="47">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a>(ggplot(co2_2025, aes(x<span class="op">=</span><span class="st">'decimal date'</span>, y<span class="op">=</span><span class="st">'co2'</span>)) <span class="op">+</span></span>
 <span id="cb50-2"><a></a>  geom_point(size<span class="op">=</span><span class="dv">2</span>) <span class="op">+</span></span>
 <span id="cb50-3"><a></a>  geom_smooth(method<span class="op">=</span><span class="st">'lm'</span>, color<span class="op">=</span><span class="st">'red'</span>, se<span class="op">=</span><span class="va">False</span>) <span class="op">+</span></span>
@@ -1660,7 +1660,7 @@ Shape: (26115, 15)</code></pre>
 <h2>Polynomial Regression: A First Attempt</h2>
 <p>One approach to modeling non-linearity is <strong>polynomial regression</strong>:</p>
 <p><span class="math display">\[y = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3 + \ldots + \epsilon\]</span></p>
-<div id="84692207" class="cell" data-execution_count="48">
+<div id="7bab23bc" class="cell" data-execution_count="48">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> PolynomialFeatures</span>
 <span id="cb51-2"><a></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
 <span id="cb51-3"><a></a></span>
@@ -1681,7 +1681,7 @@ Shape: (26115, 15)</code></pre>
 </section>
 <section id="polynomial-fit-visualization" class="slide level2">
 <h2>Polynomial Fit Visualization</h2>
-<div id="3bbebae2" class="cell" data-execution_count="49">
+<div id="60219c7c" class="cell" data-execution_count="49">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a></a>(ggplot(co2_2025, aes(x<span class="op">=</span><span class="st">'month'</span>)) <span class="op">+</span></span>
 <span id="cb53-2"><a></a>  geom_point(aes(y<span class="op">=</span><span class="st">'co2'</span>), size<span class="op">=</span><span class="dv">2</span>) <span class="op">+</span></span>
 <span id="cb53-3"><a></a>  geom_line(aes(y<span class="op">=</span><span class="st">'poly_pred'</span>), color<span class="op">=</span><span class="st">'red'</span>, size<span class="op">=</span><span class="dv">1</span>) <span class="op">+</span></span>
@@ -1817,7 +1817,7 @@ Shape: (26115, 15)</code></pre>
 </section>
 <section id="visualizing-b-spline-basis-functions" class="slide level2">
 <h2>Visualizing B-spline Basis Functions</h2>
-<div id="74b95e3c" class="cell" data-execution_count="50">
+<div id="15b004ed" class="cell" data-execution_count="50">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a></a><span class="im">from</span> scipy.interpolate <span class="im">import</span> BSpline</span>
 <span id="cb54-2"><a></a></span>
 <span id="cb54-3"><a></a><span class="co"># Create B-spline basis functions</span></span>
@@ -2000,7 +2000,7 @@ Shape: (26115, 15)</code></pre>
 <p>In Python, we can fit GAMs using <code>statsmodels</code> or <code>pygam</code>.</p>
 <p>Here we use <code>pygam</code> function <code>LinearGAM</code></p>
 <p>Read more <a href="https://pygam.readthedocs.io/en/latest/notebooks/tour_of_pygam.html">here</a></p>
-<div id="4229d9a8" class="cell" data-execution_count="51">
+<div id="862e4ab0" class="cell" data-execution_count="51">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a></a><span class="co"># Prepare data</span></span>
 <span id="cb55-2"><a></a>X <span class="op">=</span> co2_2025[[<span class="st">'decimal date'</span>]].values</span>
 <span id="cb55-3"><a></a>y <span class="op">=</span> co2_2025[<span class="st">'co2'</span>].values</span>
@@ -2011,7 +2011,7 @@ Shape: (26115, 15)</code></pre>
 </section>
 <section id="gam-summary" class="slide level2">
 <h2>GAM Summary</h2>
-<div id="b489260e" class="cell" data-execution_count="52">
+<div id="01dabb9e" class="cell" data-execution_count="52">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a></a>gam.summary()</span>
 <span id="cb56-2"><a></a>  </span>
 <span id="cb56-3"><a></a><span class="bu">print</span>(gam.terms)</span>
@@ -2072,7 +2072,7 @@ s(0) + intercept
 </section>
 <section id="gam-predictions" class="slide level2">
 <h2>GAM Predictions</h2>
-<div id="2c090352" class="cell" data-execution_count="53">
+<div id="8370f949" class="cell" data-execution_count="53">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a></a>co2_2025[<span class="st">'gam_pred'</span>] <span class="op">=</span> gam.predict(X)</span>
 <span id="cb58-2"><a></a></span>
 <span id="cb58-3"><a></a>(ggplot(co2_2025, aes(x<span class="op">=</span><span class="st">'decimal date'</span>)) <span class="op">+</span></span>
@@ -2093,7 +2093,7 @@ s(0) + intercept
 <section id="fitting-gam-to-full-dataset" class="slide level2">
 <h2>Fitting GAM to Full Dataset</h2>
 <p>Let’s fit a GAM to capture both the <strong>long-term trend</strong> and <strong>seasonal cycles</strong>:</p>
-<div id="2a04090b" class="cell" data-execution_count="54">
+<div id="8377a1cc" class="cell" data-execution_count="54">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a></a><span class="co"># Prepare full dataset</span></span>
 <span id="cb59-2"><a></a>X_full <span class="op">=</span> co2[[<span class="st">'decimal date'</span>, <span class="st">'month'</span>]].values</span>
 <span id="cb59-3"><a></a>y_full <span class="op">=</span> co2[<span class="st">'co2'</span>].values</span>
@@ -2106,12 +2106,12 @@ s(0) + intercept
 <div class="cell-output cell-output-stdout">
 <pre><code>LinearGAM                                                                                                 
 =============================================== ==========================================================
-Distribution:                        NormalDist Effective DoF:                                      21.573
-Link Function:                     IdentityLink Log Likelihood:                                  -502.9597
-Number of Samples:                          814 AIC:                                             1051.0655
-                                                AICc:                                            1052.4119
-                                                GCV:                                                0.2172
-                                                Scale:                                              0.4548
+Distribution:                        NormalDist Effective DoF:                                     21.5794
+Link Function:                     IdentityLink Log Likelihood:                                   -503.623
+Number of Samples:                          816 AIC:                                             1052.4048
+                                                AICc:                                            1053.7486
+                                                GCV:                                                0.2169
+                                                Scale:                                              0.4545
                                                 Pseudo R-Squared:                                   0.9998
 ==========================================================================================================
 Feature Function                  Lambda               Rank         EDoF         P &gt; x        Sig. Code   
@@ -2134,7 +2134,7 @@ None</code></pre>
 </section>
 <section id="full-gam-visualization" class="slide level2">
 <h2>Full GAM Visualization</h2>
-<div id="b7f3ba89" class="cell" data-execution_count="55">
+<div id="321b43f6" class="cell" data-execution_count="55">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a></a>co2[<span class="st">'gam_pred'</span>] <span class="op">=</span> gam_full.predict(X_full)</span>
 <span id="cb61-2"><a></a></span>
 <span id="cb61-3"><a></a>(ggplot(co2, aes(x<span class="op">=</span><span class="st">'decimal date'</span>)) <span class="op">+</span></span>
@@ -2155,7 +2155,7 @@ None</code></pre>
 <section id="partial-effects" class="slide level2">
 <h2>Partial Effects</h2>
 <p>GAMs allow us to visualize each smooth term separately:</p>
-<div id="ecb50d81" class="cell" data-execution_count="56">
+<div id="93487faa" class="cell" data-execution_count="56">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))</span>
 <span id="cb62-2"><a></a></span>
 <span id="cb62-3"><a></a><span class="co"># Plot partial effect of decimal.date (long-term trend)</span></span>
@@ -2196,7 +2196,7 @@ None</code></pre>
 </ul></li>
 <li class="fragment">The smooth adapts to your data automatically</li>
 </ul>
-<div id="8fa51896" class="cell" data-execution_count="57">
+<div id="307e7ae0" class="cell" data-execution_count="57">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a></a><span class="co"># These are conceptually similar:</span></span>
 <span id="cb63-2"><a></a>geom_smooth()  <span class="co"># Automatic smoothing</span></span>
 <span id="cb63-3"><a></a>geom_smooth(method<span class="op">=</span><span class="st">'lowess'</span>)  <span class="co"># Local regression</span></span>

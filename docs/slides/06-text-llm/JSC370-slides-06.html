@@ -238,7 +238,7 @@
 </section>
 <section id="setup" class="slide level2">
 <h2>Setup</h2>
-<div id="490c4bae" class="cell" data-execution_count="2">
+<div id="4e5daed1" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a></a><span class="im">import</span> nltk</span>
@@ -257,7 +257,7 @@
 <section id="pride-and-prejudice" class="slide level2">
 <h2>Pride and Prejudice</h2>
 <p>We’ll use Jane Austen’s “Pride and Prejudice” from NLTK’s Gutenberg corpus.</p>
-<div id="2c076f41" class="cell" data-execution_count="3">
+<div id="456d1950" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>nltk.download(<span class="st">'gutenberg'</span>, quiet<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb2-2"><a></a><span class="im">from</span> nltk.corpus <span class="im">import</span> gutenberg</span>
 <span id="cb2-3"><a></a></span>
@@ -291,7 +291,7 @@ changed naturally into pity and contempt as he turn</code></pre>
 <li>Split the text into chapters (Persuasion has chapters marked)</li>
 <li>Create a DataFrame</li>
 </ul>
-<div id="caac0406" class="cell" data-execution_count="4">
+<div id="f9840180" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>chapters <span class="op">=</span> re.split(<span class="vs">r'Chapter </span><span class="dv">\d</span><span class="op">+</span><span class="vs">'</span>, raw_text)[<span class="dv">1</span>:]  <span class="co"># Skip preamble</span></span>
 <span id="cb4-2"><a></a><span class="bu">print</span>(<span class="ss">f"Number of chapters: </span><span class="sc">{</span><span class="bu">len</span>(chapters)<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb4-3"><a></a></span>
@@ -304,7 +304,7 @@ changed naturally into pity and contempt as he turn</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of chapters: 24</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="43">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -389,7 +389,7 @@ changed naturally into pity and contempt as he turn</code></pre>
 <li>Contractions (e.g., “don’t” → “do” + “n’t”)</li>
 <li>Punctuation as separate tokens</li>
 </ul>
-<div id="97351a3b" class="cell" data-execution_count="5">
+<div id="37556830" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="im">from</span> nltk.tokenize <span class="im">import</span> word_tokenize</span>
 <span id="cb6-2"><a></a></span>
 <span id="cb6-3"><a></a>all_text <span class="op">=</span> <span class="st">' '</span>.join(text_df[<span class="st">'text'</span>])</span>
@@ -463,7 +463,7 @@ First 20 tokens: ['sir', 'walter', 'elliot', ',', 'of', 'kellynch', 'hall', ',',
 <li><code>token.lemma_</code> - base form (“running” → “run”)</li>
 <li><code>token.is_stop</code> - is it a stop word?</li>
 </ul>
-<div id="b36edc22" class="cell" data-execution_count="6">
+<div id="c715260c" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="im">import</span> spacy</span>
 <span id="cb8-2"><a></a></span>
 <span id="cb8-3"><a></a><span class="co"># Load English model (small)</span></span>
@@ -598,7 +598,7 @@ First 20 tokens: ['sir', 'walter', 'elliot', ',', 'of', 'kellynch', 'hall', ',',
 <ul>
 <li>Let’s show it on a sample of text</li>
 </ul>
-<div id="18e8ff71" class="cell" data-execution_count="7">
+<div id="564675a6" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>sample_text <span class="op">=</span> <span class="st">"Elizabeth Bennet lived in Hertfordshire, England in the early 1800s."</span></span>
 <span id="cb10-2"><a></a>doc <span class="op">=</span> nlp(sample_text)</span>
 <span id="cb10-3"><a></a></span>
@@ -633,7 +633,7 @@ First 20 tokens: ['sir', 'walter', 'elliot', ',', 'of', 'kellynch', 'hall', ',',
 </section>
 <section id="dependency-parsing-example" class="slide level2">
 <h2>Dependency Parsing Example</h2>
-<div id="4c119811" class="cell" data-execution_count="8">
+<div id="0ed7844c" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="co"># Parse a simple sentence</span></span>
 <span id="cb12-2"><a></a>sentence <span class="op">=</span> <span class="st">"Elizabeth gave the letter to Mr. Darcy."</span></span>
 <span id="cb12-3"><a></a>doc <span class="op">=</span> nlp(sentence)</span>
@@ -670,14 +670,14 @@ First 20 tokens: ['sir', 'walter', 'elliot', ',', 'of', 'kellynch', 'hall', ',',
 <section id="working-with-tokens-as-data" class="slide level2">
 <h2>Working with Tokens as Data</h2>
 <p>Now that we have words as the unit of observation, we can use pandas for analysis. First we create a dataframe from the tokens.</p>
-<div id="523ffc39" class="cell" data-execution_count="9">
+<div id="08338091" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>tokens_df <span class="op">=</span> pd.DataFrame({<span class="st">'token'</span>: tokens})</span>
 <span id="cb14-2"><a></a><span class="bu">print</span>(<span class="ss">f"Shape: </span><span class="sc">{</span>tokens_df<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb14-3"><a></a>tokens_df.head(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Shape: (97884, 1)</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="48">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -750,12 +750,12 @@ First 20 tokens: ['sir', 'walter', 'elliot', ',', 'of', 'kellynch', 'hall', ',',
 </section>
 <section id="counting-tokens" class="slide level2">
 <h2>Counting Tokens</h2>
-<div id="46456d87" class="cell" data-execution_count="10">
+<div id="4bd8662a" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="co"># Count token frequencies</span></span>
 <span id="cb16-2"><a></a>token_counts <span class="op">=</span> tokens_df[<span class="st">'token'</span>].value_counts().reset_index()</span>
 <span id="cb16-3"><a></a>token_counts.columns <span class="op">=</span> [<span class="st">'token'</span>, <span class="st">'n'</span>]</span>
 <span id="cb16-4"><a></a>token_counts.head(<span class="dv">15</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="49">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -879,7 +879,7 @@ First 20 tokens: ['sir', 'walter', 'elliot', ',', 'of', 'kellynch', 'hall', ',',
 <section id="nltks-stop-words-list" class="slide level2">
 <h2>NLTK’s Stop Words List</h2>
 <p>NLTK provides curated stop word lists for <strong>multiple languages</strong>:</p>
-<div id="ab0e6caa" class="cell" data-execution_count="11">
+<div id="74959730" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="im">from</span> nltk.corpus <span class="im">import</span> stopwords</span>
 <span id="cb17-2"><a></a></span>
 <span id="cb17-3"><a></a><span class="bu">print</span>(<span class="st">"Available languages:"</span>)</span>
@@ -895,7 +895,7 @@ First 20 tokens: ['sir', 'walter', 'elliot', ',', 'of', 'kellynch', 'hall', ',',
 <ul>
 <li>Let’s get and show the English stopwords</li>
 </ul>
-<div id="e03fd7e5" class="cell" data-execution_count="12">
+<div id="c00e8046" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>stop_words <span class="op">=</span> <span class="bu">set</span>(stopwords.words(<span class="st">'english'</span>))</span>
 <span id="cb19-2"><a></a><span class="bu">print</span>(<span class="ss">f"Number of English stop words: </span><span class="sc">{</span><span class="bu">len</span>(stop_words)<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb19-3"><a></a></span>
@@ -927,7 +927,7 @@ All English stop words:
 <section id="top-words-before-removing-stop-words" class="slide level2">
 <h2>Top Words BEFORE Removing Stop Words</h2>
 <p>Let’s see what the top 15 words look like <strong>before</strong> we remove stop words:</p>
-<div id="ea472f2a" class="cell" data-execution_count="13">
+<div id="1709acc2" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>top_before <span class="op">=</span> token_counts.head(<span class="dv">15</span>).copy()</span>
 <span id="cb21-2"><a></a>top_before[<span class="st">'token'</span>] <span class="op">=</span> pd.Categorical(top_before[<span class="st">'token'</span>],</span>
 <span id="cb21-3"><a></a>                                      categories<span class="op">=</span>top_before[<span class="st">'token'</span>][::<span class="op">-</span><span class="dv">1</span>])</span>
@@ -998,7 +998,7 @@ All English stop words:
 <li>Filter out stop words and non-alphabetic tokens</li>
 <li>Look at the number before and after</li>
 </ul>
-<div id="4ca7238b" class="cell" data-execution_count="14">
+<div id="e50cdcaa" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>filtered_tokens <span class="op">=</span> [t <span class="cf">for</span> t <span class="kw">in</span> tokens</span>
 <span id="cb23-2"><a></a>                   <span class="cf">if</span> t.isalpha() <span class="kw">and</span> t <span class="kw">not</span> <span class="kw">in</span> stop_words]</span>
 <span id="cb23-3"><a></a></span>
@@ -1015,11 +1015,11 @@ Removed: 60,143 tokens (61.4%)</code></pre>
 <section id="counting-filtered-tokens" class="slide level2">
 <h2>Counting Filtered Tokens</h2>
 <p>Now we count word frequencies on the <strong>cleaned</strong> tokens:</p>
-<div id="a601713c" class="cell" data-execution_count="15">
+<div id="c965b050" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>filtered_counts <span class="op">=</span> pd.Series(filtered_tokens).value_counts().reset_index()</span>
 <span id="cb25-2"><a></a>filtered_counts.columns <span class="op">=</span> [<span class="st">'token'</span>, <span class="st">'n'</span>]</span>
 <span id="cb25-3"><a></a>filtered_counts.head(<span class="dv">15</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="54">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1129,7 +1129,7 @@ Removed: 60,143 tokens (61.4%)</code></pre>
 </section>
 <section id="visualizing-top-words" class="slide level2">
 <h2>Visualizing Top Words</h2>
-<div id="528c3f22" class="cell" data-execution_count="16">
+<div id="75301b9d" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>top_words <span class="op">=</span> filtered_counts.head(<span class="dv">15</span>).copy()</span>
 <span id="cb26-2"><a></a>top_words[<span class="st">'token'</span>] <span class="op">=</span> pd.Categorical(top_words[<span class="st">'token'</span>],</span>
 <span id="cb26-3"><a></a>                                     categories<span class="op">=</span>top_words[<span class="st">'token'</span>][::<span class="op">-</span><span class="dv">1</span>])</span>
@@ -1152,7 +1152,7 @@ Removed: 60,143 tokens (61.4%)</code></pre>
 <section id="custom-stop-words" class="slide level2">
 <h2>Custom Stop Words</h2>
 <p>Sometimes we need to add domain-specific stop words:</p>
-<div id="cad3fbf6" class="cell" data-execution_count="17">
+<div id="33001824" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a><span class="co"># Add custom stop words</span></span>
 <span id="cb27-2"><a></a>custom_stops <span class="op">=</span> {<span class="st">'would'</span>, <span class="st">'could'</span>, <span class="st">'one'</span>, <span class="st">'might'</span>, <span class="st">'must'</span>,</span>
 <span id="cb27-3"><a></a>                <span class="st">'said'</span>, <span class="st">'mr'</span>, <span class="st">'mrs'</span>, <span class="st">'miss'</span>, <span class="st">'lady'</span>}</span>
@@ -1188,7 +1188,7 @@ Name: count, dtype: int64</code></pre>
 <section id="top-words-after-custom-stop-words" class="slide level2">
 <h2>Top Words AFTER Custom Stop Words</h2>
 <p>Now let’s compare: with custom stop words removed, we get even more meaningful content:</p>
-<div id="dd92a6f4" class="cell" data-execution_count="18">
+<div id="47457f2d" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a><span class="co"># Prepare data for plotting</span></span>
 <span id="cb29-2"><a></a>top_custom <span class="op">=</span> filtered_counts_v2.reset_index()</span>
 <span id="cb29-3"><a></a>top_custom.columns <span class="op">=</span> [<span class="st">'token'</span>, <span class="st">'n'</span>]</span>
@@ -1217,7 +1217,7 @@ Name: count, dtype: int64</code></pre>
 <ul>
 <li>This is a visualization that you often see to illustrate popular words</li>
 </ul>
-<div id="cb6d5e40" class="cell" data-execution_count="19">
+<div id="fec27ef0" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="im">from</span> wordcloud <span class="im">import</span> WordCloud</span>
 <span id="cb30-2"><a></a></span>
 <span id="cb30-3"><a></a><span class="co"># Create word frequency dictionary</span></span>
@@ -1287,7 +1287,7 @@ Name: count, dtype: int64</code></pre>
 <ul>
 <li>Generate bigrams from filtered tokens (stop words removed)</li>
 </ul>
-<div id="6c821285" class="cell" data-execution_count="20">
+<div id="2cdf05b5" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a><span class="im">from</span> nltk <span class="im">import</span> ngrams</span>
 <span id="cb31-2"><a></a></span>
 <span id="cb31-3"><a></a></span>
@@ -1320,7 +1320,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="visualizing-bigrams" class="slide level2">
 <h2>Visualizing Bigrams</h2>
-<div id="031ea013" class="cell" data-execution_count="21">
+<div id="3bb49267" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a>bigram_df <span class="op">=</span> pd.DataFrame(bigram_counts, columns<span class="op">=</span>[<span class="st">'bigram'</span>, <span class="st">'count'</span>])</span>
 <span id="cb33-2"><a></a>bigram_df[<span class="st">'bigram'</span>] <span class="op">=</span> bigram_df[<span class="st">'bigram'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="st">' '</span>.join(x))</span>
 <span id="cb33-3"><a></a>bigram_df[<span class="st">'bigram'</span>] <span class="op">=</span> pd.Categorical(bigram_df[<span class="st">'bigram'</span>],</span>
@@ -1380,7 +1380,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="tf-idf-with-scikit-learn" class="slide level2">
 <h2>TF-IDF with scikit-learn</h2>
-<div id="85dfaaa1" class="cell" data-execution_count="22">
+<div id="91453c8e" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> TfidfVectorizer</span>
 <span id="cb34-2"><a></a></span>
 <span id="cb34-3"><a></a><span class="co"># Create TF-IDF matrix by chapter</span></span>
@@ -1397,7 +1397,7 @@ Name: count, dtype: int64</code></pre>
 </section>
 <section id="top-tf-idf-words-by-chapter" class="slide level2">
 <h2>Top TF-IDF Words by Chapter</h2>
-<div id="83922a92" class="cell" data-execution_count="23">
+<div id="991e77ff" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a><span class="co"># Get top words for first 4 chapters</span></span>
 <span id="cb36-2"><a></a><span class="kw">def</span> get_top_tfidf(chapter_idx, n<span class="op">=</span><span class="dv">5</span>):</span>
 <span id="cb36-3"><a></a>    row <span class="op">=</span> tfidf_matrix[chapter_idx].toarray().flatten()</span>
@@ -1535,7 +1535,7 @@ Chapter 4:
 <section id="vader-example" class="slide level2">
 <h2>VADER Example</h2>
 <p>Let’s see how VADER scores some sentences</p>
-<div id="a0f49f52" class="cell" data-execution_count="24">
+<div id="7841b7ad" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a><span class="im">from</span> nltk.sentiment.vader <span class="im">import</span> SentimentIntensityAnalyzer</span>
 <span id="cb38-2"><a></a>sia <span class="op">=</span> SentimentIntensityAnalyzer()</span>
 <span id="cb38-3"><a></a></span>
@@ -1584,7 +1584,7 @@ The movie was not bad.              → compound: +0.431</code></pre>
 </section>
 <section id="sentence-level-sentiment-analysis" class="slide level2">
 <h2>Sentence-Level Sentiment Analysis</h2>
-<div id="a787feda" class="cell" data-execution_count="25">
+<div id="9a5236b4" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a><span class="im">from</span> nltk.tokenize <span class="im">import</span> sent_tokenize</span>
 <span id="cb41-2"><a></a></span>
 <span id="cb41-3"><a></a>sentence_sentiments <span class="op">=</span> []</span>
@@ -1604,7 +1604,7 @@ The movie was not bad.              → compound: +0.431</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Total sentences analyzed: 3,654</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="64">
+<div class="cell-output cell-output-display" data-execution_count="25">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1682,7 +1682,7 @@ The movie was not bad.              → compound: +0.431</code></pre>
 <section id="aggregating-by-chapter" class="slide level2">
 <h2>Aggregating by Chapter</h2>
 <p>Let’s calculate the mean sentiment score by chapter</p>
-<div id="a39e5338" class="cell" data-execution_count="26">
+<div id="af820fd2" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>chapter_sentiment <span class="op">=</span> sentence_df.groupby(<span class="st">'chapter'</span>).agg({</span>
 <span id="cb43-2"><a></a>    <span class="st">'compound'</span>: <span class="st">'mean'</span>,</span>
 <span id="cb43-3"><a></a>    <span class="st">'pos'</span>: <span class="st">'mean'</span>,</span>
@@ -1691,7 +1691,7 @@ The movie was not bad.              → compound: +0.431</code></pre>
 <span id="cb43-6"><a></a>}).reset_index()</span>
 <span id="cb43-7"><a></a></span>
 <span id="cb43-8"><a></a>chapter_sentiment</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="65">
+<div class="cell-output cell-output-display" data-execution_count="26">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1921,7 +1921,7 @@ The movie was not bad.              → compound: +0.431</code></pre>
 </section>
 <section id="sentiment-across-chapters" class="slide level2">
 <h2>Sentiment Across Chapters</h2>
-<div id="ffd16d1c" class="cell" data-execution_count="27">
+<div id="25288881" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>(ggplot(chapter_sentiment, aes(x<span class="op">=</span><span class="st">'chapter'</span>, y<span class="op">=</span><span class="st">'compound'</span>))</span>
 <span id="cb44-2"><a></a> <span class="op">+</span> geom_line(color<span class="op">=</span><span class="st">'purple'</span>, size<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb44-3"><a></a> <span class="op">+</span> geom_point(color<span class="op">=</span><span class="st">'purple'</span>, size<span class="op">=</span><span class="dv">3</span>)</span>
@@ -2025,7 +2025,7 @@ The movie was not bad.              → compound: +0.431</code></pre>
 </section>
 <section id="creating-the-document-term-matrix" class="slide level2">
 <h2>Creating the Document-Term Matrix</h2>
-<div id="d6676a34" class="cell" data-execution_count="28">
+<div id="b1c00bc0" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> LatentDirichletAllocation</span>
 <span id="cb45-2"><a></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> CountVectorizer</span>
 <span id="cb45-3"><a></a></span>
@@ -2077,7 +2077,7 @@ The movie was not bad.              → compound: +0.431</code></pre>
 <section id="fitting-the-lda-model" class="slide level2">
 <h2>Fitting the LDA Model</h2>
 <p>Fit LDA model with 4 topics:</p>
-<div id="b7aebfab" class="cell" data-execution_count="29">
+<div id="df34eae7" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>n_topics <span class="op">=</span> <span class="dv">4</span></span>
 <span id="cb47-2"><a></a>lda <span class="op">=</span> LatentDirichletAllocation(</span>
 <span id="cb47-3"><a></a>    n_components<span class="op">=</span>n_topics,</span>
@@ -2099,7 +2099,7 @@ The movie was not bad.              → compound: +0.431</code></pre>
 <li>Create ordered factor for words within each topic</li>
 <li>Visualize</li>
 </ul>
-<div id="ea60c9c0" class="cell" data-execution_count="30">
+<div id="27e492f5" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>feature_names <span class="op">=</span> count_vec.get_feature_names_out()</span>
 <span id="cb49-2"><a></a></span>
 <span id="cb49-3"><a></a>topic_data <span class="op">=</span> []</span>
@@ -2199,7 +2199,7 @@ The movie was not bad.              → compound: +0.431</code></pre>
 </section>
 <section id="setting-up-the-anthropic-client-1" class="slide level2">
 <h2>Setting Up the Anthropic Client</h2>
-<div id="066e8a76" class="cell" data-execution_count="32">
+<div id="763a2153" class="cell" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a><span class="im">import</span> anthropic</span>
 <span id="cb52-2"><a></a></span>
 <span id="cb52-3"><a></a><span class="co"># Initialize client with API key</span></span>
@@ -2221,7 +2221,7 @@ The movie was not bad.              → compound: +0.431</code></pre>
 </section>
 <section id="llm-for-text-summarization-1" class="slide level2">
 <h2>LLM for Text Summarization</h2>
-<div id="06411a0c" class="cell" data-execution_count="33">
+<div id="87dfb691" class="cell" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a></a><span class="co"># Get the first chapter text (first 2000 chars for demo)</span></span>
 <span id="cb53-2"><a></a>chapter1_text <span class="op">=</span> text_df[<span class="st">'text'</span>].iloc[<span class="dv">0</span>][:<span class="dv">2000</span>]</span>
 <span id="cb53-3"><a></a></span>
@@ -2242,7 +2242,7 @@ The movie was not bad.              → compound: +0.431</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Chapter 1 Summary:
 ----------------------------------------
-Sir Walter Elliot of Kellynch Hall is a vain baronet who spends his time obsessively reading the Baronetage, a book of aristocratic genealogies, finding particular pleasure in reading about his own family's entry. The text reveals his family details: he was widowed in 1800 and has three daughters - Elizabeth, Anne, and Mary (who married Charles Musgrove in 1810). Sir Walter has personally annotated his family's entry in the book, adding details like his daughter's marriage and the exact date of his wife's death, showing his pride in his aristocratic lineage.</code></pre>
+Sir Walter Elliot of Kellynch Hall was a vain man who spent his time reading only the Baronetage, a book of noble families, finding particular pleasure in reading about his own family's entry. The text shows his family record, which lists his marriage to Elizabeth Stevenson (who died in 1800) and their three surviving daughters: Elizabeth, Anne, and Mary (who married Charles Musgrove). Sir Walter had personally added details to the printed entry, including his daughter Mary's marriage and the exact date of his wife's death, showing his obsession with maintaining his family's documented status and history.</code></pre>
 </div>
 </div>
 </section>
@@ -2257,7 +2257,7 @@ Sir Walter Elliot of Kellynch Hall is a vain baronet who spends his time obsessi
 <section id="creating-embeddings" class="slide level2">
 <h2>Creating Embeddings</h2>
 <p>We use <code>sentence-transformers</code>, a library that runs <strong>locally</strong> (no API needed):</p>
-<div id="0097fa75" class="cell" data-execution_count="34">
+<div id="67e12dd3" class="cell" data-execution_count="34">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a></a><span class="im">from</span> sentence_transformers <span class="im">import</span> SentenceTransformer</span>
 <span id="cb56-2"><a></a></span>
 <span id="cb56-3"><a></a><span class="co"># load a pre-trained model (downloads once, then cached)</span></span>
@@ -2271,7 +2271,7 @@ Sir Walter Elliot of Kellynch Hall is a vain baronet who spends his time obsessi
 <span id="cb56-11"><a></a><span class="bu">print</span>(<span class="ss">f"Each embedding has </span><span class="sc">{</span><span class="bu">len</span>(embeddings[<span class="dv">0</span>])<span class="sc">}</span><span class="ss"> dimensions"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"ec32877f92a24ab99fc0db73991fa686","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"04e561b03f744402a6374f0ad0b61f28","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 <div class="cell-output cell-output-stdout">
@@ -2311,7 +2311,7 @@ Each embedding has 384 dimensions</code></pre>
 <section id="semantic-similarity-with-embeddings" class="slide level2">
 <h2>Semantic Similarity with Embeddings</h2>
 <p>Once you have embeddings, compute similarity with <strong>cosine similarity</strong>:</p>
-<div id="1dd05929" class="cell" data-execution_count="35">
+<div id="c61cb5df" class="cell" data-execution_count="35">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a></a><span class="im">from</span> sklearn.metrics.pairwise <span class="im">import</span> cosine_similarity</span>
 <span id="cb58-2"><a></a></span>
 <span id="cb58-3"><a></a><span class="co"># Calculate similarity between chapter embeddings</span></span>
@@ -2336,7 +2336,7 @@ Ch 3  0.393  0.553  1.000</code></pre>
 </section>
 <section id="visualizing-chapter-similarity" class="slide level2">
 <h2>Visualizing Chapter Similarity</h2>
-<div id="7f3a3522" class="cell" data-execution_count="36">
+<div id="0a089c83" class="cell" data-execution_count="36">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a></a>sim_long <span class="op">=</span> sim_df.reset_index().melt(</span>
 <span id="cb60-2"><a></a>    id_vars<span class="op">=</span><span class="st">'index'</span>, var_name<span class="op">=</span><span class="st">'Chapter_Y'</span>, value_name<span class="op">=</span><span class="st">'Similarity'</span></span>
 <span id="cb60-3"><a></a>)</span>
@@ -2376,7 +2376,7 @@ Ch 3  0.393  0.553  1.000</code></pre>
 </section>
 <section id="llm-for-named-entity-recognition" class="slide level2">
 <h2>LLM for Named Entity Recognition</h2>
-<div id="db81833e" class="cell" data-execution_count="37">
+<div id="3915121a" class="cell" data-execution_count="37">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a></a><span class="im">import</span> json</span>
 <span id="cb61-2"><a></a><span class="im">import</span> re</span>
 <span id="cb61-3"><a></a></span>
@@ -2410,14 +2410,14 @@ Ch 3  0.393  0.553  1.000</code></pre>
 ----------------------------------------
 persons: ['Sir Walter Elliot', 'Walter Elliot', 'Elizabeth', 'James Stevenson', 'Anne', 'Mary', 'Charles', 'Charles Musgrove']
 locations: ['Kellynch Hall', 'Somersetshire', 'South Park', 'Gloucester', 'Uppercross', 'Somerset']
-relationships: ['Walter Elliot married Elizabeth', 'Elizabeth daughter of James Stevenson', 'Walter Elliot father of Elizabeth', 'Walter Elliot father of Anne', 'Walter Elliot father of Mary', 'Mary married Charles', 'Charles son of Charles Musgrove']</code></pre>
+relationships: ['Walter Elliot married Elizabeth', 'Elizabeth is daughter of James Stevenson', 'Walter Elliot has issue Elizabeth', 'Walter Elliot has issue Anne', 'Walter Elliot has issue Mary', 'Mary married Charles', 'Charles is son of Charles Musgrove']</code></pre>
 </div>
 </div>
 </section>
 <section id="visualizing-extracted-entities" class="slide level2">
 <h2>Visualizing Extracted Entities</h2>
 <p>Let’s count the entites by type</p>
-<div id="5f2b4389" class="cell" data-execution_count="38">
+<div id="e33a0dfc" class="cell" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a></a>entity_counts <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb63-2"><a></a>    <span class="st">'type'</span>: [<span class="st">'Persons'</span>, <span class="st">'Locations'</span>, <span class="st">'Relationships'</span>],</span>
 <span id="cb63-3"><a></a>    <span class="st">'count'</span>: [</span>
@@ -2486,7 +2486,7 @@ relationships: ['Walter Elliot married Elizabeth', 'Elizabeth daughter of James 
 </section>
 <section id="llm-for-sentiment-classification" class="slide level2">
 <h2>LLM for Sentiment Classification</h2>
-<div id="def24e7b" class="cell" data-execution_count="39">
+<div id="4d5cb2b8" class="cell" data-execution_count="39">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a></a><span class="co"># Analyze sentiment of a chapter excerpt</span></span>
 <span id="cb64-2"><a></a>chapter_excerpt <span class="op">=</span> text_df[<span class="st">'text'</span>].iloc[<span class="dv">5</span>][:<span class="dv">2000</span>]  <span class="co"># Chapter 6</span></span>
 <span id="cb64-3"><a></a></span>
@@ -2520,14 +2520,14 @@ relationships: ['Walter Elliot married Elizabeth', 'Elizabeth daughter of James 
 ----------------------------------------
 overall_sentiment: mixed
 confidence: 0.8
-emotions: ['disappointment', 'resignation', 'loneliness', 'gratitude', 'melancholy']
-brief_explanation: Anne experiences disappointment and loneliness from the lack of sympathy she receives at Uppercross, but finds some solace in gratitude for Lady Russell's friendship and philosophical acceptance of social differences.</code></pre>
+emotions: ['disappointment', 'resignation', 'gratitude', 'melancholy', 'acceptance']
+brief_explanation: The text expresses Anne's disappointment at the lack of sympathy from others regarding her family situation, balanced by resignation to this reality and gratitude for her one true friend.</code></pre>
 </div>
 </div>
 </section>
 <section id="comparing-vader-vs-llm-sentiment" class="slide level2">
 <h2>Comparing VADER vs LLM Sentiment</h2>
-<div id="acde969d" class="cell" data-execution_count="40">
+<div id="401261f3" class="cell" data-execution_count="40">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a></a><span class="co"># Get VADER sentiment for first 6 chapters (already computed earlier)</span></span>
 <span id="cb66-2"><a></a>vader_scores <span class="op">=</span> chapter_sentiment.head(<span class="dv">6</span>)[[<span class="st">'chapter'</span>, <span class="st">'compound'</span>]].copy()</span>
 <span id="cb66-3"><a></a>vader_scores[<span class="st">'method'</span>] <span class="op">=</span> <span class="st">'VADER'</span></span>
@@ -2559,7 +2559,7 @@ brief_explanation: Anne experiences disappointment and loneliness from the lack 
 <section id="local-llms-with-hugging-face" class="slide level2">
 <h2>Local LLMs with Hugging Face</h2>
 <p>Hugging face is an open-source platform that has a repository with 500,000+ pre-trained models including text models and image models. It is easy to use these models locally.</p>
-<div id="e529ae63" class="cell" data-execution_count="41">
+<div id="80cac4a6" class="cell" data-execution_count="41">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a></a><span class="im">from</span> transformers <span class="im">import</span> pipeline</span>
 <span id="cb67-2"><a></a></span>
 <span id="cb67-3"><a></a><span class="co"># Load a small sentiment model (runs locally)</span></span>
@@ -2872,7 +2872,7 @@ brief_explanation: Anne experiences disappointment and loneliness from the lack 
       });
     </script>
     <script type="application/vnd.jupyter.widget-state+json">
-    {"state":{"00fda76fab19428ba27e26da09984100":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_26b05eb4b9074c789a8becc9b46ae862","IPY_MODEL_bdf8d626b2e54e6189756b9929a45931","IPY_MODEL_331cf745a77848699821e83fa3256409"],"layout":"IPY_MODEL_a3fe1109b39947c0ba70e44b0961cfc9","tabbable":null,"tooltip":null}},"0b6a0343e3554c1f9be51abb1ea5c115":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_3cb020a13a4246fdbdd79975b7175104","placeholder":"​","style":"IPY_MODEL_638cf0dfdb764478a15f64e9dc2a4b58","tabbable":null,"tooltip":null,"value":" 103/103 [00:00&lt;00:00, 1810.45it/s, Materializing param=pooler.dense.weight]"}},"26b05eb4b9074c789a8becc9b46ae862":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_df032627105d41ecb2e2cbe95833911f","placeholder":"​","style":"IPY_MODEL_79f8ac1562d2410284f6af057056464e","tabbable":null,"tooltip":null,"value":"Loading weights: 100%"}},"2715aaf8d3a34f72beac58e9daf9a42a":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_492c0ed02f984979ae6d622b64596e13","placeholder":"​","style":"IPY_MODEL_615c0b18661e4526b144c9f304ad0890","tabbable":null,"tooltip":null,"value":"Loading weights: 100%"}},"309d647abe8e4dd1aa7af30d23a9a000":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"331cf745a77848699821e83fa3256409":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_c0c9d827de7349988c13bec4d3b6a473","placeholder":"​","style":"IPY_MODEL_35d036441fa54986aeb084f204026aa8","tabbable":null,"tooltip":null,"value":" 103/103 [00:00&lt;00:00, 1830.98it/s, Materializing param=pooler.dense.weight]"}},"35d036441fa54986aeb084f204026aa8":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"38ce116b1d3848c7b51659f9c57fc771":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"3cb020a13a4246fdbdd79975b7175104":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"4768b100480348a0bbf5013b5a4fb677":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"492c0ed02f984979ae6d622b64596e13":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"615c0b18661e4526b144c9f304ad0890":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"638cf0dfdb764478a15f64e9dc2a4b58":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"6c032ea6b59f4ef4941607bb322d136c":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_fc3e1166d0cb4351ad32cddc6607f2a7","max":103,"min":0,"orientation":"horizontal","style":"IPY_MODEL_4768b100480348a0bbf5013b5a4fb677","tabbable":null,"tooltip":null,"value":103}},"79f8ac1562d2410284f6af057056464e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"a3fe1109b39947c0ba70e44b0961cfc9":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"b47418a95a85493988d31d51287d1050":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"bdf8d626b2e54e6189756b9929a45931":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_b47418a95a85493988d31d51287d1050","max":103,"min":0,"orientation":"horizontal","style":"IPY_MODEL_309d647abe8e4dd1aa7af30d23a9a000","tabbable":null,"tooltip":null,"value":103}},"c0c9d827de7349988c13bec4d3b6a473":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"df032627105d41ecb2e2cbe95833911f":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"ec32877f92a24ab99fc0db73991fa686":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_2715aaf8d3a34f72beac58e9daf9a42a","IPY_MODEL_6c032ea6b59f4ef4941607bb322d136c","IPY_MODEL_0b6a0343e3554c1f9be51abb1ea5c115"],"layout":"IPY_MODEL_38ce116b1d3848c7b51659f9c57fc771","tabbable":null,"tooltip":null}},"fc3e1166d0cb4351ad32cddc6607f2a7":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}}},"version_major":2,"version_minor":0}
+    {"state":{"04e561b03f744402a6374f0ad0b61f28":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_d5e32de4889a46a8acc9462d4edd665e","IPY_MODEL_584f3b2bf6ee48899eb6895fff36f796","IPY_MODEL_b0bc43284baa48e2b9d4e6b48f4816a0"],"layout":"IPY_MODEL_85d873bee5024632bc9b6f112ee10cd8","tabbable":null,"tooltip":null}},"1af6321340e04b399dd27e87130516b5":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"584f3b2bf6ee48899eb6895fff36f796":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"success","description":"","description_allow_html":false,"layout":"IPY_MODEL_8d343b4ac9ae4b49ab3e1598615db999","max":103,"min":0,"orientation":"horizontal","style":"IPY_MODEL_1af6321340e04b399dd27e87130516b5","tabbable":null,"tooltip":null,"value":103}},"5af03a54b7ed40e18e22e1bccb9f989d":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"7da8d370360c4ee7a4516a2652e74ce8":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"7e5632cb93b8439bbd5bd1c5fb51c267":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"85d873bee5024632bc9b6f112ee10cd8":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"8d343b4ac9ae4b49ab3e1598615db999":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"b0bc43284baa48e2b9d4e6b48f4816a0":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_5af03a54b7ed40e18e22e1bccb9f989d","placeholder":"​","style":"IPY_MODEL_7da8d370360c4ee7a4516a2652e74ce8","tabbable":null,"tooltip":null,"value":" 103/103 [00:00&lt;00:00, 1570.51it/s, Materializing param=pooler.dense.weight]"}},"d1df799f4d924edabc611de90f0c824f":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","background":null,"description_width":"","font_size":null,"text_color":null}},"d5e32de4889a46a8acc9462d4edd665e":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"HTMLView","description":"","description_allow_html":false,"layout":"IPY_MODEL_7e5632cb93b8439bbd5bd1c5fb51c267","placeholder":"​","style":"IPY_MODEL_d1df799f4d924edabc611de90f0c824f","tabbable":null,"tooltip":null,"value":"Loading weights: 100%"}}},"version_major":2,"version_minor":0}
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
