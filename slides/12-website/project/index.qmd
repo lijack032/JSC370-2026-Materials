@@ -1,0 +1,151 @@
+---
+title: "JSC370 Final Project"
+author: "Your Name"
+jupyter: python3
+execute:
+  warning: false
+  message: false
+  echo: false
+---
+
+
+
+This is my JSC370 Final Project website. I will showcase a few interactive visuals here.
+
+
+
+## First step
+
+First I will load and process the Starbucks data:
+
+```{python}
+#| echo: true
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from collections import Counter
+import re
+
+# Load data
+sb_locs  = pd.read_csv("starbucks-locations.csv")
+sb_nutr  = pd.read_csv("starbucks-menu-nutrition.csv", skipinitialspace=True)
+usa_pop  = pd.read_csv("us_state_pop.csv")
+usa_states = pd.read_csv("states.csv")
+
+# Filter US locations and count stores per state
+sb_usa = sb_locs[sb_locs["Country"] == "US"]
+sb_locs_state = (
+    sb_usa
+    .groupby("State/Province")
+    .size()
+    .reset_index(name="n_stores")
+    .rename(columns={"State/Province": "state"})
+)
+
+# Merge with population (via state abbreviation)
+usa_pop_abbr = usa_pop.merge(usa_states, left_on="state", right_on="State")
+sb_locs_state = sb_locs_state.merge(
+    usa_pop_abbr, left_on="state", right_on="Abbreviation"
+)
+
+# Top 10 words in menu item names
+stop_words = {"the", "and", "with", "a", "an", "of", "in", "or", "no", "on"}
+word_counts = Counter(
+    w for name in sb_nutr["Item"].dropna()
+    for w in re.findall(r"[a-zA-Z]+", name.lower())
+    if len(w) > 2 and w not in stop_words
+)
+top10_words = [w for w, _ in word_counts.most_common(10)]
+
+def find_top_word(item_name):
+    for w in top10_words:
+        if w in str(item_name).lower():
+            return w
+    return None
+
+sb_nutr["top_word"] = sb_nutr["Item"].apply(find_top_word)
+sb_top = sb_nutr.dropna(subset=["top_word"]).copy()
+```
+
+<br>
+
+## Second step
+
+Then I will add some code to create the **plotly** figures.
+
+Note: Name each code chunk, like this one: `plot1`
+
+```{python}
+#| label: plot1
+fig = px.scatter(
+    sb_locs_state,
+    x="population",
+    y="n_stores",
+    color="state_x",
+    hover_name="state_x",
+    title="Starbucks Stores vs. State Population",
+    labels={"population": "Population", "n_stores": "Number of Stores", "state_x": "State"},
+    template="plotly_white",
+    opacity=0.8,
+)
+fig.show()
+```
+
+<br>
+
+## Third step
+
+Create tabs to display each figure.
+
+::: {.panel-tabset}
+
+### Histogram of Calories
+
+```{python}
+#| label: p1
+fig = px.histogram(
+    sb_nutr,
+    x="Calories",
+    color="Category",
+    barmode="overlay",
+    opacity=0.6,
+    nbins=30,
+    title="Caloric Distribution of Starbucks Menu Items",
+    labels={"Calories": "Calories", "Category": "Category"},
+    template="plotly_white",
+)
+fig.show()
+```
+
+### Boxplot of Nutrition
+
+```{python}
+#| label: p2
+nutrients = ["Calories", "Fat (g)", "Carb. (g)", "Fiber (g)", "Protein (g)"]
+sb_top_long = sb_top.melt(
+    id_vars=["Item", "top_word"],
+    value_vars=nutrients,
+    var_name="Nutrient",
+    value_name="Value",
+)
+
+fig = px.box(
+    sb_top_long,
+    x="top_word",
+    y="Value",
+    color="Nutrient",
+    title="Nutritional Values of Starbucks Items by Top 10 Words",
+    labels={"top_word": "Item Word", "Value": "Nutritional Value"},
+    template="plotly_white",
+)
+fig.update_layout(boxmode="group")
+fig.show()
+```
+
+:::
+
+
+
+Done!
+
+

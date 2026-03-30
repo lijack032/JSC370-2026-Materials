@@ -1,0 +1,10 @@
+---
+title: "About This Website"
+author: "Your Name"
+---
+
+
+
+Hello! I'm [Your Name], a [Your Role, e.g., Data Scientist, Student, Developer] with a passion for [your interests, e.g., data visualization, open-source, teaching].
+
+
